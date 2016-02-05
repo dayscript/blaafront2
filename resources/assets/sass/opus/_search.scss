@@ -1,0 +1,39 @@
+.search{
+  height: 619px;
+  background-color: #a3122f;
+  color: white;
+  .about{
+    padding: 10px;
+    background-color: #cccccc;
+    color: #94132c;
+    font-size: 0.7rem;
+  }
+  .searchlabel{
+    padding: 10px 10px 10px 40px;
+    background-color: #820e26;
+  }
+  .fields{
+    .field{
+      padding: 10px;
+      margin:5px 0;
+      label{
+        color: white;
+        font-size: 0.7rem;
+      }
+      input[type='text']{
+        border: none;
+        height: 30px;
+      }
+      input[type='submit']{
+        border: 1px solid #eee;
+        padding: 5px;
+        color: white;
+        background-color: #a3122f;
+        font-style: italic;
+        font-size: Roboto;
+      }
+    }
+
+
+  }
+}

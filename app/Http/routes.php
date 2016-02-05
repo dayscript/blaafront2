@@ -27,5 +27,7 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('musica', 'PagesController@search');
+    Route::post('opus', 'PagesController@opussearch');
+    Route::get('musica/{option}', 'PagesController@musica');
 });
