@@ -17,16 +17,8 @@
     @include('partials.header')
     <div class="mainContent row medium-collapse ">
         @include('partials.submenu')
-        <div class="columns medium-4">
-            <img src="{{ asset('img/opus/banner1.jpg') }}" alt="Opus">
-        </div>
-        <div class="columns medium-4">
-            @include('partials.opussearch')
-            @yield('content')
-        </div>
-        <div class="columns medium-4">
-            <img src="{{ asset('img/opus/banner2.jpg') }}" alt="Opus">
-        </div>
+        @yield('content')
+
         <div class="columns medium-12">
             @include('partials.footer')
         </div>

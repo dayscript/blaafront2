@@ -28,6 +28,6 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('musica', 'PagesController@search');
-    Route::post('opus', 'PagesController@opussearch');
+    Route::post('musica', 'PagesController@opussearch');
     Route::get('musica/{option}', 'PagesController@musica');
 });

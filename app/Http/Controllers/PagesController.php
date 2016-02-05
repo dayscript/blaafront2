@@ -16,10 +16,11 @@ class PagesController extends Controller
         $nodes = $json->nodes;
         return view('musica.index', compact('nodes'));
     }
-    public function opussearch()
+    public function opussearch(Request $request)
     {
-        $json = json_decode(file_get_contents('http://blaa.demodayscript.com/conciertos/json'));
+        $json = json_decode(file_get_contents('http://blaa.demodayscript.com/buscar/'.$request->get('name')));
         $nodes = $json->nodes;
+//        dd($nodes);
         return view('musica.index', compact('nodes'));
     }
 

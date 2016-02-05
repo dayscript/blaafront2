@@ -5,7 +5,17 @@
 @endsection
 
 @section('content')
-    @foreach($nodes as $node)
-        {{ $node->title }}
-    @endforeach
+    <div class="columns medium-4">
+        <div class="search">
+        </div>
+    </div>
+    <div class="columns medium-8">
+        @foreach($nodes as $node)
+            <div class="node">
+                {{ $node->título }}
+                <hr>
+            </div>
+
+        @endforeach
+    </div>
 @endsection
