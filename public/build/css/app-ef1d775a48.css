@@ -2991,6 +2991,13 @@ a {
       background-color: #a3122f;
       font-style: italic;
       font-size: Roboto; }
+  .search .filters {
+    height: 100px;
+    background-color: #c3c3c3; }
+  .search .results {
+    padding: 20px;
+    background-color: white;
+    color: black; }
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
