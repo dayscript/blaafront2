@@ -29,7 +29,6 @@
             <div class="row">
                 <div class="columns medium-4 node">
                     <img src="{{ asset('img/opus/artist.png') }}" alt="Artista">
-
                 </div>
                 <div class="columns medium-8 node">
                     <div class="name">{{ $node->título }}</div>

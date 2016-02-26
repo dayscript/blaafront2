@@ -18,8 +18,24 @@
                 <form action="/musica" method="post">
                     {{ csrf_field() }}
                     <div class="field">
+                        <label>Palabra clave</label>
+                        <input type="text" name="name" id="name">
                         <label for="name">Artista</label>
                         <input type="text" name="name" id="name">
+                        <label for="name">Compositor</label>
+                        <input type="text" name="composer" id="composer">
+                        <label for="name">Pais</label>
+                        <select  name="country">
+                          @foreach( $taxonomy as $node)
+                            <option value ="{{$node->tid}}">{{ $node->name }}</option>
+                          @endforeach
+                        </select>
+                        <label for="name">Instrumento</label>
+                        <select name="instrument">
+                          @foreach( $instruments as $node)
+                            <option value ="{{$node->tid}}">{{ $node->name }}</option>
+                          @endforeach
+                       </select>
                     </div>
                     <div class="field">
                         <input type="submit" value="buscar">

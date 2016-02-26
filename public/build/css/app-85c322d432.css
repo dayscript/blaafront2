@@ -2997,7 +2997,10 @@ a {
   .search .results {
     padding: 20px;
     background-color: white;
-    color: black; }
+    color: black;
+    display: inline-block;
+    overflow-y: scroll;
+    height: 513px; }
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**

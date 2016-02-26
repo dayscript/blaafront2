@@ -10,22 +10,36 @@ use App\Http\Controllers\Controller;
 class PagesController extends Controller
 {
 
+
+    public function host(){
+      return env('HOST');
+    }
+
     public function musica()
     {
-        $json = json_decode(file_get_contents('http://blaa.demodayscript.com/conciertos/json'));
+        $host = self::host();
+        $json = json_decode(file_get_contents($host.'conciertos/json'));
         $nodes = $json->nodes;
         return view('musica.index', compact('nodes'));
     }
     public function opussearch(Request $request)
     {
-        $json = json_decode(file_get_contents('http://blaa.demodayscript.com/buscar/'.$request->get('name')));
+        $host = self::host();
+        $json = json_decode(file_get_contents($host.'buscar/'.$request->get('name')));
         $nodes = $json->nodes;
-//        dd($nodes);
+        dd($nodes);
         return view('musica.index', compact('nodes'));
     }
 
     public function search()
     {
-        return view('musica.search');
+      $host = self::host();
+      $countryJson = json_decode(file_get_contents($host.'taxonomias/paises/json'));
+      $instrumentJson = json_decode(file_get_contents($host.'taxonomias/instrumentos/json'));
+
+      $taxonomy = $countryJson->nodes;
+      $instruments = $instrumentJson->nodes;
+
+      return view('musica.search',compact('taxonomy','instruments'));
     }
 }
