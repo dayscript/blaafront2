@@ -1,51 +1,45 @@
 @extends('layouts.app')
 
 @section('title')
-    Opus @parent
+    Validación @parent
 @endsection
-
 @section('content')
-    <div class="columns medium-4">
-        <img src="{{ asset('img/opus/banner1.jpg') }}" alt="Opus">
-    </div>
-    <div class="columns medium-4">
-        <div class="search">
-            <div class="about">Acerca de Opus</div>
-            <div class="searchlabel">Haga aquí su búsqueda
-                utilizando uno o más criterios:
+    @include('partials.facetsSearch')
+    <div class="columns medium-8 results-view">
+        <div class="filters">
+            <form action="/musica" method="post">
+                {{ csrf_field() }}
+                <div class="fields">
+                <div class="field">
+                    <label for="name">Buscar</label>
+                    <input type="text" name="name" id="name" placehorlder ="| Buscar">
+                </div>
+                <div class="field">
+                    <input type="submit" value="buscar">
+                </div>
+                </div>
+            </form>
+        </div>
+        <div class="results medium-12">
+        @foreach($nodes as $node)
+            <div class="row">
+                <div class="columns medium-3 node">
+                    <img src="{{ asset('img/opus/artist.png') }}" alt="Artista">
+                </div>
+                <div class="columns medium-6 node">
+                    <span class="concert-date">{{ $node->Fecha }}</span><br>
+                    <span class="concert-artist"><a href="musica/concierto/{{ $node->nid }}">{{ $node->Artistas }}</a></span><br>
+                    <span class="concert-title">{{ $node->Título }}</span><br>
+                    @if ( $node->Instrumentos != '' &&  $node->País != '' )
+                      <span class="concert-instrument">{{ $node->Instrumentos }} | {{ $node->País }}</span>
+                    @endif
+                </div>
+                <div class="columns medium-2 node" >
+                  <img src=""><a>Programa de mano</a></img>
+                </div>
             </div>
-            <div class="fields">
-                <form action="/musica" method="post">
-                    {{ csrf_field() }}
-                    <div class="field">
-                        <label>Palabra clave</label>
-                        <input type="text" name="name" id="name">
-                        <label for="name">Artista</label>
-                        <input type="text" name="name" id="name">
-                        <label for="name">Compositor</label>
-                        <input type="text" name="composer" id="composer">
-                        <label for="name">Pais</label>
-                        <select  name="country">
-                          @foreach( $taxonomy as $node)
-                            <option value ="{{$node->tid}}">{{ $node->name }}</option>
-                          @endforeach
-                        </select>
-                        <label for="name">Instrumento</label>
-                        <select name="instrument">
-                          @foreach( $instruments as $node)
-                            <option value ="{{$node->tid}}">{{ $node->name }}</option>
-                          @endforeach
-                       </select>
-                    </div>
-                    <div class="field">
-                        <input type="submit" value="buscar">
-                    </div>
-                </form>
-            </div>
+            <hr>
+        @endforeach
         </div>
     </div>
-    <div class="columns medium-4">
-        <img src="{{ asset('img/opus/banner2.jpg') }}" alt="Opus">
-    </div>
-
 @endsection
