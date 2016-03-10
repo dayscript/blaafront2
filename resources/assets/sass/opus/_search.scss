@@ -1,17 +1,47 @@
 .search{
-  height: 619px;
+  height: auto;
   background-color: #a3122f;
   color: white;
 
   md-autocomplete{
-    height: 15px;
+    height: 30px;
     md-autocomplete-wrap{
-      height: 15px;
+      height: 30px;
       input{
-        height: 15px;
+        height: 30px;
+        font-size: 14px;
+        margin: 0;
+        padding: 0 15px;
+        line-height: 1;
       }
     }
   }
+
+  md-input-container{
+    float: left;
+    width: 60px;
+    margin: 0;
+    height: 38px;
+    margin-top: 12px;
+    margin-right: 24px;
+    margin-bottom: 10px;
+    input{
+      color:#fff;
+    }
+
+  }
+
+  select{
+    height: 30px;
+    font-size: 14px;
+    margin: 0;
+    padding: 0 15px;
+    line-height: 1;
+  }
+  md-slider{
+    height: 30px;
+  }
+
   .about{
     padding: 10px;
     background-color: #cccccc;
@@ -19,8 +49,10 @@
     font-size: 0.7rem;
   }
   .searchlabel{
-    padding: 10px 10px 10px 40px;
+    padding: 2px 9px;
     background-color: #820e26;
+    font-size: 15px;
+    text-align: left;
   }
   .fields{
     .field{

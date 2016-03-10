@@ -2964,17 +2964,47 @@ a {
   background-color: #A8203B; }
 
 .search {
-  height: 619px;
+  height: auto;
   background-color: #a3122f;
   color: white; }
+  .search md-autocomplete {
+    height: 30px; }
+    .search md-autocomplete md-autocomplete-wrap {
+      height: 30px; }
+      .search md-autocomplete md-autocomplete-wrap input {
+        height: 30px;
+        font-size: 14px;
+        margin: 0;
+        padding: 0 15px;
+        line-height: 1; }
+  .search md-input-container {
+    float: left;
+    width: 60px;
+    margin: 0;
+    height: 38px;
+    margin-top: 12px;
+    margin-right: 24px;
+    margin-bottom: 10px; }
+    .search md-input-container input {
+      color: #fff; }
+  .search select {
+    height: 30px;
+    font-size: 14px;
+    margin: 0;
+    padding: 0 15px;
+    line-height: 1; }
+  .search md-slider {
+    height: 30px; }
   .search .about {
     padding: 10px;
     background-color: #cccccc;
     color: #94132c;
     font-size: 0.7rem; }
   .search .searchlabel {
-    padding: 10px 10px 10px 40px;
-    background-color: #820e26; }
+    padding: 2px 9px;
+    background-color: #820e26;
+    font-size: 15px;
+    text-align: left; }
   .search .fields .field {
     padding: 10px;
     margin: 5px 0; }
