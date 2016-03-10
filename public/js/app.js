@@ -5,7 +5,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
    }
    $scope.GetAutors = function(){
         var deferred = $q.defer();
-        $http.get('http://blaa.local/autocomplete/autores')
+        $http.get('http://blaa.demodayscript.com/autocomplete/autores')
             //if request is successful
             .success(function(data,status,headers,config){
                 $scope.data = data.nodes
@@ -16,7 +16,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
     }
     $scope.GetComposers = function(){
          var deferred = $q.defer();
-         $http.get('http://blaa.local/autocomplete/compositores')
+         $http.get('http://blaa.demodayscript.com/autocomplete/compositores')
              //if request is successful
              .success(function(data,status,headers,config){
                  $scope.data = data.nodes
@@ -56,7 +56,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
 });
 
 App.controller('ImageController',function($scope,$http,$timeout,$q,$log){
-  $http.get('http://blaa.local/archivos/imagen/artistas').success(function(data,status,headers,config){
+  $http.get('http://blaa.demodayscript.com/archivos/imagen/artistas').success(function(data,status,headers,config){
     $scope.images = data.nodes
     console.log($scope.images);
   })

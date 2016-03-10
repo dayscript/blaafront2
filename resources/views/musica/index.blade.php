@@ -23,7 +23,7 @@
                         <label>Palabra clave</label>
                         <input type="text" name="word_key" id="palabra_clave" placeholder="Busque por palabra">
                         <label for="name">Artista</label>
-                          <md-autocomplete
+                          <md-autocomplete  
                             md-input-name="artist"
                             md-search-text="searchText"
                             md-search-text-change="searchTextChange(searchText)"
