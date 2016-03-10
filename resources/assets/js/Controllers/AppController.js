@@ -1,12 +1,13 @@
 var App = angular.module('Blaa', ['ngMaterial']);
 
 App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
+
   $scope.searchTextChange = function(text) {
    }
+
    $scope.GetAutors = function(){
         var deferred = $q.defer();
         $http.get('http://blaa.local/autocomplete/autores')
-            //if request is successful
             .success(function(data,status,headers,config){
                 $scope.data = data.nodes
                 console.log($scope.data);
@@ -17,7 +18,6 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
     $scope.GetComposers = function(){
          var deferred = $q.defer();
          $http.get('http://blaa.local/autocomplete/compositores')
-             //if request is successful
              .success(function(data,status,headers,config){
                  $scope.data = data.nodes
                  deferred.resolve($scope.data);
@@ -53,4 +53,13 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
         return pos.replace('','');
       });
     }
+    //slider de fechas
+    $scope.date = {
+      year: '1990',
+      month: '4',
+      day:'12'
+    };
+    $scope.isDisabled = true;
+    $scope.rating1 = 3;
+
 });

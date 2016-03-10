@@ -20,8 +20,8 @@
                 <form action="/musica" method="post">
                     {{ csrf_field() }}
                     <div class="field">
-                        <label>Palabra clave</label>
-                        <input type="text" name="word_key" id="palabra_clave" placeholder="Busque por palabra">
+                        <label>Búsqueda general</label>
+                        <input type="text" name="word_key" id="palabra_clave" placeholder="Busca en todos los campos">
                         <label for="name">Artista</label>
                           <md-autocomplete
                             md-input-name="artist"
@@ -58,6 +58,52 @@
                             <option value ="{{$node->tid}}">{{ $node->name }}</option>
                           @endforeach
                        </select>
+                       <md-slider-container>
+                        <label>Especifique una Fecha:</label>
+                        <label>Año:</label>
+                        <md-slider flex=""
+                                   min="1970"
+                                   max="2016"
+                                   ng-model="color.red"
+                                   aria-label="red"
+                                   id="red-slider">
+                        </md-slider>
+                        <md-slider flex=""
+                                   min="1"
+                                   max="12"
+                                   ng-model="color.green"
+                                   aria-label="green"
+                                   id="red-slider">
+                        </md-slider>
+                        <md-slider flex=""
+                                   min="1"
+                                   max="31"
+                                   ng-model="color.blue"
+                                   aria-label="bluee"
+                                   id="red-slider">
+                        </md-slider>
+                        <md-input-container>
+                          <input flex=""
+                                 type="number"
+                                 ng-model="date.year"
+                                 aria-label="year"
+                                 aria-controls="year-slider">
+                        </md-input-container>
+                        <md-input-container>
+                          <input flex=""
+                                 type="number"
+                                 ng-model="date.month"
+                                 aria-label="month"
+                                 aria-controls="month-slider">
+                        </md-input-container>
+                        <md-input-container>
+                          <input flex=""
+                                 type="number"
+                                 ng-model="date.day"
+                                 aria-label="day"
+                                 aria-controls="day-slider">
+                        </md-input-container>
+                      </md-slider-container>
                     </div>
                     <div class="field">
                         <input type="submit" value="buscar">
@@ -65,7 +111,7 @@
                 </form>
             </div>
         </div>
-    </div> 
+    </div>
     <div class="columns medium-4" ng-controller="ImageController">
       <div class="medium-12 image" ng-repeat="image in images" ng-if="$index > 2 && $index < 6">
         <a href="@{{ image.nid }}"><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
