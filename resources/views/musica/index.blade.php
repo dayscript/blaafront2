@@ -64,23 +64,25 @@
                         <md-slider flex=""
                                    min="1970"
                                    max="2016"
-                                   ng-model="color.red"
-                                   aria-label="red"
-                                   id="red-slider">
+                                   ng-model="date.year"
+                                   aria-label="year"
+                                   id="year-slider">
                         </md-slider>
+                        <label>Mes:</label>
                         <md-slider flex=""
                                    min="1"
                                    max="12"
-                                   ng-model="color.green"
-                                   aria-label="green"
-                                   id="red-slider">
+                                   ng-model="date.month"
+                                   aria-label="month"
+                                   id="month-slider">
                         </md-slider>
+                        <label>Día:</label>
                         <md-slider flex=""
                                    min="1"
                                    max="31"
-                                   ng-model="color.blue"
-                                   aria-label="bluee"
-                                   id="red-slider">
+                                   ng-model="date.day"
+                                   aria-label="day"
+                                   id="day-slider">
                         </md-slider>
                         <md-input-container>
                           <input flex=""

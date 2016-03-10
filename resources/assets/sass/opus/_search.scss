@@ -2,6 +2,16 @@
   height: 619px;
   background-color: #a3122f;
   color: white;
+
+  md-autocomplete{
+    height: 15px;
+    md-autocomplete-wrap{
+      height: 15px;
+      input{
+        height: 15px;
+      }
+    }
+  }
   .about{
     padding: 10px;
     background-color: #cccccc;

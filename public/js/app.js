@@ -54,10 +54,10 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
       });
     }
     //slider de fechas
-    $scope.color = {
+    $scope.date = {
       year: '1990',
-      month: '04',
-      day:'12' 
+      month: '4',
+      day:'12'
     };
     $scope.isDisabled = true;
     $scope.rating1 = 3;
