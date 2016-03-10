@@ -23,7 +23,7 @@
                         <label>Palabra clave</label>
                         <input type="text" name="word_key" id="palabra_clave" placeholder="Busque por palabra">
                         <label for="name">Artista</label>
-                          <md-autocomplete  
+                          <md-autocomplete
                             md-input-name="artist"
                             md-search-text="searchText"
                             md-search-text-change="searchTextChange(searchText)"
@@ -65,7 +65,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div> 
     <div class="columns medium-4" ng-controller="ImageController">
       <div class="medium-12 image" ng-repeat="image in images" ng-if="$index > 2 && $index < 6">
         <a href="@{{ image.nid }}"><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>

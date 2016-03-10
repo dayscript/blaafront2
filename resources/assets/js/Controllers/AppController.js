@@ -5,7 +5,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
    }
    $scope.GetAutors = function(){
         var deferred = $q.defer();
-        $http.get('http://blaa.demodayscript.com/autocomplete/autores')
+        $http.get('http://blaa.local/autocomplete/autores')
             //if request is successful
             .success(function(data,status,headers,config){
                 $scope.data = data.nodes
@@ -16,7 +16,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
     }
     $scope.GetComposers = function(){
          var deferred = $q.defer();
-         $http.get('http://blaa.demodayscript.com/autocomplete/compositores')
+         $http.get('http://blaa.local/autocomplete/compositores')
              //if request is successful
              .success(function(data,status,headers,config){
                  $scope.data = data.nodes
