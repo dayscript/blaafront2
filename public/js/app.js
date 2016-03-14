@@ -1,13 +1,21 @@
-var App = angular.module('Blaa', ['ngMaterial']);
+var App = angular.module('Blaa', ['ngMaterial','ngRoute']);
 
-App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
+App.config(['$locationProvider','$routeProvider', function ($locationProvider,$routeProvider){
+  $locationProvider.html5Mode(true);
+}]);
 
+App.constant('SERVER',{
+    'domain':'http://blaa.demodayscript.com',
+    'port':'80'
+});
+
+App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootScope,SERVER){
   $scope.searchTextChange = function(text) {
    }
 
    $scope.GetAutors = function(){
         var deferred = $q.defer();
-        $http.get('http://blaa.local/autocomplete/autores')
+        $http.get(SERVER.domain + '/autocomplete/autores')
             .success(function(data,status,headers,config){
                 $scope.data = data.nodes
                 console.log($scope.data);
@@ -17,7 +25,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
     }
     $scope.GetComposers = function(){
          var deferred = $q.defer();
-         $http.get('http://blaa.local/autocomplete/compositores')
+         $http.get(SERVER.domain + '/autocomplete/compositores')
              .success(function(data,status,headers,config){
                  $scope.data = data.nodes
                  deferred.resolve($scope.data);
@@ -64,8 +72,8 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log){
 
 });
 
-App.controller('ImageController',function($scope,$http,$timeout,$q,$log){
-  $http.get('http://blaa.local/archivos/imagen/artistas').success(function(data,status,headers,config){
+App.controller('ImageController',function($scope,$http,$timeout,$q,$log,SERVER){
+  $http.get(SERVER.domain + '/archivos/imagen/artistas').success(function(data,status,headers,config){
     $scope.images = data.nodes
   })
 });

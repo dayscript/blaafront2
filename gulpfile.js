@@ -42,6 +42,7 @@ elixir(function(mix) {
     mix.copy('bower_components/angular-animate/angular-animate.min.js', 'public/js/');
     mix.copy('bower_components/angular-aria/angular-aria.min.js', 'public/js/');
     mix.copy('bower_components/angular-messages/angular-messages.min.js', 'public/js/');
+    mix.copy('bower_components/angular-route/angular-route.min.js', 'public/js/');
     mix.copy('bower_components/foundation-sites/js/foundation.core.js', 'public/js/');
     mix.copy('bower_components/foundation-sites/js/foundation.accordion.js', 'public/js/');
 

@@ -15,7 +15,9 @@
 
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
     @yield('styles')
+
 </head>
+<base href="/" />
 <body>
     @include('partials.header')
 <div id="mainWrapper">
@@ -45,6 +47,7 @@
 <script src="{{ asset('js/angular-aria.min.js')  }}"></script>
 <script src="{{ asset('js/angular-animate.min.js')  }}"></script>
 <script src="{{ asset('js/angular-messages.min.js')  }}"></script>
+<script src="{{ asset('js/angular-route.min.js')  }}"></script>
 <script src="{{ asset('js/prefixfree.min.js')  }}"></script>
 <script src="{{ asset('js/interface.js')  }}"></script>
 
