@@ -29,6 +29,6 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
     Route::get('musica', 'PagesController@OpusIndex');
     Route::post('musica', 'PagesController@OpusSearch');
+    Route::get('musica/page/{id_page}', 'PagesController@OpusSearch');
     Route::get('musica/concierto/{nid}', 'PagesController@OpusConcertDetail');
-
 });

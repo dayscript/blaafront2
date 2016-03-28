@@ -23,6 +23,14 @@
 <div id="mainWrapper">
     <div class="mainContent row medium-collapse ">
         @include('partials.submenu')
+         @if (session('status'))
+            <div data-alert class="callout large success custom" data-closable="slide-out-right">
+                {{ session('status') }}
+                <button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        @endif
         @yield('content')
     </div>
 </div>
@@ -42,6 +50,7 @@
 <script src="{{ asset('js/foundation.util.nest.js')  }}"></script>
 <script src="{{ asset('js/foundation.util.touch.js')  }}"></script>
 <script src="{{ asset('js/foundation.accordionMenu.js')  }}"></script>
+<script src="{{ asset('js/motion-ui.min.js')  }}"></script>
 
 <script src="{{ asset('js/angular-material.min.js')  }}"></script>
 <script src="{{ asset('js/angular-aria.min.js')  }}"></script>

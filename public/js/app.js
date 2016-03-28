@@ -5,7 +5,7 @@ App.config(['$locationProvider','$routeProvider', function ($locationProvider,$r
 }]);
 
 App.constant('SERVER',{
-    'domain':'http://blaa.demodayscript.com',
+    'domain':'http://blaa.local',
     'port':'80'
 });
 
@@ -91,4 +91,12 @@ App.factory('AutorsService', function($http) {
   });
 
 $(document).foundation()
+
+$(document).ready(function() {
+	
+	//Permite cerrar los mensajes emergentes
+    jQuery('.close-button').click(function(){jQuery('.callout').fadeOut();});
+});
+
+
 //# sourceMappingURL=app.js.map

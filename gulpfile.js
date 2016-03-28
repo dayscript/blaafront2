@@ -56,5 +56,10 @@ elixir(function(mix) {
     mix.copy('bower_components/foundation-sites/js/foundation.util.nest.js', 'public/js/');
     mix.copy('bower_components/foundation-sites/js/foundation.util.touch.js', 'public/js/');
     mix.copy('bower_components/foundation-sites/js/foundation.accordionMenu.js', 'public/js/');
+   
+    mix.copy('node_modules/motion-ui/dist/motion-ui.min.js', 'public/js/');
+
+
 
 });
+

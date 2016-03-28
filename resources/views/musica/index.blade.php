@@ -10,6 +10,7 @@
           <a href="@{{ image.nid }}"><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
+
     <div class="columns medium-4">
         <div class="search">
             <div class="about">Acerca de Opus</div>
@@ -19,9 +20,12 @@
             <div class="fields" ng-controller="SearchController" >
                 <form action="/musica" method="post">
                     {{ csrf_field() }}
-                    <div class="field">
-                        <label>Búsqueda general</label>
-                        <input type="text" name="word_key" id="palabra_clave" placeholder="Busca en todos los campos">
+                    <div class="field medium-12">
+                        <div class="medium-12 input">
+                          <label>Búsqueda general</label>
+                          <input type="text" name="word_key" id="palabra_clave" placeholder="Busca en todos los campos">
+                        </div>
+                        <div class="medium-12 input">
                         <label for="name">Artista</label>
                           <md-autocomplete
                             md-input-name="artist"
@@ -33,6 +37,8 @@
                             placeholder="Escriba un autor">
                             <span md-highlight-text="searchText" md-highlight-flags="^i" >@{{autor}}</span>
                           </md-autocomplete>
+                        </div>
+                        <div class="medium-12 input">
                         <label for="name">Compositor</label>
                         <md-autocomplete
                           md-input-name="composer"
@@ -44,6 +50,8 @@
                           placeholder="Escriba un compositor">
                           <span md-highlight-text="searchText" md-highlight-flags="^i" >@{{composer}}</span>
                         </md-autocomplete>
+                        </div>
+                        <div class="medium-12 input">
                         <label for="name">Pais</label>
                         <select  name="country">
                           <option value ="all">Todos</option>
@@ -51,6 +59,8 @@
                             <option value ="{{$node->tid}}">{{ $node->name }}</option>
                           @endforeach
                         </select>
+                        </div>
+                        <div class="medium-12 input">
                         <label for="name">Instrumento</label>
                         <select name="instrument">
                           <option value ="all">Todos</option>
@@ -58,17 +68,20 @@
                             <option value ="{{$node->tid}}">{{ $node->name }}</option>
                           @endforeach
                        </select>
+                       </div>
+                       <div class="medium-12 input">
                        <md-slider-container>
-                        <label>Especifique una Fecha:</label>
-                        <label>Año:</label>
+                        <label>Especifique un año:</label>
+                        <!--<label>Año:</label>-->
                         <md-slider flex=""
                                    min="1970"
                                    max="2016"
                                    ng-model="date.year"
                                    aria-label="year"
-                                   id="year-slider">
+                                   id="year-slider"
+                                   class="medium-6 columns">
                         </md-slider>
-                        <label>Mes:</label>
+                        <!--<label>Mes:</label>
                         <md-slider flex=""
                                    min="1"
                                    max="12"
@@ -83,15 +96,18 @@
                                    ng-model="date.day"
                                    aria-label="day"
                                    id="day-slider">
-                        </md-slider>
-                        <md-input-container>
+                        </md-slider>-->
+                        <md-input-container class="medium-6 columns">
                           <input flex=""
+                                 name="year"
                                  type="number"
                                  ng-model="date.year"
                                  aria-label="year"
-                                 aria-controls="year-slider">
+                                 aria-controls="year-slider"
+                                 class="medium-12 columns year"
+                                 >
                         </md-input-container>
-                        <md-input-container>
+                        <!--<md-input-container>
                           <input flex=""
                                  type="number"
                                  ng-model="date.month"
@@ -104,11 +120,12 @@
                                  ng-model="date.day"
                                  aria-label="day"
                                  aria-controls="day-slider">
-                        </md-input-container>
+                        </md-input-container>-->
                       </md-slider-container>
+                      </div>
                     </div>
-                    <div class="field">
-                        <input type="submit" value="buscar">
+                    <div class="field medium-12">
+                        <input type="submit" class="medium-12"  value="buscar">
                     </div>
                 </form>
             </div>

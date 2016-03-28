@@ -95,6 +95,44 @@ class Controller extends BaseController
                         'url'   => 'musica/info'
                     ]
                 ]
+            ],
+            'musica/concierto/'      => [
+                'label'    => 'Música',
+                'title'    => 'Opus',
+                'subtitle' => 'Histórico de conciertos del Banco de la República',
+                'url'      => 'musica',
+                'style'    => 'cMusica',
+                'options'  => [
+                    'musica/temporada'    => [
+                        'label' => 'Temporada nacional de conciertos',
+                        'url'   => 'musica/temporada'
+                    ],
+                    'musica/programacion' => [
+                        'label' => 'Programación académica',
+                        'url'   => 'musica/programacion'
+                    ],
+                    'musica/jovenes'      => [
+                        'label' => 'Convocatoria jóvenes intérpretes',
+                        'url'   => 'musica/jovenes'
+                    ],
+                    'musica/lasala'       => [
+                        'label' => 'La sala',
+                        'url'   => 'musica/lasala'
+                    ],
+                    '/musica/especiales'  => [
+                        'label' => 'Programas especiales',
+                        'url'   => '/musica/especiales'
+                    ],
+                    'musica/boleteria'    => [
+                        'label' => 'Boletería',
+                        'url'   => 'musica/boleteria'
+                    ],
+                    '/musica/info'        => [
+                        'label' =>
+                            'Información práctica',
+                        'url'   => 'musica/info'
+                    ]
+                ]
             ]
         ];
         view()->share('menu',$this->menu);

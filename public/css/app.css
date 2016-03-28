@@ -1581,7 +1581,8 @@ a {
   width: 100%;
   max-width: 960px;
   font-size: 0rem;
-  line-height: 1rem; }
+  line-height: 1rem;
+  padding: 0; }
 
 .mainContent > * {
   font-size: 0.94rem;
@@ -2979,7 +2980,6 @@ a {
         line-height: 1; }
   .search md-input-container {
     float: left;
-    width: 60px;
     margin: 0;
     height: 38px;
     margin-top: 12px;
@@ -2994,7 +2994,10 @@ a {
     padding: 0 15px;
     line-height: 1; }
   .search md-slider {
-    height: 30px; }
+    margin-left: 0px;
+    margin-right: 0px; }
+  .search md-input-container.md-input-has-value {
+    margin: 0; }
   .search .about {
     padding: 10px;
     background-color: #cccccc;
@@ -3004,23 +3007,26 @@ a {
     padding: 2px 9px;
     background-color: #820e26;
     font-size: 15px;
-    text-align: left; }
+    text-align: left;
+    font-family: 'Roboto', sans-serif; }
   .search .fields .field {
-    padding: 10px;
-    margin: 5px 0; }
+    padding: 10px; }
     .search .fields .field label {
       color: white;
-      font-size: 0.7rem; }
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif; }
     .search .fields .field input[type='text'] {
       border: none;
-      height: 30px; }
+      height: 30px;
+      font-family: 'Roboto', sans-serif; }
     .search .fields .field input[type='submit'] {
       border: 1px solid #eee;
       padding: 5px;
       color: white;
       background-color: #a3122f;
       font-style: italic;
-      font-size: Roboto; }
+      font-family: 'Roboto', sans-serif;
+      margin: 2px 0; }
   .search .filters {
     height: 100px;
     background-color: #c3c3c3; }
@@ -3028,6 +3034,15 @@ a {
     padding: 20px;
     display: inline-block;
     font-size: 17px; }
+
+.results-view .paginator {
+  background: #dcdcdc;
+  padding: 10px 0; }
+
+.results-view .number-page {
+  text-align: right; }
+  .results-view .number-page a {
+    color: #000; }
 
 .results-view .results {
   padding: 20px;
@@ -3038,20 +3053,28 @@ a {
   height: 513px;
   border-top: 3px #af2743 solid; }
 
-.results-view .fields .field {
-  float: left; }
+.results-view .fields {
+  display: inline-block;
+  margin-top: 5px; }
+  .results-view .fields .field {
+    float: left; }
 
 .results-view .filters {
   height: 100px;
   background-color: #c3c3c3; }
 
+.results-view input[type='text'] {
+  width: 70%;
+  float: left;
+  height: 22px;
+  margin: 0; }
+
 .results-view input[type='submit'] {
-  border: 1px solid #eee;
-  padding: 5px;
-  color: white;
-  background-color: #a3122f;
-  font-style: italic;
-  font-size: Roboto; }
+  border: 1px solid #FFFFFF;
+  padding: 0px 6px;
+  color: #a3122f;
+  background-color: #eee;
+  font-style: italic; }
 
 .results-view .concert-date {
   font-size: 11px;
@@ -3061,7 +3084,7 @@ a {
   font-size: 15px;
   color: #cc1f43; }
 
-.results-view .concert-title {
+.results-view .concert-title, .results-view .red {
   font-size: 13px;
   color: #9a3e4f; }
 
@@ -3155,6 +3178,19 @@ a {
     display: inline-block;
     width: 100%;
     text-transform: capitalize; }
+
+.input {
+  margin: 5px 0;
+  display: inline-block; }
+
+/* Notifications */
+.callout.large.success.custom {
+  padding: 10px;
+  color: white;
+  background: rgba(2, 249, 159, 0.51);
+  font-size: 20px;
+  text-shadow: 1px 1px #8C8080;
+  margin: 0; }
 
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**

@@ -19,18 +19,16 @@
 
   md-input-container{
     float: left;
-    width: 60px;
     margin: 0;
     height: 38px;
     margin-top: 12px;
     margin-right: 24px;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     input{
       color:#fff;
     }
 
   }
-
   select{
     height: 30px;
     font-size: 14px;
@@ -39,7 +37,11 @@
     line-height: 1;
   }
   md-slider{
-    height: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  md-input-container.md-input-has-value{
+    margin:0;
   }
 
   .about{
@@ -53,18 +55,21 @@
     background-color: #820e26;
     font-size: 15px;
     text-align: left;
+    font-family: 'Roboto', sans-serif;
   }
   .fields{
     .field{
       padding: 10px;
-      margin:5px 0;
+
       label{
         color: white;
-        font-size: 0.7rem;
+        font-size: 1rem;
+        font-family: 'Roboto', sans-serif;
       }
       input[type='text']{
         border: none;
         height: 30px;
+        font-family: 'Roboto', sans-serif;
       }
       input[type='submit']{
         border: 1px solid #eee;
@@ -72,7 +77,8 @@
         color: white;
         background-color: #a3122f;
         font-style: italic;
-        font-size: Roboto;
+        font-family: 'Roboto', sans-serif;
+        margin: 2px 0;
       }
     }
   }
@@ -88,6 +94,16 @@
 
 
 .results-view{
+  .paginator{
+    background:#dcdcdc;
+    padding: 10px 0;
+  }
+  .number-page{
+    text-align: right;
+    a{
+      color:#000;
+    }
+  }
   .results{
     padding: 20px;
     background-color: white;
@@ -99,21 +115,29 @@
   }
 
   .fields{
+    display:inline-block;
+    margin-top: 5px;
     .field{
       float: left;
     }
   }
+
   .filters{
     height: 100px;
     background-color: #c3c3c3;
   }
+  input[type='text']{
+   width:70%;
+   float:left;
+   height: 22px;
+  margin: 0;
+  }
   input[type='submit']{
-    border: 1px solid #eee;
-    padding: 5px;
-    color: white;
-    background-color: #a3122f;
+   border: 1px solid #FFFFFF;
+    padding: 0px 6px;
+    color: #a3122f;
+    background-color: #eee;
     font-style: italic;
-    font-size: Roboto;
   }
   .concert-date{
     font-size: 11px;
@@ -125,7 +149,7 @@
       color: #cc1f43;
     }
   }
-  .concert-title{
+  .concert-title,.red{
     font-size: 13px;
     color: #9a3e4f;
   }
@@ -233,4 +257,9 @@ padding-right:15px;
     width: 100%;
     text-transform: capitalize;
   }
+}
+
+.input{
+  margin: 5px 0;
+  display:inline-block;
 }

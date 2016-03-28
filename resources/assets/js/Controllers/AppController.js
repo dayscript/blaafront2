@@ -5,7 +5,7 @@ App.config(['$locationProvider','$routeProvider', function ($locationProvider,$r
 }]);
 
 App.constant('SERVER',{
-    'domain':'http://blaa.demodayscript.com',
+    'domain':'http://blaa.local',
     'port':'80'
 });
 
