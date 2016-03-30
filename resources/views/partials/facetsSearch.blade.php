@@ -1,7 +1,8 @@
 <!-- Dayscript 2016 all rigths reserved -->
 <!-- Seccion Search for facets -->
 <div class="columns medium-4">
-  <div class="search" ng-controller="SearchController">
+  <div class="search">
+    <div class="fields" ng-controller="SearchController">
       <div class="  medium-12">
           <span>Filtre su busqueda por:</span>
       </div>
@@ -12,7 +13,12 @@
             <li class="accordion-item is-active" data-accordion-item>
               <a href="#" class="accordion-title">Serie</a>
               <div class="accordion-content" data-tab-content>
-                  <input type="text" name="word_key" placeholder="Escriba una serie"></input>
+                <select name="serie">
+                  <option value ="all">Todas</option>
+                  @foreach( $series as $serie)
+                    <option value ="{{$serie->tid}}">{{ $serie->name }}</option>
+                  @endforeach
+               </select>
               </div>
             </li>
             <li class="accordion-item" data-accordion-item>
@@ -63,12 +69,13 @@
                 @endforeach
               </div>
             </li>
-            
           </ul>
         </div>
         <div class="field">
-            <input type="submit" value="buscar">
+            <input type="submit" value="Buscar">
+            <input type="reset" value="Borrar">
         </div>
       </form>
     </div>
+  </div>
 </div>

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use File;
 
 class PagesController extends Controller
 {
@@ -49,7 +50,7 @@ class PagesController extends Controller
     else{
       $url = $host.$request->session()->get('searchItems').'/?page='.$id_page;
       //dd($url);
-      } 
+      }
 
 
       $json = json_decode(file_get_contents($url));
@@ -75,11 +76,17 @@ class PagesController extends Controller
       $instruments = $instrumentJson->nodes;
       return $instruments;
     }
+
+    public function _filterSeries($host){
+      $seriesJson = json_decode(file_get_contents($host.'taxonomias/series/json'));
+      $series = $seriesJson->nodes;
+      return $series;
+    }
+
     /*********************************************/
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
     public function OpusSearch(Request $request,$id_page=NULL){
-
         $host = self::host();
         if($id_page == NULL){
             $nodes = self::_urlConstrucSearch($request,$host);
@@ -91,15 +98,17 @@ class PagesController extends Controller
             $request->session()->put('searchItems', $nodes->view->path );
             var_dump($request->session()->get('searchItems'));
           }
+
         $instruments = self::_filterInstruments($host);
         $countrys = self::_filterCountries($host);
+        $series = self::_filterSeries($host);
         $itemSearch = self::_itemSearch($request);
 
         #redireccionar, si no se encuentran resultados
         if( count($nodes->nodes) <=0 )
           return Redirect::to('musica')->with('status', 'No se han encontrado coincidencias');
         #muestra los resultados
-        return view('musica.search', compact('nodes','countrys','instruments','itemSearch'));
+        return view('musica.search', compact('nodes','countrys','instruments','series','itemSearch'));
     }
     /**********************/
     /*Mustra index de Opus*/
@@ -108,15 +117,31 @@ class PagesController extends Controller
       $host = self::host();
       $instruments = self::_filterInstruments($host);
       $taxonomy = self::_filterCountries($host);
-
-      return view('musica.index',compact('taxonomy','instruments'));
+      $series = self::_filterSeries($host);
+      return view('musica.index',compact('taxonomy','series','instruments'));
     }
-
+    /**********************/
+    /*Mustra json con las imagenes de conciertos Opus*/
+    /**********************/
+    public function ImgConcertsJson(){
+      $path_img = env('PATH_IMG');
+      $filesInFolder = File::allFiles('../'.$path_img);
+      $files = [];
+      $json = [];
+      foreach($filesInFolder as $path ){
+        $file = pathinfo($path);
+        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.local/img/conciertos/'.$file['basename'];
+      }
+      $filesRandom=[];
+      for( $i=0; $i <= 2;$i++ ){
+        $filesRandom['nodes'][rand(1,count($files['nodes']))] = $files['nodes'][rand(1,count($files['nodes']))];
+      }
+      return response()->json($filesRandom);
+    }
     /*********************************/
     /*Mustra detalle del nodo de Opus*/
     /*********************************/
     public function OpusConcertDetail($nid){
-
       $host = self::host();
       $instruments = self::_filterInstruments($host);
       $countrys = self::_filterCountries($host);

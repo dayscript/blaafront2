@@ -2964,17 +2964,6 @@ a {
 .cMusica .subMenu ul li:hover > a, .cMusica .subMenu ul li a.active, .cMusica .menuFooter ul li a:hover {
   background-color: #A8203B; }
 
-.acerca-de-opus {
-  color: #992e40;
-  width: 100%;
-  display: inline-block;
-  background: url("http://blaafront2.local/img/acerca_de_opus.png") no-repeat;
-  background-position: 100%;
-  background-size: 15px 15px;
-  text-align: center;
-  text-decoration: underline;
-  font-size: 19px; }
-
 .search {
   height: auto;
   background-color: #a3122f;
@@ -3031,7 +3020,7 @@ a {
       border: none;
       height: 30px;
       font-family: 'Roboto', sans-serif; }
-    .search .fields .field input[type='submit'], .search .fields .field input[type='reset'] {
+    .search .fields .field input[type='submit'] {
       border: 1px solid #eee;
       padding: 5px;
       color: white;

@@ -16,8 +16,8 @@ class Controller extends BaseController
     public function __construct()
     {
         $this->menu = [
-            '/'           => [
-                'url'      => '/',
+            '/' => [
+                'url'      => 'http://www.banrepcultural.org/',
                 'label'    => 'Actividad cultural<br>del Banco de la<br>República',
                 'title'    => 'Actividad cultural',
                 'subtitle' => 'Banco de la República',
@@ -27,35 +27,35 @@ class Controller extends BaseController
                 'label'    => 'Áreas<br>culturales<br>en el país',
                 'title'    => 'Áreas culturales en el país',
                 'subtitle' => 'Banco de la República',
-                'url'      => 'areas',
+                'url'      => 'http://www.banrepcultural.org/areas-culturales',
                 'style'    => 'cAreas'
             ],
             'arte'        => [
                 'label'    => 'Arte y<br>numismática',
                 'title'    => 'Arte y numismática',
                 'subtitle' => 'Banco de la República',
-                'url'      => 'arte',
+                'url'      => 'http://www.banrepcultural.org/museos-y-colecciones',
                 'style'    => 'cArte'
             ],
             'bibliotecas' => [
                 'label'    => 'Bibliotecas',
                 'title'    => 'Bibliotecas',
                 'subtitle' => 'Banco de la República',
-                'url'      => 'bibliotecas',
+                'url'      => 'http://www.banrepcultural.org/blaa',
                 'style'    => 'cBiblio'
             ],
             'bvirtual'    => [
                 'label'    => 'BVirtual',
                 'title'    => 'BVirtual',
                 'subtitle' => 'Banco de la República',
-                'url'      => 'bvirtual',
+                'url'      => 'http://www.banrepcultural.org/blaavirtual/indice',
                 'style'    => 'cBvirtual'
             ],
             'museo'       => [
                 'label'    => 'Museo<br>del Oro',
                 'title'    => 'Museo del Oro',
                 'subtitle' => 'Banco de la República',
-                'url'      => 'museo',
+                'url'      => 'http://www.banrepcultural.org/museo-del-oro',
                 'style'    => 'cMuseo'
             ],
             'musica'      => [

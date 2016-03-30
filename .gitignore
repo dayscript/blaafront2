@@ -1,5 +1,6 @@
 /vendor
 /node_modules
+/public/img/conciertos
 Homestead.yaml
 Homestead.json
 .env

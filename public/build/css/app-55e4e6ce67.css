@@ -3015,10 +3015,9 @@ a {
     color: #94132c;
     font-size: 0.7rem; }
   .search .searchlabel {
-    padding: 9px 9px;
+    padding: 2px 9px;
     background-color: #820e26;
     font-size: 15px;
-    line-height: 18px;
     text-align: left;
     font-family: 'Roboto', sans-serif; }
   .search .fields .field {

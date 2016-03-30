@@ -5,15 +5,15 @@
 @endsection
 
 @section('content')
-    <div class="columns medium-4" ng-controller="ImageController">
-      <div class="medium-12 image" ng-repeat="image in images" ng-if="$index < 3">
-          <a href="@{{ image.nid }}"><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
+    <div class="columns medium-4" ng-controller="ImageController1" >
+      <div class="medium-12 image" ng-repeat="image in images" style="height: 180px;" >
+          <a><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
 
     <div class="columns medium-4">
         <div class="search">
-            <div class="about">Acerca de Opus</div>
+            <div class="about"><a href="/acerca-de-opus" class="acerca-de-opus">Acerca de Opus</a>  </div>
             <div class="searchlabel">Haga aquí su búsqueda
                 utilizando uno o más criterios:
             </div>
@@ -51,6 +51,15 @@
                           <span md-highlight-text="searchText" md-highlight-flags="^i" >@{{composer}}</span>
                         </md-autocomplete>
                         </div>
+                        <div class="medium-12 input">
+                        <label for="name">Serie</label>
+                        <select name="serie">
+                          <option value ="all">Todas</option>
+                          @foreach( $series as $serie)
+                            <option value ="{{$serie->tid}}">{{ $serie->name }}</option>
+                          @endforeach
+                       </select>
+                       </div>
                         <div class="medium-12 input">
                         <label for="name">Pais</label>
                         <select  name="country">
@@ -125,15 +134,17 @@
                       </div>
                     </div>
                     <div class="field medium-12">
-                        <input type="submit" class="medium-12"  value="buscar">
+                        <input type="submit" class="medium-12"  value="Buscar">
+                        <input type="reset" class="medium-12"  value="Borrar">
+
                     </div>
                 </form>
             </div>
         </div>
     </div>
-    <div class="columns medium-4" ng-controller="ImageController">
-      <div class="medium-12 image" ng-repeat="image in images" ng-if="$index > 2 && $index < 6">
-        <a href="@{{ image.nid }}"><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
+    <div class="columns medium-4" ng-controller="ImageController2" >
+      <div class="medium-12 image" ng-repeat="image in images" style="height: 180px;">
+        <a><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
 
