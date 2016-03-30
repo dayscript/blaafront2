@@ -133,7 +133,6 @@ class PagesController extends Controller
     /*Mustra detalle del nodo de Opus*/
     /*********************************/
     public function OpusConcertDetail($nid){
-
       $host = self::host();
       $instruments = self::_filterInstruments($host);
       $countrys = self::_filterCountries($host);

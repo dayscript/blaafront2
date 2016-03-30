@@ -16,7 +16,7 @@
         @if(isset($value->imagen->src))
         <img class="thumbnail" src="{{$value->imagen->src}}"/>
         @else
-        <img class="thumbnail" src="{{$value->imagen}}"/>
+        <img class="thumbnail" src="img/opus/Opus_default.png"/>
         @endif
       </div>
       <div class="medium-6 columns">
