@@ -49,7 +49,6 @@ class PagesController extends Controller
     }
     else{
       $url = $host.$request->session()->get('searchItems').'/?page='.$id_page;
-      //dd($url);
       }
 
 
