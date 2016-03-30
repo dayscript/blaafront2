@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use File;
 
 class PagesController extends Controller
 {
@@ -49,7 +50,7 @@ class PagesController extends Controller
     else{
       $url = $host.$request->session()->get('searchItems').'/?page='.$id_page;
       //dd($url);
-      } 
+      }
 
 
       $json = json_decode(file_get_contents($url));
@@ -108,10 +109,26 @@ class PagesController extends Controller
       $host = self::host();
       $instruments = self::_filterInstruments($host);
       $taxonomy = self::_filterCountries($host);
-
       return view('musica.index',compact('taxonomy','instruments'));
     }
-
+    /**********************/
+    /*Mustra json con las imagenes de conciertos Opus*/
+    /**********************/
+    public function ImgConcertsJson(){
+      $path_img = env('PATH_IMG');
+      $filesInFolder = File::allFiles('../'.$path_img);
+      $files = [];
+      $json = [];
+      foreach($filesInFolder as $path ){
+        $file = pathinfo($path);
+        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.local/img/conciertos/'.$file['basename'];
+      }
+      $filesRandom=[];
+      for( $i=0; $i <= 2;$i++ ){
+        $filesRandom['nodes'][rand(1,count($files['nodes']))] = $files['nodes'][rand(1,count($files['nodes']))];
+      }
+      return response()->json($filesRandom);
+    }
     /*********************************/
     /*Mustra detalle del nodo de Opus*/
     /*********************************/

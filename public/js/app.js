@@ -3,9 +3,9 @@ var App = angular.module('Blaa', ['ngMaterial','ngRoute']);
 App.config(['$locationProvider','$routeProvider', function ($locationProvider,$routeProvider){
   $locationProvider.html5Mode(true);
 }]);
- 
+
 App.constant('SERVER',{
-    'domain':'http://blaa.demodayscript.com',
+    'domain':'http://blaafront2.local',
     'port':'80'
 });
 
@@ -72,9 +72,17 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
 
 });
 
-App.controller('ImageController',function($scope,$http,$timeout,$q,$log,SERVER){
-  $http.get(SERVER.domain + '/archivos/imagen/artistas').success(function(data,status,headers,config){
+App.controller('ImageController1',function($scope,$http,$timeout,$q,$log,SERVER){
+  $http.get(SERVER.domain + '/musica/conciertos/img/json').success(function(data,status,headers,config){
     $scope.images = data.nodes
+    console.log($scope.images);
+  })
+});
+
+App.controller('ImageController2',function($scope,$http,$timeout,$q,$log,SERVER){
+  $http.get(SERVER.domain + '/musica/conciertos/img/json').success(function(data,status,headers,config){
+    $scope.images = data.nodes
+    console.log($scope.images);
   })
 });
 

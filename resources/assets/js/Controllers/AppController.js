@@ -3,9 +3,9 @@ var App = angular.module('Blaa', ['ngMaterial','ngRoute']);
 App.config(['$locationProvider','$routeProvider', function ($locationProvider,$routeProvider){
   $locationProvider.html5Mode(true);
 }]);
- 
+
 App.constant('SERVER',{
-    'domain':'http://blaa.demodayscript.com',
+    'domain':'http://blaafront2.local',
     'port':'80'
 });
 

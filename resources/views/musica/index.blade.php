@@ -5,15 +5,15 @@
 @endsection
 
 @section('content')
-    <div class="columns medium-4" ng-controller="ImageController">
-      <div class="medium-12 image" ng-repeat="image in images" ng-if="$index < 3">
-          <a href="@{{ image.nid }}"><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
+    <div class="columns medium-4" ng-controller="ImageController1">
+      <div class="medium-12 image" ng-repeat="image in images">
+          <a><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
 
     <div class="columns medium-4">
         <div class="search">
-            <div class="about">Acerca de Opus</div>
+            <div class="about"><a href="/acerca-de-opus" class="acerca-de-opus">Acerca de Opus</a>  </div>
             <div class="searchlabel">Haga aquí su búsqueda
                 utilizando uno o más criterios:
             </div>
@@ -131,9 +131,9 @@
             </div>
         </div>
     </div>
-    <div class="columns medium-4" ng-controller="ImageController">
-      <div class="medium-12 image" ng-repeat="image in images" ng-if="$index > 2 && $index < 6">
-        <a href="@{{ image.nid }}"><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
+    <div class="columns medium-4" ng-controller="ImageController2">
+      <div class="medium-12 image" ng-repeat="image in images" ">
+        <a><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
 

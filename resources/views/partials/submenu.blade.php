@@ -4,7 +4,7 @@
     <div class="subContent large-12">
 
         <div class="large-8 columns"><h2><span>{{ isset($menu[preg_replace('/[0-9]+/','',Request::path())])? $menu[preg_replace('/[0-9]+/','',Request::path())]['title']:'' }}</span>
-                <em>\{{ isset($menu[preg_replace('/[0-9]+/','',Request::path())])? $menu[preg_replace('/[0-9]+/','',Request::path())]['subtitle']:'' }}</em></h2></div>
+                <em>{{ isset($menu[preg_replace('/[0-9]+/','',Request::path())])? $menu[preg_replace('/[0-9]+/','',Request::path())]['subtitle']:'' }}</em></h2></div>
         <div class="lFiltro large-4 columns">
             <!--<select class="customSelect">
                 <option>BOGOTÁ</option>
@@ -20,7 +20,7 @@
     <ul class="menu">
         @if(isset($menu[preg_replace('/[0-9]+/','',Request::path())]['options']))
             @foreach($menu[preg_replace('/[0-9]+/', '', Request::path())]['options'] as $url=>$suboption)
-                <li><a href="{{ $url }}" class="{{ Request::is($url)?'active':'' }}"><span>{{ $suboption['label'] }}</span></a></li>
+                <li><a href="{{ $suboption['url'] }}" class="{{ Request::is($url)?'active':'' }}"><span>{{ $suboption['label'] }}</span></a></li>
             @endforeach
         @endif
                 <!--<li><a href="#"><span>CONTACTOS</span></a></li>-->
