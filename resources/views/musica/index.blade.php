@@ -5,8 +5,8 @@
 @endsection
 
 @section('content')
-    <div class="columns medium-4" ng-controller="ImageController1">
-      <div class="medium-12 image" ng-repeat="image in images">
+    <div class="columns medium-4" ng-controller="ImageController1" >
+      <div class="medium-12 image" ng-repeat="image in images" style="height: 180px;" >
           <a><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
@@ -131,8 +131,8 @@
             </div>
         </div>
     </div>
-    <div class="columns medium-4" ng-controller="ImageController2">
-      <div class="medium-12 image" ng-repeat="image in images" ">
+    <div class="columns medium-4" ng-controller="ImageController2" >
+      <div class="medium-12 image" ng-repeat="image in images" style="height: 180px;">
         <a><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
