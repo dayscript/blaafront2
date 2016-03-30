@@ -76,11 +76,17 @@ class PagesController extends Controller
       $instruments = $instrumentJson->nodes;
       return $instruments;
     }
+
+    public function _filterSeries($host){
+      $seriesJson = json_decode(file_get_contents($host.'taxonomias/series/json'));
+      $series = $seriesJson->nodes;
+      return $series;
+    }
+
     /*********************************************/
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
     public function OpusSearch(Request $request,$id_page=NULL){
-
         $host = self::host();
         if($id_page == NULL){
             $nodes = self::_urlConstrucSearch($request,$host);
@@ -92,15 +98,17 @@ class PagesController extends Controller
             $request->session()->put('searchItems', $nodes->view->path );
             var_dump($request->session()->get('searchItems'));
           }
+
         $instruments = self::_filterInstruments($host);
         $countrys = self::_filterCountries($host);
+        $series = self::_filterSeries($host);
         $itemSearch = self::_itemSearch($request);
 
         #redireccionar, si no se encuentran resultados
         if( count($nodes->nodes) <=0 )
           return Redirect::to('musica')->with('status', 'No se han encontrado coincidencias');
         #muestra los resultados
-        return view('musica.search', compact('nodes','countrys','instruments','itemSearch'));
+        return view('musica.search', compact('nodes','countrys','instruments','series','itemSearch'));
     }
     /**********************/
     /*Mustra index de Opus*/
@@ -109,7 +117,8 @@ class PagesController extends Controller
       $host = self::host();
       $instruments = self::_filterInstruments($host);
       $taxonomy = self::_filterCountries($host);
-      return view('musica.index',compact('taxonomy','instruments'));
+      $series = self::_filterSeries($host);
+      return view('musica.index',compact('taxonomy','series','instruments'));
     }
     /**********************/
     /*Mustra json con las imagenes de conciertos Opus*/

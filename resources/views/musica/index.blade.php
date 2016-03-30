@@ -52,6 +52,15 @@
                         </md-autocomplete>
                         </div>
                         <div class="medium-12 input">
+                        <label for="name">Serie</label>
+                        <select name="serie">
+                          <option value ="all">Todas</option>
+                          @foreach( $series as $serie)
+                            <option value ="{{$serie->tid}}">{{ $serie->name }}</option>
+                          @endforeach
+                       </select>
+                       </div>
+                        <div class="medium-12 input">
                         <label for="name">Pais</label>
                         <select  name="country">
                           <option value ="all">Todos</option>
@@ -125,7 +134,9 @@
                       </div>
                     </div>
                     <div class="field medium-12">
-                        <input type="submit" class="medium-12"  value="buscar">
+                        <input type="submit" class="medium-12"  value="Buscar">
+                        <input type="reset" class="medium-12"  value="Borrar">
+
                     </div>
                 </form>
             </div>

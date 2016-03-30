@@ -3030,7 +3030,7 @@ a {
       border: none;
       height: 30px;
       font-family: 'Roboto', sans-serif; }
-    .search .fields .field input[type='submit'] {
+    .search .fields .field input[type='submit'], .search .fields .field input[type='reset'] {
       border: 1px solid #eee;
       padding: 5px;
       color: white;
