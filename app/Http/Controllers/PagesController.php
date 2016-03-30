@@ -130,7 +130,7 @@ class PagesController extends Controller
       $json = [];
       foreach($filesInFolder as $path ){
         $file = pathinfo($path);
-        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.local/img/conciertos/'.$file['basename'];
+        $files['nodes'][]['Imagen']['src'] = 'http://blaa.dev/img/conciertos/'.$file['basename'];
       }
       $filesRandom=[];
       for( $i=0; $i <= 2;$i++ ){

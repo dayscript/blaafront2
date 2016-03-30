@@ -1186,7 +1186,8 @@ a {
 
 .pageHeader .headerTop .cRight form .btnSearch {
   display: block;
-  width: 30px;
+  width: 54px;
+  height: 24px;
   text-align: left;
   text-indent: -9999px;
   position: absolute;
@@ -2964,6 +2965,17 @@ a {
 .cMusica .subMenu ul li:hover > a, .cMusica .subMenu ul li a.active, .cMusica .menuFooter ul li a:hover {
   background-color: #A8203B; }
 
+.acerca-de-opus {
+  color: #992e40;
+  width: 100%;
+  display: inline-block;
+  background: url("http://blaafront2.local/img/acerca_de_opus.png") no-repeat;
+  background-position: 100%;
+  background-size: 15px 15px;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 1em; }
+
 .search {
   height: auto;
   background-color: #a3122f;
@@ -2974,10 +2986,11 @@ a {
       height: 30px; }
       .search md-autocomplete md-autocomplete-wrap input {
         height: 30px;
-        font-size: 14px;
+        font-size: 0.9em;
         margin: 0;
         padding: 0 15px;
-        line-height: 1; }
+        line-height: 1;
+        color: #666; }
   .search md-input-container {
     float: left;
     margin: 0;
@@ -2986,13 +2999,14 @@ a {
     margin-right: 24px;
     margin-bottom: 10px; }
     .search md-input-container input {
-      color: #fff; }
+      color: #666; }
   .search select {
     height: 30px;
-    font-size: 14px;
+    font-size: 0.9em;
     margin: 0;
     padding: 0 15px;
-    line-height: 1; }
+    line-height: 1;
+    color: #666; }
   .search md-slider {
     margin-left: 0px;
     margin-right: 0px; }
@@ -3006,7 +3020,7 @@ a {
   .search .searchlabel {
     padding: 9px 9px;
     background-color: #820e26;
-    font-size: 15px;
+    font-size: 0.9em;
     line-height: 18px;
     text-align: left;
     font-family: 'Roboto', sans-serif; }
@@ -3014,20 +3028,22 @@ a {
     padding: 10px; }
     .search .fields .field label {
       color: white;
-      font-size: 1rem;
+      font-size: 0.9em;
       font-family: 'Roboto', sans-serif; }
     .search .fields .field input[type='text'] {
       border: none;
       height: 30px;
-      font-family: 'Roboto', sans-serif; }
-    .search .fields .field input[type='submit'] {
+      font-family: 'Roboto', sans-serif;
+      color: #666;
+      font-size: 0.9em; }
+    .search .fields .field input[type='submit'], .search .fields .field input[type='reset'] {
       border: 1px solid #eee;
       padding: 5px;
       color: white;
       background-color: #a3122f;
-      font-style: italic;
       font-family: 'Roboto', sans-serif;
-      margin: 2px 0; }
+      margin: 2px 0;
+      font-size: 0.9em; }
   .search .filters {
     height: 100px;
     background-color: #c3c3c3; }
@@ -3043,7 +3059,12 @@ a {
 .results-view .number-page {
   text-align: right; }
   .results-view .number-page a {
-    color: #000; }
+    color: #666;
+    font-size: 0.8em;
+    padding: 0 5px; }
+  .results-view .number-page.search {
+    text-align: left;
+    background: none; }
 
 .results-view .results {
   padding: 20px;
@@ -3062,7 +3083,8 @@ a {
 
 .results-view .filters {
   height: 100px;
-  background-color: #c3c3c3; }
+  background-color: #c3c3c3;
+  padding: 12px 2px; }
 
 .results-view input[type='text'] {
   width: 70%;
@@ -3075,23 +3097,25 @@ a {
   padding: 0px 6px;
   color: #a3122f;
   background-color: #eee;
-  font-style: italic; }
+  font-style: normal;
+  font-size: 0.9em; }
 
 .results-view .concert-date {
-  font-size: 11px;
-  color: #A7A7A7; }
+  font-size: 10px;
+  color: #999; }
 
 .results-view .concert-artist a {
-  font-size: 15px;
+  font-size: 1.2em;
   color: #cc1f43; }
 
 .results-view .concert-title, .results-view .red {
-  font-size: 13px;
-  color: #9a3e4f; }
+  font-size: 0.9em;
+  color: #9a3e4f;
+  line-height: 18px; }
 
 .results-view .concert-instrument {
-  font-size: 11px;
-  color: #A7A7A7; }
+  font-size: 10px;
+  color: #999; }
 
 .results-view .accordion-title {
   background-color: #A3122F;
@@ -3107,7 +3131,8 @@ a {
 
 .filter-accordion .accordion-content {
   background-color: #c3c3c3;
-  color: #0a0a0a; }
+  color: #464646;
+  font-size: 0.9em; }
 
 .detail h5, .LeftBar h5 {
   color: #cd1c40; }
@@ -3183,6 +3208,32 @@ a {
 .input {
   margin: 5px 0;
   display: inline-block; }
+
+.image {
+  height: 229px; }
+
+hr.light {
+  border-bottom: 1px solid #fff; }
+
+.item {
+  font-size: 0.8em;
+  color: #333; }
+  .item.red {
+    color: #b91737;
+    font-size: 0.8em; }
+
+.callout.large.success.custom {
+  padding: 5px;
+  color: white;
+  background: #808080 !important;
+  border: none;
+  font-size: 15px !important;
+  text-shadow: none;
+  margin: 0;
+  text-align: center; }
+
+.close-button {
+  color: #fff !important; }
 
 /* Notifications */
 .callout.large.success.custom {
