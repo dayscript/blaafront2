@@ -119,9 +119,9 @@ class PagesController extends Controller
       $series = self::_filterSeries($host);
       return view('musica.index',compact('taxonomy','series','instruments'));
     }
-    /**********************/
+    /*************************************************/
     /*Mustra json con las imagenes de conciertos Opus*/
-    /**********************/
+    /*************************************************/
     public function ImgConcertsJson(){
       $path_img = env('PATH_IMG');
       $filesInFolder = File::allFiles('../'.$path_img);
@@ -129,7 +129,7 @@ class PagesController extends Controller
       $json = [];
       foreach($filesInFolder as $path ){
         $file = pathinfo($path);
-        $files['nodes'][]['Imagen']['src'] = 'http://blaa.dev/img/conciertos/'.$file['basename'];
+        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.local/img/conciertos/'.$file['basename'];
       }
       $filesRandom=[];
       for( $i=0; $i <= 2;$i++ ){
@@ -145,8 +145,16 @@ class PagesController extends Controller
       $instruments = self::_filterInstruments($host);
       $countrys = self::_filterCountries($host);
       $nodes = json_decode(file_get_contents($host.'detalle-de-contenido/concert/'.$nid));
-      $node = $nodes->nodes;
-      $obras = explode('|',$node[0]->obras);
+      $titulo = explode(',',$nodes->nodes[0]->titulo);
+      $nodes->nodes[0]->titulo = $titulo[1];
+      $node[] = $nodes->nodes[0];
+      foreach ( explode('|',$node[0]->obras) as $key => $name) {
+        foreach ($nodes->nodes as $key => $value) {
+            $obras[$key]['nombre'] =  $name;
+            $obras[$key]['año'] =  $value->año_composicion;
+        }
+      }
+      dd($obras);
       $nodesRelacionados = json_decode(file_get_contents($host.'detalle-de-contenido/node-relacionado/concert'));
       $nodeR = $nodesRelacionados->nodes;
       return view('musica.ConcertDetail', compact('node','nodeR','obras','countrys','instruments'));

@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="columns medium-4" ng-controller="ImageController1" >
-      <div class="medium-12" ng-repeat="image in images" >
-          <a><img class="medium-12 image" ng-src="@{{image.Imagen.src}}" /></a>
+      <div class="medium-12 image" ng-repeat="image in images" style="height: 180px;" >
+          <a><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
 
@@ -56,7 +56,7 @@
                         <select name="serie">
                           <option value ="all">Todas</option>
                           @foreach( $series as $serie)
-                            <option value ="{{$serie->tid}}">{{ $serie->name }}</option>
+                            <option value ="{{$serie->tid}}">{{ ucfirst(trans($serie->name)) }}</option>
                           @endforeach
                        </select>
                        </div>
@@ -65,7 +65,7 @@
                         <select  name="country">
                           <option value ="all">Todos</option>
                           @foreach( $taxonomy as $node)
-                            <option value ="{{$node->tid}}">{{ $node->name }}</option>
+                            <option value ="{{$node->tid}}">{{ ucfirst(trans($node->name)) }}</option>
                           @endforeach
                         </select>
                         </div>
@@ -74,7 +74,7 @@
                         <select name="instrument">
                           <option value ="all">Todos</option>
                           @foreach( $instruments as $node)
-                            <option value ="{{$node->tid}}">{{ $node->name }}</option>
+                            <option value ="{{$node->tid}}">{{ ucfirst(trans($node->name)) }}</option>
                           @endforeach
                        </select>
                        </div>
@@ -143,8 +143,8 @@
         </div>
     </div>
     <div class="columns medium-4" ng-controller="ImageController2" >
-      <div class="medium-12 image" ng-repeat="image in images">
-        <a><img class="medium-12 image" ng-src="@{{image.Imagen.src}}" /></a>
+      <div class="medium-12 image" ng-repeat="image in images" style="height: 180px;">
+        <a><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
 

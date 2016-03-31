@@ -24,11 +24,10 @@
         <h4 class="text-gray">{{$value->titulo}}</h4>
         <span>{{$value->descripcion}}</span><br>
         <span class="bold">{{$value->fecha}}</span><br>
-        <span class="text-gray coursive">Guitarra</span><br>
-        <span class="text-gray">Colombia</span><br>
+        <span class="text-gray coursive">{{$value->instrumentos}}</span><br>
+        <span class="text-gray">{{$value->país}}</span><br>
         <span class="bold">{{$value->ubicacion}}</span><br>
         <h6 class="bold">Grabación de archivo disponible: No</h6>
-
       </div>
     @endforeach
   </div>

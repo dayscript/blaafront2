@@ -10,17 +10,6 @@
         {{ csrf_field() }}
         <div class=" medium-12 filter-accordion ng-controller="SearchController" ">
           <ul class="accordion" data-accordion >
-            <li class="accordion-item is-active" data-accordion-item>
-              <a href="#" class="accordion-title">Serie</a>
-              <div class="accordion-content" data-tab-content>
-                <select name="serie">
-                  <option value ="all">Todas</option>
-                  @foreach( $series as $serie)
-                    <option value ="{{$serie->tid}}">{{ $serie->name }}</option>
-                  @endforeach
-               </select>
-              </div>
-            </li>
             <li class="accordion-item" data-accordion-item>
               <a href="#" class="accordion-title">Artista</a>
               <div class="accordion-content" data-tab-content>
@@ -51,6 +40,17 @@
                 </md-autocomplete>
               </div>
             </li>
+            <li class="accordion-item is-active" data-accordion-item>
+              <a href="#" class="accordion-title">Serie</a>
+              <div class="accordion-content" data-tab-content>
+                <select name="serie">
+                  <option value ="all">Todas</option>
+                  @foreach( $series as $serie)
+                    <option value ="{{$serie->tid}}">{{ $serie->name }}</option>
+                  @endforeach
+               </select>
+              </div>
+            </li>
             <li class="accordion-item " data-accordion-item>
               <a href="#" class="accordion-title">País</a>
               <div class="accordion-content" data-tab-content>
@@ -68,6 +68,33 @@
                     <input type="radio" name="instrument" value="{{ $instrument->tid }}"> {{ $instrument->name }}<br>
                 @endforeach
               </div>
+            </li>
+            <li class="accordion-item " data-accordion-item>
+              <a href="#" class="accordion-title">Especifique un año:</a>
+              <div class="accordion-content" data-tab-content>
+                <md-slider-container>
+                 <label>Especifique un año:</label>
+                 <md-slider flex=""
+                            min="1970"
+                            max="2016"
+                            ng-model="date.year"
+                            aria-label="year"
+                            id="year-slider"
+                            class="medium-6 columns">
+                 </md-slider>
+               </md-slider-container>
+               <md-input-container class="medium-6 columns">
+                 <input flex=""
+                        name="year"
+                        type="number"
+                        ng-model="date.year"
+                        aria-label="year"
+                        aria-controls="year-slider"
+                        class="medium-12 columns year"
+                        >
+               </md-input-container>
+
+             </div>
             </li>
           </ul>
         </div>
