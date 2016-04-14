@@ -51,7 +51,7 @@ class PagesController extends Controller
       $url = $host.$request->session()->get('searchItems').'/?page='.$id_page;
       }
 
-
+      //dd($url);
       $json = json_decode(file_get_contents($url));
       foreach ($json->nodes as $key => $value) {
         $title = explode(',',$value->titulo);
@@ -98,16 +98,16 @@ class PagesController extends Controller
             var_dump($request->session()->get('searchItems'));
           }
 
-        $instruments = self::_filterInstruments($host);
-        $countrys = self::_filterCountries($host);
+         $instruments = self::_filterInstruments($host);
+        $taxonomy = self::_filterCountries($host);
         $series = self::_filterSeries($host);
         $itemSearch = self::_itemSearch($request);
-
+        //dd($nodes);
         #redireccionar, si no se encuentran resultados
         if( count($nodes->nodes) <=0 )
           return Redirect::to('musica')->with('status', 'No se han encontrado coincidencias');
         #muestra los resultados
-        return view('musica.search', compact('nodes','countrys','instruments','series','itemSearch'));
+        return view('musica.search', compact('nodes','taxonomy','instruments','series','itemSearch'));
     }
     /**********************/
     /*Mustra index de Opus*/
@@ -129,7 +129,7 @@ class PagesController extends Controller
       $json = [];
       foreach($filesInFolder as $path ){
         $file = pathinfo($path);
-        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.demodayscript.com/img/conciertos/'.$file['basename'];
+        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.local/img/conciertos/'.$file['basename'];
       }
       $filesRandom=[];
       for( $i=0; $i <= 2;$i++ ){
@@ -144,20 +144,44 @@ class PagesController extends Controller
       $host = self::host();
       $instruments = self::_filterInstruments($host);
       $countrys = self::_filterCountries($host);
-      $nodes = json_decode(file_get_contents($host.'detalle-de-contenido/concert/'.$nid));
+      $nodes = json_decode(file_get_contents($host.'detalle-nodos-opus/concierto/'.$nid));
       $titulo = explode(',',$nodes->nodes[0]->titulo);
       $nodes->nodes[0]->titulo = $titulo[1];
-      $node[] = $nodes->nodes[0];
-      foreach ( explode('|',$node[0]->obras) as $key => $name) {
-        foreach ($nodes->nodes as $key => $value) {
-            $obras[$key]['nombre'] =  $name;
-            $obras[$key]['año'] =  $value->año_composicion;
-        }
+      /*Obtener Artistas*/
+      $artistas = explode(',',$nodes->nodes[0]->artistas);
+      if(is_array($artistas)){
+          $items = [];
+          foreach ($artistas as $key => $value) {
+            $artistas[$key] = json_decode(file_get_contents($host.'detalle-nodo-opus/artista/'.$value));
+          }
+
+          $nodes->nodes[0]->artistas = $artistas;
       }
-      dd($obras);
+     $integrantes = explode(',',$nodes->nodes[0]->integrantes);
+      if(is_array($integrantes)){
+          $items = [];
+          foreach ($integrantes as $key => $value) {
+            $integrantes[$key] = json_decode(file_get_contents($host.'detalle-nodo-opus/integrante/'.$value));
+          }
+          $nodes->nodes[0]->integrantes = $integrantes;
+      }
+
+      $obras = explode(',',$nodes->nodes[0]->obras);
+
+      if(is_array($obras)){
+          $items = [];
+          foreach ($obras as $key => $value) {
+            $obras[$key] = json_decode(file_get_contents($host.'detalle-nodo-opus/obra/'.$value));
+          }
+          $nodes->nodes[0]->obras = $obras;
+
+      }
+      $node = $nodes->nodes[0];
+
+      //dd($node);
       $nodesRelacionados = json_decode(file_get_contents($host.'detalle-de-contenido/node-relacionado/concert'));
       $nodeR = $nodesRelacionados->nodes;
-      return view('musica.ConcertDetail', compact('node','nodeR','obras','countrys','instruments'));
+      return view('musica.ConcertDetail', compact('node','nodeR'));
     }
 
 }

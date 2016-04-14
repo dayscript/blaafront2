@@ -15,7 +15,8 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
 
    $scope.GetAutors = function(){
         var deferred = $q.defer();
-        $http.get(SERVER.domain + '/autocomplete/autores')
+        //$http.get(SERVER.domain + '/autocomplete/autores')
+        $http.get('http://blaafront2.local/json/autores.json')
             .success(function(data,status,headers,config){
                 $scope.data = data.nodes
                 console.log($scope.data);
@@ -25,8 +26,9 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
     }
     $scope.GetComposers = function(){
          var deferred = $q.defer();
-         $http.get(SERVER.domain + '/autocomplete/compositores')
-             .success(function(data,status,headers,config){
+         //$http.get(SERVER.domain + '/autocomplete/compositores')
+         $http.get('http://blaafront2.local/json/compositores.json')
+              .success(function(data,status,headers,config){
                  $scope.data = data.nodes
                  deferred.resolve($scope.data);
              })

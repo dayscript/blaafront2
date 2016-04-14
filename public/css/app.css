@@ -2965,6 +2965,9 @@ a {
 .cMusica .subMenu ul li:hover > a, .cMusica .subMenu ul li a.active, .cMusica .menuFooter ul li a:hover {
   background-color: #A8203B; }
 
+.red {
+  color: #cd1c40; }
+
 .acerca-de-opus {
   color: #992e40;
   width: 100%;
@@ -3212,6 +3215,9 @@ a {
 .image {
   height: 229px; }
 
+.image-landing {
+  height: 225px; }
+
 hr.light {
   border-bottom: 1px solid #fff; }
 
@@ -3234,6 +3240,24 @@ hr.light {
 
 .close-button {
   color: #fff !important; }
+
+.node-detail .titulo {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.node-detail .compositor {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.node-detail .año {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
 
 /* Notifications */
 .callout.large.success.custom {

@@ -1,3 +1,8 @@
+.red{
+  color: #cd1c40;
+}
+
+
 .acerca-de-opus{
   color:#992e40;
   width: 100%;
@@ -294,6 +299,10 @@ padding-right:15px;
 .image{
   height: 229px;
 }
+
+.image-landing{
+  height: 225px;
+}
 hr{
   &.light{
     border-bottom: 1px solid #fff;
@@ -320,4 +329,30 @@ hr{
 }
 .close-button{
   color: #fff !important;
+}
+
+.node-detail{
+  .item-li {
+
+
+  }
+  .titulo{
+    display:inline-block;
+      white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .compositor{
+     display:inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .año{
+     display:inline-block;
+       white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
 }

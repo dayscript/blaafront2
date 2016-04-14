@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="columns medium-4" ng-controller="ImageController1" >
-      <div class="medium-12 image" ng-repeat="image in images" style="height: 180px;" >
-          <a><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
+      <div class="medium-12 image-landing" ng-repeat="image in images">
+          <a><img class="medium-12 image-landing" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
 
@@ -70,7 +70,7 @@
                         </select>
                         </div>
                         <div class="medium-12 input">
-                        <label for="name">Instrumento</label>
+                        <label for="name">Instrumento/Formato</label>
                         <select name="instrument">
                           <option value ="all">Todos</option>
                           @foreach( $instruments as $node)
@@ -143,8 +143,8 @@
         </div>
     </div>
     <div class="columns medium-4" ng-controller="ImageController2" >
-      <div class="medium-12 image" ng-repeat="image in images" style="height: 180px;">
-        <a><img class="medium-12" ng-src="@{{image.Imagen.src}}" /></a>
+      <div class="medium-12  image-landing" ng-repeat="image in images">
+        <a><img class="medium-12 image-landing" ng-src="@{{image.Imagen.src}}" /></a>
       </div>
     </div>
 

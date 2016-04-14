@@ -17,8 +17,8 @@
      <span class="text-center" >Resultados Similares</span>
    </div>
    <div class="medium-12">
-     @foreach( $nodeR as $value)
-     <div class="node-related" style="background-image:url('{{ $value->imagen->src }}') ">
+     @foreach( $nodeR as $key => $value)
+     <div class="node-related" style="background-image:url('{{ $value->imagen }}') ">
        <a>
          <div class="hover-info-related medium-12">
            <span class="">Otras Presentaciones de :<br>

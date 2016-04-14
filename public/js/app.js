@@ -15,7 +15,8 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
 
    $scope.GetAutors = function(){
         var deferred = $q.defer();
-        $http.get(SERVER.domain + '/autocomplete/autores')
+        //$http.get(SERVER.domain + '/autocomplete/autores')
+        $http.get('http://blaafront2.local/json/autores.json')
             .success(function(data,status,headers,config){
                 $scope.data = data.nodes
                 console.log($scope.data);
@@ -25,8 +26,9 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
     }
     $scope.GetComposers = function(){
          var deferred = $q.defer();
-         $http.get(SERVER.domain + '/autocomplete/compositores')
-             .success(function(data,status,headers,config){
+         //$http.get(SERVER.domain + '/autocomplete/compositores')
+         $http.get('http://blaafront2.local/json/compositores.json')
+              .success(function(data,status,headers,config){
                  $scope.data = data.nodes
                  deferred.resolve($scope.data);
              })
@@ -73,19 +75,18 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
 });
 
 App.controller('ImageController1',function($scope,$http,$timeout,$q,$log,SERVER){
-  $http.get('http://blaafront2.demodayscript.com/musica/conciertos/img/json').success(function(data,status,headers,config){
+  $http.get('http://blaafront2.local/musica/conciertos/img/json').success(function(data,status,headers,config){
     $scope.images = data.nodes
     console.log($scope.images);
   })
 });
 
 App.controller('ImageController2',function($scope,$http,$timeout,$q,$log,SERVER){
-  $http.get('http://blaafront2.demodayscript.com/musica/conciertos/img/json').success(function(data,status,headers,config){
+  $http.get('http://blaafront2.local/musica/conciertos/img/json').success(function(data,status,headers,config){
     $scope.images = data.nodes
     console.log($scope.images);
   })
 });
- 
 
 App.factory('AutorsService', function($http) {
     var Autors = {
