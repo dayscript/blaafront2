@@ -1,10 +1,10 @@
 <!--Menu seccion-->
 
-<nav class="subMenu large-12 {{ isset($menu[Request::path()])? $menu[Request::path()]['style']:'' }}" >
+<nav class="subMenu large-12 {{ get_class_for_menu(Request::path()) }}" >
     <div class="subContent large-12">
 
-        <div class="large-8 columns"><h2><span>{{ isset($menu[preg_replace('/[0-9]+/','',Request::path())])? $menu[preg_replace('/[0-9]+/','',Request::path())]['title']:'' }}</span>
-                <em>{{ isset($menu[preg_replace('/[0-9]+/','',Request::path())])? $menu[preg_replace('/[0-9]+/','',Request::path())]['subtitle']:'' }}</em></h2></div>
+        <div class="large-8 columns"><h2><span>{{ isset($menu)? $menu['submenu']['title']:'' }}</span>
+                <em>{{ isset($menu)? $menu['submenu']['subtitle']:'' }}</em></h2></div>
         <div class="lFiltro large-4 columns">
             <!--<select class="customSelect">
                 <option>BOGOTÁ</option>
@@ -14,13 +14,24 @@
                 <option>PEREIRA</option>
                 <option>MANIZALES</option>
                 <option>IBAGUÉ</option>
-            </select>-->
+            </select>-->  
         </div>
     </div>
-    <ul class="menu">
-        @if(isset($menu[preg_replace('/[0-9]+/','',Request::path())]['options']))
-            @foreach($menu[preg_replace('/[0-9]+/', '', Request::path())]['options'] as $url=>$suboption)
-                <li><a href="{{ $suboption['url'] }}" class="{{ Request::is($url)?'active':'' }}"><span>{{ $suboption['label'] }}</span></a></li>
+    <ul class="menu dropdown" data-dropdown-menu>
+        @if(isset($menu['submenu']['options']))
+            @foreach($menu['submenu']['options'] as $url => $suboption)
+                <li>
+                    <a href="{{ $suboption['url'] }}" class="{{ url_is_active( Request::path(),$suboption['url'] )}}">
+                        <span>{{ $suboption['label'] }}</span></a>
+                        @if( isset($suboption['suboptions']))
+                        <ul class="menu trasparent">
+                            @foreach($suboption['suboptions'] as $link => $suboptions)
+                            <li><a href="{{$link}}">{{$suboptions['label']}}</a></li>
+                            @endforeach
+                        </ul>
+                        @endif
+                    
+                </li>
             @endforeach
         @endif
                 <!--<li><a href="#"><span>CONTACTOS</span></a></li>-->

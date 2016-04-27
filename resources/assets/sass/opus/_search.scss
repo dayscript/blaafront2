@@ -1,8 +1,9 @@
+
+
+
 .red{
   color: #cd1c40;
 }
-
-
 .acerca-de-opus{
   color:#992e40;
   width: 100%;
@@ -14,11 +15,14 @@
   text-decoration: underline;
   font-size: 1em;
 }
+
+/**************************/
+/*Estilos para el buscador*/
+/**************************/
 .search{
   height: auto;
   background-color: #a3122f;
   color: white;
-
   md-autocomplete{
     height: 30px;
     md-autocomplete-wrap{
@@ -33,7 +37,6 @@
       }
     }
   }
-
   md-input-container{
     float: left;
     margin: 0;
@@ -44,7 +47,6 @@
     input{
       color:#666;
     }
-
   }
   select{
     height: 30px;
@@ -61,7 +63,6 @@
   md-input-container.md-input-has-value{
     margin:0;
   }
-
   .about{
     padding: 10px;
     background-color: #cccccc;
@@ -79,7 +80,6 @@
   .fields{
     .field{
       padding: 10px;
-
       label{
         color: white;
         font-size: 0.9em;
@@ -113,6 +113,9 @@
   }
 }
 
+/***************************************/
+/* Estilos vista de resultados         */
+/***************************************/
 
 .results-view{
   .paginator{
@@ -195,6 +198,9 @@
   }
 
 }
+/****************************/
+/*Estilos buscador acrodion */
+/****************************/
 .filter-accordion{
   .accordion-title{
     background-color: #CA3352;
@@ -211,6 +217,7 @@
 
   }
 }
+
 .detail,.LeftBar{
   h5{
     color:#cd1c40;
@@ -221,8 +228,8 @@
   h6{
     color:#cd1c40;
   }
-
 }
+
 .LeftBar{
   background-color:#dcdcdc;
 }
@@ -331,28 +338,28 @@ hr{
   color: #fff !important;
 }
 
-.node-detail{
-  .item-li {
-
-
-  }
-  .titulo{
-    display:inline-block;
+.page-concierto{
+  .node-detail{
+    .item-li {
+    }
+    .titulo{
+      display:inline-block;
+        white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .compositor{
+       display:inline-block;
       white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .compositor{
-     display:inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-  .año{
-     display:inline-block;
-       white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .año{
+       display:inline-block;
+         white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
+  }
 }

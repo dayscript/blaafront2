@@ -7,9 +7,11 @@
 @import 'jquery-ui.structure.min';
 @import 'reset.min';
 @import "components/colors";
+@import "menus/submenus";
 @import "sections/opus";
 @import 'styles';
-@import "opus/search";
+@import 'opus/search';
+@import "opus/opus-page";
 @import "notifications/notifications";
 
 
@@ -52,5 +54,3 @@
 @include foundation-top-bar;
 @include motion-ui-transitions;
 @include motion-ui-animations;
-
-

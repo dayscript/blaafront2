@@ -43,10 +43,7 @@ elixir(function(mix) {
     mix.copy('bower_components/angular-aria/angular-aria.min.js', 'public/js/');
     mix.copy('bower_components/angular-messages/angular-messages.min.js', 'public/js/');
     mix.copy('bower_components/angular-route/angular-route.min.js', 'public/js/');
-    mix.copy('bower_components/foundation-sites/js/foundation.core.js', 'public/js/');
-    mix.copy('bower_components/foundation-sites/js/foundation.accordion.js', 'public/js/');
 
-    mix.copy('bower_components/foundation-sites/js/foundation.core.js', 'public/js/');
     mix.copy('bower_components/foundation-sites/js/foundation.accordion.js', 'public/js/');
     mix.copy('bower_components/foundation-sites/js/foundation.core.js', 'public/js/');
 
@@ -55,8 +52,12 @@ elixir(function(mix) {
     mix.copy('bower_components/foundation-sites/js/foundation.util.motion.js', 'public/js/');
     mix.copy('bower_components/foundation-sites/js/foundation.util.nest.js', 'public/js/');
     mix.copy('bower_components/foundation-sites/js/foundation.util.touch.js', 'public/js/');
+    mix.copy('bower_components/foundation-sites/js/foundation.util.box.js', 'public/js/');
+
     mix.copy('bower_components/foundation-sites/js/foundation.accordionMenu.js', 'public/js/');
-   
+    mix.copy('bower_components/foundation-sites/js/foundation.dropdown.js', 'public/js/');
+    mix.copy('bower_components/foundation-sites/js/foundation.dropdownMenu.js', 'public/js/');
+
     mix.copy('node_modules/motion-ui/dist/motion-ui.min.js', 'public/js/');
 
 

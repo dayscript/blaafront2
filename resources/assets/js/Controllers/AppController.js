@@ -9,14 +9,19 @@ App.constant('SERVER',{
     'port':'80'
 });
 
-App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootScope,SERVER){
+App.constant('SERVERFRONT',{
+    'domain':'http://blaafront2.demodayscript.com',
+    'port':'80'
+});
+
+App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){
   $scope.searchTextChange = function(text) {
    }
 
    $scope.GetAutors = function(){
         var deferred = $q.defer();
         //$http.get(SERVER.domain + '/autocomplete/autores')
-        $http.get('http://blaafront2.demodayscript.com/json/autores.json')
+        $http.get(SERVERFRONT.domain+'/json/autores.json')
             .success(function(data,status,headers,config){
                 $scope.data = data.nodes
                 console.log($scope.data);
@@ -27,7 +32,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
     $scope.GetComposers = function(){
          var deferred = $q.defer();
          //$http.get(SERVER.domain + '/autocomplete/compositores')
-         $http.get('http://blaafront2.demodayscript.com/json/compositores.json')
+         $http.get(SERVERFRONT.domain+'/json/compositores.json')
               .success(function(data,status,headers,config){
                  $scope.data = data.nodes
                  deferred.resolve($scope.data);

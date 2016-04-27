@@ -10,9 +10,23 @@ use File;
 
 class PagesController extends Controller
 {
+
+    public function __construnct(){
+        $path = app_path();
+        dd($path);
+    }
+    public function pruebas(){
+      parent::__construct();
+      print 'entro';
+    }
+
+    /*************************/
+    /* Variables constantes  */
+    /*************************/
     public function host(){
       return env('HOST');
     }
+
     /****************************************************/
     /*  retorna un string con los elementos de busqueda */
     /****************************************************/
@@ -129,7 +143,7 @@ class PagesController extends Controller
       $json = [];
       foreach($filesInFolder as $path ){
         $file = pathinfo($path);
-        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.demodayscript.com/img/conciertos/'.$file['basename'];
+        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.local/img/conciertos/'.$file['basename'];
       }
       $filesRandom=[];
       for( $i=0; $i <= 2;$i++ ){

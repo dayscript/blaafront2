@@ -1087,6 +1087,15 @@ textarea {
   resize: none;
   vertical-align: top; }
 
+.page-musica .subMenu.musica ul.menu.trasparent {
+  background: rgba(209, 49, 82, 0.51); }
+  .page-musica .subMenu.musica ul.menu.trasparent li {
+    padding: 10px;
+    border: 1px solid rgba(203, 44, 76, 0.49); }
+    .page-musica .subMenu.musica ul.menu.trasparent li a {
+      background: rgba(255, 255, 255, 0);
+      border-top: 0; }
+
 .opus_search {
   background-color: #D02B4C; }
 
@@ -1129,7 +1138,7 @@ a {
   display: block;
   position: relative;
   width: 100%;
-  min-height: 100%;
+  min-height: auto;
   margin: 0px;
   padding: 0px; }
 
@@ -1440,42 +1449,6 @@ a {
   visibility: visible;
   opacity: 1; }
 
-.subMenu .subContent {
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  background: #7D7D7D url("/img/textura.png") repeat top left;
-  letter-spacing: 0.06rem;
-  position: relative;
-  z-index: 3;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
-  margin: 0; }
-
-.subMenu.cMusica .subContent {
-  background-color: #D02B4C; }
-
-.subMenu.cMusica > ul {
-  background-color: #D13152; }
-
-.subMenu.cMuseo .subContent {
-  background-color: #9F6A35; }
-
-.subMenu.cArte .subContent {
-  background-color: #EB9933; }
-
-.subMenu.cBvirtual .subContent {
-  background-color: #5EA0C4; }
-
-.subMenu.cBiblio .subContent {
-  background-color: #9CBA42; }
-
-.subMenu.cAreas .subContent {
-  background-color: #6D3362; }
-
-.subMenu.cIndex .subContent {
-  background-color: #7D7D7D; }
-
-/*pie de pagina*/
 .pageFooter {
   display: block;
   position: relative;
@@ -2979,6 +2952,9 @@ a {
   text-decoration: underline;
   font-size: 1em; }
 
+/**************************/
+/*Estilos para el buscador*/
+/**************************/
 .search {
   height: auto;
   background-color: #a3122f;
@@ -3055,6 +3031,9 @@ a {
     display: inline-block;
     font-size: 17px; }
 
+/***************************************/
+/* Estilos vista de resultados         */
+/***************************************/
 .results-view .paginator {
   background: #dcdcdc;
   padding: 10px 0; }
@@ -3124,6 +3103,9 @@ a {
   background-color: #A3122F;
   color: #fff; }
 
+/****************************/
+/*Estilos buscador acrodion */
+/****************************/
 .filter-accordion .accordion-title {
   background-color: #CA3352;
   color: #fff; }
@@ -3241,23 +3223,72 @@ hr.light {
 .close-button {
   color: #fff !important; }
 
-.node-detail .titulo {
+.page-concierto .node-detail .titulo {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
 
-.node-detail .compositor {
+.page-concierto .node-detail .compositor {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
 
-.node-detail .año {
+.page-concierto .node-detail .año {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
+
+.page-musica .subMenu .subContent {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background: #7D7D7D url("/img/textura.png") repeat top left;
+  letter-spacing: 0.06rem;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  margin: 0; }
+
+.page-musica .subMenu.musica .subContent {
+  background-color: #D02B4C; }
+
+.page-musica .subMenu.musica ul.menu {
+  background-color: #D13152; }
+
+.page-musica .subMenu.musica ul.menu {
+  background-color: #D13152; }
+
+.page-museo .subMenu .subContent {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background: #7D7D7D url("/img/textura.png") repeat top left;
+  letter-spacing: 0.06rem;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  margin: 0; }
+
+.page-museo .subMenu.cMuseo .subContent {
+  background-color: #9F6A35; }
+
+.page-museo .subMenu.cArte .subContent {
+  background-color: #EB9933; }
+
+.page-museo .subMenu.cBvirtual .subContent {
+  background-color: #5EA0C4; }
+
+.page-museo .subMenu.cBiblio .subContent {
+  background-color: #9CBA42; }
+
+.page-museo .subMenu.cAreas .subContent {
+  background-color: #6D3362; }
+
+.page-museo .subMenu.cIndex .subContent {
+  background-color: #7D7D7D; }
 
 /* Notifications */
 .callout.large.success.custom {

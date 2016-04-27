@@ -32,5 +32,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('musica/page/{id_page}', 'PagesController@OpusSearch');
     Route::get('musica/concierto/{nid}', 'PagesController@OpusConcertDetail');
     Route::get('musica/conciertos/img/json', 'PagesController@ImgConcertsJson');
+    Route::get('musica/pruebas', 'PagesController@pruebas')
+          ->where('product', '(milk|cheese)');
 
 });

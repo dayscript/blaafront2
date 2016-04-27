@@ -6,6 +6,8 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Request;
+
 
 class Controller extends BaseController
 {
@@ -15,7 +17,7 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        $this->menu = [
+        $this->menu['menu'] = [
             '/' => [
                 'url'      => 'http://www.banrepcultural.org/',
                 'label'    => 'Actividad cultural<br>del Banco de la<br>República',
@@ -67,74 +69,191 @@ class Controller extends BaseController
                 'options'  => [
                     'musica/temporada'    => [
                         'label' => 'Temporada nacional de conciertos',
-                        'url'   => 'musica/temporada'
+                        'url'   => 'musica/temporada',
+                        'suboptions'=>[
+                            'Uno'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Dos'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Tres'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cuatro'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cinco'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                        ]
                     ],
                     'musica/programacion' => [
                         'label' => 'Programación académica',
-                        'url'   => 'musica/programacion'
+                        'url'   => 'musica/programacion',
+                        'suboptions'=>[
+                            'Uno'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Dos'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Tres'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cuatro'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cinco'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                        ]
                     ],
                     'musica/jovenes'      => [
                         'label' => 'Convocatoria jóvenes intérpretes',
-                        'url'   => 'musica/jovenes'
+                        'url'   => 'musica/jovenes',
+                        'suboptions'=>[
+                            'Uno'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Dos'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Tres'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cuatro'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cinco'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                        ]
                     ],
                     'musica/lasala'       => [
                         'label' => 'La sala',
-                        'url'   => 'musica/lasala'
+                        'url'   => 'musica/lasala',
+                        'suboptions'=>[
+                            'Uno'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Dos'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Tres'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cuatro'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cinco'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                        ]
                     ],
                     '/musica/especiales'  => [
                         'label' => 'Programas especiales',
-                        'url'   => '/musica/especiales'
+                        'url'   => '/musica/especiales',
+                        'suboptions'=>[
+                            'Uno'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Dos'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Tres'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cuatro'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cinco'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                        ]
                     ],
                     'musica/boleteria'    => [
                         'label' => 'Boletería',
-                        'url'   => 'musica/boleteria'
+                        'url'   => 'musica/boleteria',
+                        'suboptions'=>[
+                            'Uno'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Dos'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Tres'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cuatro'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cinco'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                        ]
                     ],
                     '/musica/info'        => [
-                        'label' =>
-                            'Información práctica',
-                        'url'   => 'musica/info'
+                        'label' => 'Información práctica',
+                        'url'   => 'musica/info',
+                        'suboptions'=>[
+                            'Uno'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Dos'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Tres'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cuatro'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                            'Cinco'=>[
+                                'label' => 'Temporada nacional de conciertos',
+                                'url'   => 'musica/temporada'
+                            ],
+                        ]
                     ]
                 ]
             ],
-            'musica/concierto/'      => [
-                'label'    => 'Música',
-                'title'    => 'Opus',
-                'subtitle' => 'Histórico de conciertos del Banco de la República',
-                'url'      => 'musica',
-                'style'    => 'cMusica',
-                'options'  => [
-                    'musica/temporada'    => [
-                        'label' => 'Temporada nacional de conciertos',
-                        'url'   => 'musica/temporada'
-                    ],
-                    'musica/programacion' => [
-                        'label' => 'Programación académica',
-                        'url'   => 'musica/programacion'
-                    ],
-                    'musica/jovenes'      => [
-                        'label' => 'Convocatoria jóvenes intérpretes',
-                        'url'   => 'musica/jovenes'
-                    ],
-                    'musica/lasala'       => [
-                        'label' => 'La sala',
-                        'url'   => 'musica/lasala'
-                    ],
-                    '/musica/especiales'  => [
-                        'label' => 'Programas especiales',
-                        'url'   => '/musica/especiales'
-                    ],
-                    'musica/boleteria'    => [
-                        'label' => 'Boletería',
-                        'url'   => 'musica/boleteria'
-                    ],
-                    '/musica/info'        => [
-                        'label' =>
-                            'Información práctica',
-                        'url'   => 'musica/info'
-                    ]
-                ]
-            ]
         ];
+        $seccion = explode('/',Request::path());
+        $this->menu['submenu'] = $this->menu['menu'][$seccion[0]];
         view()->share('menu',$this->menu);
     }
 

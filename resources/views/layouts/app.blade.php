@@ -18,7 +18,7 @@
 
 </head>
 <base href="/" />
-<body>
+<body class="{{ get_css_class_for_page('page') }}">
     @include('partials.header')
 <div id="mainWrapper">
     <div class="mainContent row medium-collapse ">
@@ -50,8 +50,10 @@
 <script src="{{ asset('js/foundation.util.nest.js')  }}"></script>
 <script src="{{ asset('js/foundation.util.touch.js')  }}"></script>
 <script src="{{ asset('js/foundation.accordionMenu.js')  }}"></script>
+<script src="{{ asset('js/foundation.util.box.js')  }}"></script>
+<script src="{{ asset('js/foundation.dropdown.js')  }}"></script>
+<script src="{{ asset('js/foundation.dropdownMenu.js')  }}"></script>
 <script src="{{ asset('js/motion-ui.min.js')  }}"></script>
-
 <script src="{{ asset('js/angular-material.min.js')  }}"></script>
 <script src="{{ asset('js/angular-aria.min.js')  }}"></script>
 <script src="{{ asset('js/angular-animate.min.js')  }}"></script>
@@ -59,8 +61,6 @@
 <script src="{{ asset('js/angular-route.min.js')  }}"></script>
 <script src="{{ asset('js/prefixfree.min.js')  }}"></script>
 <script src="{{ asset('js/interface.js')  }}"></script>
-
-
 
 
 <script src="{{ elixir('js/app.js')  }}"></script>

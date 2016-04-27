@@ -15,8 +15,8 @@
         </div>
         <nav class="mainMenu large-12">
             <ul class="menu">
-                @foreach($menu as $url=>$item)
-                    <li><a href="{{ $item['url'] }}" class="{{ $item['style'] }} {{ Request::is($url)?'active':'' }}" ><span>{!! $item['label']  !!}</span></a></li>
+                @foreach($menu['menu'] as  $url => $item)
+                    <li><a href="{{ $item['url'] }}" class="{{$item['style']}} {{ url_is_active( Request::path(),$item['url'] ) }}" ><span>{!! $item['label']  !!}</span></a></li>
                 @endforeach
             </ul>
         </nav>
