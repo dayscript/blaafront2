@@ -3004,7 +3004,7 @@ a {
     text-align: left;
     font-family: 'Roboto', sans-serif; }
   .search .fields .field {
-    padding: 10px; }
+    padding: 10px 10px 5px 10px; }
     .search .fields .field label {
       color: white;
       font-size: 0.9em;
