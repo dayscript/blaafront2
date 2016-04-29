@@ -1,5 +1,9 @@
+/*Variables*/
 
-
+$sombraBloqueBuscadorOpus : 0px 0px 10px rgb(163, 18, 47);
+$colorBlanco : #fff;
+$fondoRosadoBuscador:#a3122f;
+/*Variables*/
 
 .red{
   color: #cd1c40;
@@ -16,13 +20,18 @@
   font-size: 1em;
 }
 
+.collage-imagenes{
+  float: left;
+}
 /**************************/
 /*Estilos para el buscador*/
 /**************************/
 .search{
   height: auto;
-  background-color: #a3122f;
+  background-color: $fondoRosadoBuscador;
   color: white;
+  box-shadow: $sombraBloqueBuscadorOpus;
+
   md-autocomplete{
     height: 30px;
     md-autocomplete-wrap{
@@ -63,6 +72,14 @@
   md-input-container.md-input-has-value{
     margin:0;
   }
+  md-input-container{
+    input[name="year"]{
+      color:$colorBlanco;
+      border: 1px solid;
+      width: 60px;
+    }
+  }
+
   .about{
     padding: 10px;
     background-color: #cccccc;
@@ -96,7 +113,7 @@
         border: 1px solid #eee;
         padding: 5px;
         color: white;
-        background-color: #a3122f;
+        background-color: $fondoRosadoBuscador;
         font-family: 'Roboto', sans-serif;
         margin: 2px 0;
         font-size: 0.9em;
@@ -151,7 +168,6 @@
       float: left;
     }
   }
-
   .filters{
     height: 100px;
     background-color: #c3c3c3;
@@ -166,7 +182,7 @@
   input[type='submit']{
    border: 1px solid #FFFFFF;
     padding: 0px 6px;
-    color: #a3122f;
+    color: $fondoRosadoBuscador;
     background-color: #eee;
     font-style: normal;
     font-size: 0.9em;
@@ -194,7 +210,7 @@
   .accordion-title{
 
     background-color: #A3122F;
-    color: #fff;
+    color: $colorBlanco;
   }
 
 }
@@ -204,11 +220,11 @@
 .filter-accordion{
   .accordion-title{
     background-color: #CA3352;
-    color: #fff;
+    color: $colorBlanco;
   }
   .is-active .accordion-title{
     background-color: #A3122F;
-    color: #fff;
+    color: $colorBlanco;
   }
   .accordion-content{
     background-color: #c3c3c3;
@@ -246,7 +262,7 @@
     position: absolute;
     bottom: 0px;
     font-size: 13px;
-    color: #fff;
+    color: $colorBlanco;
     line-height: 21px;
     padding: 6px;
 }
@@ -290,7 +306,7 @@ padding-right:15px;
 .search-similar{
   background-color: #cd2043;
   span{
-    color: #fff;
+    color: $colorBlanco;
     margin: 10px 0;
     display: inline-block;
     width: 100%;
@@ -312,7 +328,7 @@ padding-right:15px;
 }
 hr{
   &.light{
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid $colorBlanco;
   }
 }
 .item{
@@ -335,7 +351,7 @@ hr{
     text-align: center;
 }
 .close-button{
-  color: #fff !important;
+  color: $colorBlanco !important;
 }
 
 .page-concierto{

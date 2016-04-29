@@ -19,10 +19,10 @@
 </head>
 <base href="/" />
 <body class="{{ get_css_class_for_page('page') }}">
-    @include('partials.header')
-<div id="mainWrapper">
-    <div class="mainContent row medium-collapse ">
-        @include('partials.submenu')
+    @include('partials.encabezado')
+<div id="mainWrapper" class=" row ">
+    <div class="mainContent columns row collapse">
+        @include('partials.menuSecundario')
          @if (session('status'))
             <div data-alert class="callout large success custom" data-closable="slide-out-right">
                 {{ session('status') }}
@@ -35,7 +35,7 @@
     </div>
 </div>
 <div class="columns medium-12">
-    @include('partials.footer')
+    @include('partials.pie')
 </div>
 @yield('scripts')
 <script src="{{ asset('js/jquery.min.js')  }}"></script>

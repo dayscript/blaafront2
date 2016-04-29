@@ -1088,16 +1088,391 @@ textarea {
   vertical-align: top; }
 
 .page-musica .subMenu.musica ul.menu.trasparent {
-  background: rgba(209, 49, 82, 0.51); }
+  background: rgba(209, 49, 82, 0.51);
+  border: none; }
   .page-musica .subMenu.musica ul.menu.trasparent li {
     padding: 10px;
     border: 1px solid rgba(203, 44, 76, 0.49); }
     .page-musica .subMenu.musica ul.menu.trasparent li a {
       background: rgba(255, 255, 255, 0);
       border-top: 0; }
+    .page-musica .subMenu.musica ul.menu.trasparent li:hover {
+      background-color: #D13152; }
+
+.page-musica .subMenu .menu.dropdown {
+  box-shadow: 0px 4px 10px rgba(88, 88, 88, 0.49); }
+
+.page-musica .dropdown.menu .is-dropdown-submenu-parent.is-down-arrow > a::after {
+  border-color: #FFFFFF transparent transparent; }
 
 .opus_search {
   background-color: #D02B4C; }
+
+/*Seccion de musica */
+/*Variables*/
+/*Variables*/
+.red {
+  color: #cd1c40; }
+
+.acerca-de-opus {
+  color: #992e40;
+  width: 100%;
+  display: inline-block;
+  background: url("http://blaafront2.local/img/acerca_de_opus.png") no-repeat;
+  background-position: 100%;
+  background-size: 15px 15px;
+  text-align: center;
+  text-decoration: underline;
+  font-size: 1em; }
+
+.collage-imagenes {
+  float: left; }
+
+/**************************/
+/*Estilos para el buscador*/
+/**************************/
+.search {
+  height: auto;
+  background-color: #a3122f;
+  color: white;
+  box-shadow: 0px 0px 10px #a3122f; }
+  .search md-autocomplete {
+    height: 30px; }
+    .search md-autocomplete md-autocomplete-wrap {
+      height: 30px; }
+      .search md-autocomplete md-autocomplete-wrap input {
+        height: 30px;
+        font-size: 0.9em;
+        margin: 0;
+        padding: 0 15px;
+        line-height: 1;
+        color: #666; }
+  .search md-input-container {
+    float: left;
+    margin: 0;
+    height: 38px;
+    margin-top: 12px;
+    margin-right: 24px;
+    margin-bottom: 10px; }
+    .search md-input-container input {
+      color: #666; }
+  .search select {
+    height: 30px;
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0 15px;
+    line-height: 1;
+    color: #666; }
+  .search md-slider {
+    margin-left: 0px;
+    margin-right: 0px; }
+  .search md-input-container.md-input-has-value {
+    margin: 0; }
+  .search md-input-container input[name="year"] {
+    color: #fff;
+    border: 1px solid;
+    width: 60px; }
+  .search .about {
+    padding: 10px;
+    background-color: #cccccc;
+    color: #94132c;
+    font-size: 0.7rem; }
+  .search .searchlabel {
+    padding: 9px 9px;
+    background-color: #820e26;
+    font-size: 0.9em;
+    line-height: 18px;
+    text-align: left;
+    font-family: 'Roboto', sans-serif; }
+  .search .fields .field {
+    padding: 10px 10px 5px 10px; }
+    .search .fields .field label {
+      color: white;
+      font-size: 0.9em;
+      font-family: 'Roboto', sans-serif; }
+    .search .fields .field input[type='text'] {
+      border: none;
+      height: 30px;
+      font-family: 'Roboto', sans-serif;
+      color: #666;
+      font-size: 0.9em; }
+    .search .fields .field input[type='submit'], .search .fields .field input[type='reset'] {
+      border: 1px solid #eee;
+      padding: 5px;
+      color: white;
+      background-color: #a3122f;
+      font-family: 'Roboto', sans-serif;
+      margin: 2px 0;
+      font-size: 0.9em; }
+  .search .filters {
+    height: 100px;
+    background-color: #c3c3c3; }
+  .search span {
+    padding: 20px;
+    display: inline-block;
+    font-size: 17px; }
+
+/***************************************/
+/* Estilos vista de resultados         */
+/***************************************/
+.results-view .paginator {
+  background: #dcdcdc;
+  padding: 10px 0; }
+
+.results-view .number-page {
+  text-align: right; }
+  .results-view .number-page a {
+    color: #666;
+    font-size: 0.8em;
+    padding: 0 5px; }
+  .results-view .number-page.search {
+    text-align: left;
+    background: none; }
+
+.results-view .results {
+  padding: 20px;
+  background-color: white;
+  color: black;
+  display: inline-block;
+  overflow-y: scroll;
+  height: 513px;
+  border-top: 3px #af2743 solid; }
+
+.results-view .fields {
+  display: inline-block;
+  margin-top: 5px; }
+  .results-view .fields .field {
+    float: left; }
+
+.results-view .filters {
+  height: 100px;
+  background-color: #c3c3c3;
+  padding: 12px 2px; }
+
+.results-view input[type='text'] {
+  width: 70%;
+  float: left;
+  height: 22px;
+  margin: 0; }
+
+.results-view input[type='submit'] {
+  border: 1px solid #FFFFFF;
+  padding: 0px 6px;
+  color: #a3122f;
+  background-color: #eee;
+  font-style: normal;
+  font-size: 0.9em; }
+
+.results-view .concert-date {
+  font-size: 10px;
+  color: #999; }
+
+.results-view .concert-artist a {
+  font-size: 1.2em;
+  color: #cc1f43; }
+
+.results-view .concert-title, .results-view .red {
+  font-size: 0.9em;
+  color: #9a3e4f;
+  line-height: 18px; }
+
+.results-view .concert-instrument {
+  font-size: 10px;
+  color: #999; }
+
+.results-view .accordion-title {
+  background-color: #A3122F;
+  color: #fff; }
+
+/****************************/
+/*Estilos buscador acrodion */
+/****************************/
+.filter-accordion .accordion-title {
+  background-color: #CA3352;
+  color: #fff; }
+
+.filter-accordion .is-active .accordion-title {
+  background-color: #A3122F;
+  color: #fff; }
+
+.filter-accordion .accordion-content {
+  background-color: #c3c3c3;
+  color: #464646;
+  font-size: 0.9em; }
+
+.detail h5, .LeftBar h5 {
+  color: #cd1c40; }
+
+.detail h4, .LeftBar h4 {
+  color: #cd1c40; }
+
+.detail h6, .LeftBar h6 {
+  color: #cd1c40; }
+
+.LeftBar {
+  background-color: #dcdcdc; }
+
+.search-detail {
+  padding: 20px; }
+
+.list-program ul {
+  list-style-type: decimal; }
+
+.hover-info-related {
+  background-color: rgba(9, 9, 9, 0.74);
+  position: absolute;
+  bottom: 0px;
+  font-size: 13px;
+  color: #fff;
+  line-height: 21px;
+  padding: 6px; }
+
+.borders-a {
+  border-top: solid 5px #cd1c40;
+  border-bottom: solid 2px #cd1c40; }
+
+.padding-a {
+  padding-top: 15px;
+  padding-bottom: 15px; }
+
+.padding-b {
+  padding-left: 15px;
+  padding-right: 15px; }
+
+.text-gray {
+  color: #666666; }
+
+.text-center {
+  text-align: center; }
+
+.bold {
+  font-weight: bold; }
+
+.coursive {
+  font-style: oblique; }
+
+.breadcrumb {
+  height: 50px;
+  background-color: #c3c3c3; }
+
+.node-related {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 125px;
+  position: relative; }
+
+.search-similar {
+  background-color: #cd2043; }
+  .search-similar span {
+    color: #fff;
+    margin: 10px 0;
+    display: inline-block;
+    width: 100%;
+    text-transform: capitalize; }
+
+.input {
+  margin: 5px 0;
+  display: inline-block; }
+
+.image {
+  height: 229px; }
+
+.image-landing {
+  height: 225px; }
+
+hr.light {
+  border-bottom: 1px solid #fff; }
+
+.item {
+  font-size: 0.8em;
+  color: #333; }
+  .item.red {
+    color: #b91737;
+    font-size: 0.8em; }
+
+.callout.large.success.custom {
+  padding: 5px;
+  color: white;
+  background: #808080 !important;
+  border: none;
+  font-size: 15px !important;
+  text-shadow: none;
+  margin: 0;
+  text-align: center; }
+
+.close-button {
+  color: #fff !important; }
+
+.page-concierto .node-detail .titulo {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.page-concierto .node-detail .compositor {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.page-concierto .node-detail .año {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.page-musica .subMenu .subContent {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background: #7D7D7D url("/img/textura.png") repeat top left;
+  letter-spacing: 0.06rem;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  margin: 0; }
+
+.page-musica .subMenu.musica .subContent {
+  background-color: #D02B4C; }
+
+.page-musica .subMenu.musica ul.menu {
+  background-color: #D13152; }
+
+.page-musica .subMenu.musica ul.menu {
+  background-color: #D13152; }
+
+.page-musica figure {
+  margin: 0; }
+
+.page-museo .subMenu .subContent {
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background: #7D7D7D url("/img/textura.png") repeat top left;
+  letter-spacing: 0.06rem;
+  position: relative;
+  z-index: 3;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  margin: 0; }
+
+.page-museo .subMenu.cMuseo .subContent {
+  background-color: #9F6A35; }
+
+.page-museo .subMenu.cArte .subContent {
+  background-color: #EB9933; }
+
+.page-museo .subMenu.cBvirtual .subContent {
+  background-color: #5EA0C4; }
+
+.page-museo .subMenu.cBiblio .subContent {
+  background-color: #9CBA42; }
+
+.page-museo .subMenu.cAreas .subContent {
+  background-color: #6D3362; }
+
+.page-museo .subMenu.cIndex .subContent {
+  background-color: #7D7D7D; }
 
 /*Copyright (c) 2015, All rights reserved.
 * Stylesheet/Hoja de estilos: style-header.css
@@ -1135,12 +1510,12 @@ a {
 
 /*Contenedor principal*/
 #mainWrapper {
-  display: block;
+  /*display: block;
   position: relative;
   width: 100%;
   min-height: auto;
   margin: 0px;
-  padding: 0px; }
+  padding: 0px;*/ }
 
 /*Encabezado*/
 .pageHeader {
@@ -1248,12 +1623,8 @@ a {
 
 /*Menu principal*/
 .mainMenu {
-  display: block;
-  width: 100%;
   max-width: 960px;
-  padding: 0px;
   margin: 0px auto;
-  background: none;
   color: #999999;
   line-height: 0.8rem;
   text-align: center;
@@ -2937,358 +3308,6 @@ a {
 
 .cMusica .subMenu ul li:hover > a, .cMusica .subMenu ul li a.active, .cMusica .menuFooter ul li a:hover {
   background-color: #A8203B; }
-
-.red {
-  color: #cd1c40; }
-
-.acerca-de-opus {
-  color: #992e40;
-  width: 100%;
-  display: inline-block;
-  background: url("http://blaafront2.local/img/acerca_de_opus.png") no-repeat;
-  background-position: 100%;
-  background-size: 15px 15px;
-  text-align: center;
-  text-decoration: underline;
-  font-size: 1em; }
-
-/**************************/
-/*Estilos para el buscador*/
-/**************************/
-.search {
-  height: auto;
-  background-color: #a3122f;
-  color: white; }
-  .search md-autocomplete {
-    height: 30px; }
-    .search md-autocomplete md-autocomplete-wrap {
-      height: 30px; }
-      .search md-autocomplete md-autocomplete-wrap input {
-        height: 30px;
-        font-size: 0.9em;
-        margin: 0;
-        padding: 0 15px;
-        line-height: 1;
-        color: #666; }
-  .search md-input-container {
-    float: left;
-    margin: 0;
-    height: 38px;
-    margin-top: 12px;
-    margin-right: 24px;
-    margin-bottom: 10px; }
-    .search md-input-container input {
-      color: #666; }
-  .search select {
-    height: 30px;
-    font-size: 0.9em;
-    margin: 0;
-    padding: 0 15px;
-    line-height: 1;
-    color: #666; }
-  .search md-slider {
-    margin-left: 0px;
-    margin-right: 0px; }
-  .search md-input-container.md-input-has-value {
-    margin: 0; }
-  .search .about {
-    padding: 10px;
-    background-color: #cccccc;
-    color: #94132c;
-    font-size: 0.7rem; }
-  .search .searchlabel {
-    padding: 9px 9px;
-    background-color: #820e26;
-    font-size: 0.9em;
-    line-height: 18px;
-    text-align: left;
-    font-family: 'Roboto', sans-serif; }
-  .search .fields .field {
-    padding: 10px 10px 5px 10px; }
-    .search .fields .field label {
-      color: white;
-      font-size: 0.9em;
-      font-family: 'Roboto', sans-serif; }
-    .search .fields .field input[type='text'] {
-      border: none;
-      height: 30px;
-      font-family: 'Roboto', sans-serif;
-      color: #666;
-      font-size: 0.9em; }
-    .search .fields .field input[type='submit'], .search .fields .field input[type='reset'] {
-      border: 1px solid #eee;
-      padding: 5px;
-      color: white;
-      background-color: #a3122f;
-      font-family: 'Roboto', sans-serif;
-      margin: 2px 0;
-      font-size: 0.9em; }
-  .search .filters {
-    height: 100px;
-    background-color: #c3c3c3; }
-  .search span {
-    padding: 20px;
-    display: inline-block;
-    font-size: 17px; }
-
-/***************************************/
-/* Estilos vista de resultados         */
-/***************************************/
-.results-view .paginator {
-  background: #dcdcdc;
-  padding: 10px 0; }
-
-.results-view .number-page {
-  text-align: right; }
-  .results-view .number-page a {
-    color: #666;
-    font-size: 0.8em;
-    padding: 0 5px; }
-  .results-view .number-page.search {
-    text-align: left;
-    background: none; }
-
-.results-view .results {
-  padding: 20px;
-  background-color: white;
-  color: black;
-  display: inline-block;
-  overflow-y: scroll;
-  height: 513px;
-  border-top: 3px #af2743 solid; }
-
-.results-view .fields {
-  display: inline-block;
-  margin-top: 5px; }
-  .results-view .fields .field {
-    float: left; }
-
-.results-view .filters {
-  height: 100px;
-  background-color: #c3c3c3;
-  padding: 12px 2px; }
-
-.results-view input[type='text'] {
-  width: 70%;
-  float: left;
-  height: 22px;
-  margin: 0; }
-
-.results-view input[type='submit'] {
-  border: 1px solid #FFFFFF;
-  padding: 0px 6px;
-  color: #a3122f;
-  background-color: #eee;
-  font-style: normal;
-  font-size: 0.9em; }
-
-.results-view .concert-date {
-  font-size: 10px;
-  color: #999; }
-
-.results-view .concert-artist a {
-  font-size: 1.2em;
-  color: #cc1f43; }
-
-.results-view .concert-title, .results-view .red {
-  font-size: 0.9em;
-  color: #9a3e4f;
-  line-height: 18px; }
-
-.results-view .concert-instrument {
-  font-size: 10px;
-  color: #999; }
-
-.results-view .accordion-title {
-  background-color: #A3122F;
-  color: #fff; }
-
-/****************************/
-/*Estilos buscador acrodion */
-/****************************/
-.filter-accordion .accordion-title {
-  background-color: #CA3352;
-  color: #fff; }
-
-.filter-accordion .is-active .accordion-title {
-  background-color: #A3122F;
-  color: #fff; }
-
-.filter-accordion .accordion-content {
-  background-color: #c3c3c3;
-  color: #464646;
-  font-size: 0.9em; }
-
-.detail h5, .LeftBar h5 {
-  color: #cd1c40; }
-
-.detail h4, .LeftBar h4 {
-  color: #cd1c40; }
-
-.detail h6, .LeftBar h6 {
-  color: #cd1c40; }
-
-.LeftBar {
-  background-color: #dcdcdc; }
-
-.search-detail {
-  padding: 20px; }
-
-.list-program ul {
-  list-style-type: decimal; }
-
-.hover-info-related {
-  background-color: rgba(9, 9, 9, 0.74);
-  position: absolute;
-  bottom: 0px;
-  font-size: 13px;
-  color: #fff;
-  line-height: 21px;
-  padding: 6px; }
-
-.borders-a {
-  border-top: solid 5px #cd1c40;
-  border-bottom: solid 2px #cd1c40; }
-
-.padding-a {
-  padding-top: 15px;
-  padding-bottom: 15px; }
-
-.padding-b {
-  padding-left: 15px;
-  padding-right: 15px; }
-
-.text-gray {
-  color: #666666; }
-
-.text-center {
-  text-align: center; }
-
-.bold {
-  font-weight: bold; }
-
-.coursive {
-  font-style: oblique; }
-
-.breadcrumb {
-  height: 50px;
-  background-color: #c3c3c3; }
-
-.node-related {
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 100%;
-  height: 125px;
-  position: relative; }
-
-.search-similar {
-  background-color: #cd2043; }
-  .search-similar span {
-    color: #fff;
-    margin: 10px 0;
-    display: inline-block;
-    width: 100%;
-    text-transform: capitalize; }
-
-.input {
-  margin: 5px 0;
-  display: inline-block; }
-
-.image {
-  height: 229px; }
-
-.image-landing {
-  height: 225px; }
-
-hr.light {
-  border-bottom: 1px solid #fff; }
-
-.item {
-  font-size: 0.8em;
-  color: #333; }
-  .item.red {
-    color: #b91737;
-    font-size: 0.8em; }
-
-.callout.large.success.custom {
-  padding: 5px;
-  color: white;
-  background: #808080 !important;
-  border: none;
-  font-size: 15px !important;
-  text-shadow: none;
-  margin: 0;
-  text-align: center; }
-
-.close-button {
-  color: #fff !important; }
-
-.page-concierto .node-detail .titulo {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
-
-.page-concierto .node-detail .compositor {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
-
-.page-concierto .node-detail .año {
-  display: inline-block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis; }
-
-.page-musica .subMenu .subContent {
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  background: #7D7D7D url("/img/textura.png") repeat top left;
-  letter-spacing: 0.06rem;
-  position: relative;
-  z-index: 3;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
-  margin: 0; }
-
-.page-musica .subMenu.musica .subContent {
-  background-color: #D02B4C; }
-
-.page-musica .subMenu.musica ul.menu {
-  background-color: #D13152; }
-
-.page-musica .subMenu.musica ul.menu {
-  background-color: #D13152; }
-
-.page-museo .subMenu .subContent {
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  background: #7D7D7D url("/img/textura.png") repeat top left;
-  letter-spacing: 0.06rem;
-  position: relative;
-  z-index: 3;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
-  margin: 0; }
-
-.page-museo .subMenu.cMuseo .subContent {
-  background-color: #9F6A35; }
-
-.page-museo .subMenu.cArte .subContent {
-  background-color: #EB9933; }
-
-.page-museo .subMenu.cBvirtual .subContent {
-  background-color: #5EA0C4; }
-
-.page-museo .subMenu.cBiblio .subContent {
-  background-color: #9CBA42; }
-
-.page-museo .subMenu.cAreas .subContent {
-  background-color: #6D3362; }
-
-.page-museo .subMenu.cIndex .subContent {
-  background-color: #7D7D7D; }
 
 /* Notifications */
 .callout.large.success.custom {

@@ -3,7 +3,7 @@
     Validación @parent
 @endsection
 @section('content')
-    @include('partials.facetsSearch')
+    @include('partials.buscadorOpus')
     <div class="columns medium-8 results-view">
         <div class="filters">
             <form action="/musica" method="post">

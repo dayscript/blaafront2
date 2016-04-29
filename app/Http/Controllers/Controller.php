@@ -67,10 +67,10 @@ class Controller extends BaseController
                 'url'      => 'musica',
                 'style'    => 'cMusica',
                 'options'  => [
-                    'musica/temporada'    => [
-                        'label' => 'Temporada nacional de conciertos',
+                    'inicio'    => [
+                        'label' => 'inicio',
                         'url'   => 'musica/temporada',
-                        'suboptions'=>[
+                        /*'suboptions'=>[
                             'Uno'=>[
                                 'label' => 'Temporada nacional de conciertos',
                                 'url'   => 'musica/temporada'
@@ -91,56 +91,56 @@ class Controller extends BaseController
                                 'label' => 'Temporada nacional de conciertos',
                                 'url'   => 'musica/temporada'
                             ],
-                        ]
+                        ]*/
                     ],
-                    'musica/programacion' => [
-                        'label' => 'Programación académica',
+                    'programacion nacional' => [
+                        'label' => 'Programación nacional',
                         'url'   => 'musica/programacion',
                         'suboptions'=>[
-                            'Uno'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'armenia'=>[
+                                'label' => 'armenia',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Dos'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'barranquilla'=>[
+                                'label' => 'barranquilla',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Tres'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'bucaramanga'=>[
+                                'label' => 'bucaramanga',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Cuatro'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'cartagena'=>[
+                                'label' => 'cartagena',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Cinco'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'cali'=>[
+                                'label' => 'cali',
                                 'url'   => 'musica/temporada'
                             ],
                         ]
                     ],
-                    'musica/jovenes'      => [
-                        'label' => 'Convocatoria jóvenes intérpretes',
+                    'programacion bogota'      => [
+                        'label' => 'programación bogotá',
                         'url'   => 'musica/jovenes',
                         'suboptions'=>[
-                            'Uno'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'musica de camara'=>[
+                                'label' => 'musica de camara',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Dos'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'retratos de un compositor'=>[
+                                'label' => 'retratos de un compositor',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Tres'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'musica del mundo'=>[
+                                'label' => 'música el mundo',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Cuatro'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'jóvenes intérpretes'=>[
+                                'label' => 'jóvenes intérpretes',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Cinco'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'la música en familia'=>[
+                                'label' => 'la música en familia',
                                 'url'   => 'musica/temporada'
                             ],
                         ]
@@ -149,42 +149,38 @@ class Controller extends BaseController
                         'label' => 'La sala',
                         'url'   => 'musica/lasala',
                         'suboptions'=>[
-                            'Uno'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'boleteria'=>[
+                                'label' => 'boletería',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Dos'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'rutas de acceso y servicios'=>[
+                                'label' => 'rutas acceso y servicios',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Tres'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'tome nota'=>[
+                                'label' => 'tome nota',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Cuatro'=>[
-                                'label' => 'Temporada nacional de conciertos',
-                                'url'   => 'musica/temporada'
-                            ],
-                            'Cinco'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'descripcion de la sala'=>[
+                                'label' => 'descripcíon de la sala',
                                 'url'   => 'musica/temporada'
                             ],
                         ]
                     ],
-                    '/musica/especiales'  => [
-                        'label' => 'Programas especiales',
+                    'publicaciones y sus colecciones'  => [
+                        'label' => 'publicaciones y sus colecciones',
                         'url'   => '/musica/especiales',
                         'suboptions'=>[
-                            'Uno'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                            'grabaciones'=>[
+                                'label' => 'grabaciones',
                                 'url'   => 'musica/temporada'
                             ],
-                            'Dos'=>[
+                            'retratos de un compositor'=>[
                                 'label' => 'Temporada nacional de conciertos',
                                 'url'   => 'musica/temporada'
                             ],
                             'Tres'=>[
-                                'label' => 'Temporada nacional de conciertos',
+                                'label' => 'adas para cuento de cuerdas',
                                 'url'   => 'musica/temporada'
                             ],
                             'Cuatro'=>[
@@ -197,10 +193,10 @@ class Controller extends BaseController
                             ],
                         ]
                     ],
-                    'musica/boleteria'    => [
-                        'label' => 'Boletería',
+                    'cómo presentar su propuesta artistica'    => [
+                        'label' => 'cómo presentar su propuesta artistica',
                         'url'   => 'musica/boleteria',
-                        'suboptions'=>[
+                        /*'suboptions'=>[
                             'Uno'=>[
                                 'label' => 'Temporada nacional de conciertos',
                                 'url'   => 'musica/temporada'
@@ -221,7 +217,7 @@ class Controller extends BaseController
                                 'label' => 'Temporada nacional de conciertos',
                                 'url'   => 'musica/temporada'
                             ],
-                        ]
+                        ]*/
                     ],
                     '/musica/info'        => [
                         'label' => 'Información práctica',

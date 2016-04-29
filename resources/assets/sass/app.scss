@@ -10,8 +10,12 @@
 @import "menus/submenus";
 @import "sections/opus";
 @import 'styles';
+
+/*Seccion de musica */
 @import 'opus/search';
 @import "opus/opus-page";
+@import "opus/indexOpus";
+
 @import "notifications/notifications";
 
 

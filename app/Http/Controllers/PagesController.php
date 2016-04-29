@@ -137,17 +137,14 @@ class PagesController extends Controller
     /*Mustra json con las imagenes de conciertos Opus*/
     /*************************************************/
     public function ImgConcertsJson(){
-      $path_img = env('PATH_IMG');
-      $filesInFolder = File::allFiles('../'.$path_img);
       $files = [];
       $json = [];
-      foreach($filesInFolder as $path ){
-        $file = pathinfo($path);
-        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.local/img/conciertos/'.$file['basename'];
-      }
       $filesRandom=[];
+      foreach( File::allFiles('../'.env('PATH_IMG')) as $path ){
+        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.local/img/conciertos/'.pathinfo($path)['basename'];
+      }
       for( $i=0; $i <= 2;$i++ ){
-        $filesRandom['nodes'][rand(1,count($files['nodes']))] = $files['nodes'][rand(1,count($files['nodes']))];
+        $filesRandom['nodes'][$i] = $files['nodes'][rand(1,count($files['nodes'])-1)];
       }
       return response()->json($filesRandom);
     }
@@ -155,47 +152,38 @@ class PagesController extends Controller
     /*Mustra detalle del nodo de Opus*/
     /*********************************/
     public function OpusConcertDetail($nid){
-      $host = self::host();
-      $instruments = self::_filterInstruments($host);
-      $countrys = self::_filterCountries($host);
-      $nodes = json_decode(file_get_contents($host.'detalle-nodos-opus/concierto/'.$nid));
+      $nodes = json_decode(file_get_contents(self::host().'detalle-nodos-opus/concierto/'.$nid));
       $titulo = explode(',',$nodes->nodes[0]->titulo);
       $nodes->nodes[0]->titulo = $titulo[1];
+
       /*Obtener Artistas*/
-      $artistas = explode(',',$nodes->nodes[0]->artistas);
-      if(is_array($artistas)){
-          $items = [];
-          foreach ($artistas as $key => $value) {
-            $artistas[$key] = json_decode(file_get_contents($host.'detalle-nodo-opus/artista/'.$value));
-          }
+      $artistas = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->artistas)));
+      $artistas = json_decode(file_get_contents(self::host().'detalle-nodo-opus/artista/'.$artistas));
 
-          $nodes->nodes[0]->artistas = $artistas;
+      foreach ($artistas->artista as $key => $value) {
+        $artistasList[]['artista'] = $value;
       }
-     $integrantes = explode(',',$nodes->nodes[0]->integrantes);
-      if(is_array($integrantes)){
-          $items = [];
-          foreach ($integrantes as $key => $value) {
-            $integrantes[$key] = json_decode(file_get_contents($host.'detalle-nodo-opus/integrante/'.$value));
-          }
-          $nodes->nodes[0]->integrantes = $integrantes;
+      $nodes->nodes[0]->artistas = $artistasList;
+
+      $integrantes = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->integrantes)));
+      $integrantes = json_decode(file_get_contents(self::host().'detalle-nodo-opus/integrante/'.$integrantes));
+      foreach ($integrantes->integrante as $key => $value) {
+         $integrantesList[]['integrante'] = $value;
       }
+      $nodes->nodes[0]->integrantes = $integrantesList;
 
-      $obras = explode(',',$nodes->nodes[0]->obras);
-
-      if(is_array($obras)){
-          $items = [];
-          foreach ($obras as $key => $value) {
-            $obras[$key] = json_decode(file_get_contents($host.'detalle-nodo-opus/obra/'.$value));
-          }
-          $nodes->nodes[0]->obras = $obras;
-
+      $obras = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->obras)));
+      $obras = json_decode(file_get_contents(self::host().'detalle-nodo-opus/obra/'.$obras));
+      foreach ($obras->obra as $key => $value) {
+        $obrasList[]['obra'] = $value;
       }
+      $nodes->nodes[0]->obras = $obrasList;
+
       $node = $nodes->nodes[0];
-
       //dd($node);
-      $nodesRelacionados = json_decode(file_get_contents($host.'detalle-de-contenido/node-relacionado/concert'));
+      $nodesRelacionados = json_decode(file_get_contents(self::host().'detalle-de-contenido/node-relacionado/concert'));
       $nodeR = $nodesRelacionados->nodes;
-      return view('musica.ConcertDetail', compact('node','nodeR'));
+      return view('musica.concertDetail', compact('node','nodeR'));
     }
 
 }

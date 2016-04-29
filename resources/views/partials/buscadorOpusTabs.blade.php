@@ -1,6 +1,6 @@
 <!-- Dayscript 2016 all rigths reserved -->
 <!-- Seccion Search for facets -->
-<div class="columns medium-4">
+<div class="columns medium-4 ">
   <div class="search">
     <div class="fields" ng-controller="SearchController">
       <div class="  medium-12">
