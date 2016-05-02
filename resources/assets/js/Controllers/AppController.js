@@ -11,6 +11,7 @@ App.constant('SERVER',{
 
 App.constant('SERVERFRONT',{
     'domain':'http://blaafront2.demodayscript.com',
+    //'domain':'http://blaafront2.local',
     'port':'80'
 });
 
