@@ -69,7 +69,7 @@ class Controller extends BaseController
                 'options'  => [
                     'inicio'    => [
                         'label' => 'inicio',
-                        'url'   => 'musica/temporada',
+                        'url'   => '/musica',
                         /*'suboptions'=>[
                             'Uno'=>[
                                 'label' => 'Temporada nacional de conciertos',

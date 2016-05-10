@@ -100,21 +100,20 @@ class PagesController extends Controller
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
     public function OpusSearch(Request $request,$id_page=NULL){
-        $host = self::host();
         if($id_page == NULL){
-            $nodes = self::_urlConstrucSearch($request,$host);
+            $nodes = self::_urlConstrucSearch($request,self::host());
             $request->session()->put('searchItems', $nodes->view->path );
             var_dump($request->session()->get('searchItems'));
           }
         elseif( is_numeric($id_page) && $id_page != NULL ){
-            $nodes = self::_urlConstrucSearch($request,$host,$id_page);
+            $nodes = self::_urlConstrucSearch($request,self::host(),$id_page);
             $request->session()->put('searchItems', $nodes->view->path );
             var_dump($request->session()->get('searchItems'));
           }
 
-         $instruments = self::_filterInstruments($host);
-        $taxonomy = self::_filterCountries($host);
-        $series = self::_filterSeries($host);
+        $instruments = self::_filterInstruments(self::host());
+        $taxonomy = self::_filterCountries(self::host());
+        $series = self::_filterSeries(self::host());
         $itemSearch = self::_itemSearch($request);
         //dd($nodes);
         #redireccionar, si no se encuentran resultados
@@ -127,10 +126,9 @@ class PagesController extends Controller
     /*Mustra index de Opus*/
     /**********************/
     public function OpusIndex(){
-      $host = self::host();
-      $instruments = self::_filterInstruments($host);
-      $taxonomy = self::_filterCountries($host);
-      $series = self::_filterSeries($host);
+      $instruments = self::_filterInstruments(self::host());
+      $taxonomy = self::_filterCountries(self::host());
+      $series = self::_filterSeries(self::host());
       return view('musica.index',compact('taxonomy','series','instruments'));
     }
     /*************************************************/

@@ -21,18 +21,16 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
 
    $scope.GetAutors = function(){
         var deferred = $q.defer();
-        //$http.get(SERVER.domain + '/autocomplete/autores')
         $http.get(SERVERFRONT.domain+'/json/autores.json')
             .success(function(data,status,headers,config){
                 $scope.data = data.nodes
-                console.log($scope.data);
+                //console.log($scope.data);
                 deferred.resolve($scope.data);
             })
         return deferred.promise;
     }
     $scope.GetComposers = function(){
          var deferred = $q.defer();
-         //$http.get(SERVER.domain + '/autocomplete/compositores')
          $http.get(SERVERFRONT.domain+'/json/compositores.json')
               .success(function(data,status,headers,config){
                  $scope.data = data.nodes
@@ -45,7 +43,8 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
         var myPromise = $scope.GetComposers();
         return myPromise.then(function(resolve){
                 resolve = filter(query,resolve)
-                return resolve;
+                debugResolve(resolve);
+                return resolve.unique();
               });
     }
     $scope.CallBackFilter = function(text){
@@ -53,9 +52,22 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
         var myPromise = $scope.GetAutors();
         return myPromise.then(function(resolve){
                 resolve = filter(query,resolve)
-                return resolve;
+                debugResolve(resolve)
+                return resolve.unique();
               });
     }
+    function debugResolve(resolve){
+      return resolve.splice(0,1);
+    }
+
+    Array.prototype.unique=function(a){
+      return function(){
+        return this.filter(a)
+      }
+    }(function(a,b,c){
+      return c.indexOf(a,b+1)<0
+    });
+
     function filter(query,resolve){
       var data;
       var item = [];
