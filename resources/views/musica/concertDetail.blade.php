@@ -39,14 +39,16 @@
   <div class="columns borders-a padding-a padding-b list-program">
       <h5> Integrantes: </h5>
       <ul>
-        @foreach( $node->integrantes as $key =>$value )
-          <li class="text-gray">
-                <span class='item-li titulo medium-4'>{{ $value['integrante']->titulo }} </span>
-                <span class='item-li medium-2'>{{ $value['integrante']->nacimiento }} -</span>
-                <span class='item-li medium-2' >{{ $value['integrante']->fallecimiento }} </span>
-                <span class='item-li medium-2'>{{ $value['integrante']->pais }} </span>
-          </li>
-        @endforeach
+        @if($node->integrantes[0] != 'Undefined'){
+          @foreach( $node->integrantes as $key =>$value )
+            <li class="text-gray">
+                  <span class='item-li titulo medium-4'>{{ $value['integrante']->titulo }} </span>
+                  <span class='item-li medium-2'>{{ $value['integrante']->nacimiento }} -</span>
+                  <span class='item-li medium-2' >{{ $value['integrante']->fallecimiento }} </span>
+                  <span class='item-li medium-2'>{{ $value['integrante']->pais }} </span>
+            </li>
+          @endforeach
+        @endif
     </ul>
 
   </div>

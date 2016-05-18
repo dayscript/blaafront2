@@ -3,10 +3,14 @@
 $sombraBloqueBuscadorOpus : 0px 0px 10px rgb(163, 18, 47);
 $colorBlanco : #fff;
 $fondoRosadoBuscador:#a3122f;
+$color-title : #cd1c40;
 /*Variables*/
 
+h5{
+  color: $color-title;
+}
 .red{
-  color: #cd1c40;
+  color: $color-title;
 }
 .acerca-de-opus{
   color:#992e40;
@@ -378,4 +382,16 @@ hr{
     }
 
   }
+}
+
+
+.page-musica-acerca-de-opus ul li{
+  color:$color-title;
+}
+
+.content-wrapper{
+  padding: 20px 0;
+}
+.padding-buttom{
+  padding-bottom: 20px;
 }

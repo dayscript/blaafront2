@@ -1111,6 +1111,9 @@ textarea {
 /*Seccion de musica */
 /*Variables*/
 /*Variables*/
+h5 {
+  color: #cd1c40; }
+
 .red {
   color: #cd1c40; }
 
@@ -1421,6 +1424,15 @@ hr.light {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis; }
+
+.page-musica-acerca-de-opus ul li {
+  color: #cd1c40; }
+
+.content-wrapper {
+  padding: 20px 0; }
+
+.padding-buttom {
+  padding-bottom: 20px; }
 
 .page-musica .subMenu .subContent {
   display: -webkit-inline-flex;

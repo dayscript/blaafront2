@@ -165,10 +165,17 @@ class PagesController extends Controller
 
       $integrantes = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->integrantes)));
       $integrantes = json_decode(file_get_contents(self::host().'detalle-nodo-opus/integrante/'.$integrantes));
-      foreach ($integrantes->integrante as $key => $value) {
-         $integrantesList[]['integrante'] = $value;
+
+      if(isset($integrantes->integrante[0])){
+        foreach ($integrantes->integrante as $key => $value) {
+           $integrantesList[]['integrante'] = $value;
+        }
+      }else{
+        $integrantesList[] = 'Undefined';
       }
+
       $nodes->nodes[0]->integrantes = $integrantesList;
+
 
       $obras = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->obras)));
       $obras = json_decode(file_get_contents(self::host().'detalle-nodo-opus/obra/'.$obras));
@@ -183,5 +190,13 @@ class PagesController extends Controller
       $nodeR = $nodesRelacionados->nodes;
       return view('musica.concertDetail', compact('node','nodeR'));
     }
+
+    /*********************************/
+    /*Mustra detalle del nodo de Acerca de*/
+    /*********************************/
+
+      public function AcercaDe(){
+        return view('musica.paginaBasica');
+      }
 
 }

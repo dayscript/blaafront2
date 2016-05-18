@@ -1,6 +1,6 @@
 <div class="columns medium-4 search">
     <div class="search">
-        <div class="about"><a href="/acerca-de-opus" class="acerca-de-opus">Acerca de Opus</a>  </div>
+        <div class="about"><a href="/musica/acerca-de-opus" class="acerca-de-opus">Acerca de Opus</a>  </div>
         <div class="searchlabel">Haga aquí su búsqueda
             utilizando uno o más criterios:
         </div>
