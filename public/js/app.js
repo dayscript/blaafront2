@@ -10,8 +10,8 @@ App.constant('SERVER',{
 });
 
 App.constant('SERVERFRONT',{
-    //'domain':'http://blaafront2.demodayscript.com',
-    'domain':'http://blaafront2.local',
+    'domain':'http://blaafront2.demodayscript.com',
+    //'domain':'http://blaafront2.local',
     'port':'80'
 });
 
@@ -96,7 +96,7 @@ App.controller('ImageController1',function($scope,$http,$timeout,$q,$log,SERVER,
   $http.get(SERVERFRONT.domain+'/musica/conciertos/img/json').success(function(data,status,headers,config){
     $scope.images = data.nodes
   })
-});
+});  
 
 App.controller('ImageController2',function($scope,$http,$timeout,$q,$log,SERVER,SERVERFRONT){
   $http.get(SERVERFRONT.domain+'/musica/conciertos/img/json').success(function(data,status,headers,config){
