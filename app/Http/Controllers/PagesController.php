@@ -139,7 +139,7 @@ class PagesController extends Controller
       $json = [];
       $filesRandom=[];
       foreach( File::allFiles('../'.env('PATH_IMG')) as $path ){
-        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.local/img/conciertos/'.pathinfo($path)['basename'];
+        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.demodayscript.com/img/conciertos/'.pathinfo($path)['basename'];
       }
       for( $i=0; $i <= 2;$i++ ){
         $filesRandom['nodes'][$i] = $files['nodes'][rand(1,count($files['nodes'])-1)];
