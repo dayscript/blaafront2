@@ -137,17 +137,24 @@ class PagesController extends Controller
     public function ImgConcertsJson(){
       $files = [];
       $json = [];
+      $temp = [];
+
       $filesRandom=[];
       foreach( File::allFiles('../'.env('PATH_IMG')) as $path ){
-        $files['nodes'][]['Imagen']['src'] = 'http://blaafront2.demodayscript.com/img/conciertos/'.pathinfo($path)['basename'];
+        $files[] = 'http://blaafront2.demodayscript.com/img/conciertos/'.pathinfo($path)['basename'];
       }
-      for( $i=0; $i <= 2;$i++ ){
-        $filesRandom['nodes'][$i] = $files['nodes'][rand(1,count($files['nodes'])-1)];
+      $h=0;
+      while( $h <= 5 ){
+        $rand = rand(1,count($files)-1);
+        if( !array_key_exists($rand,$filesRandom) ){
+            $filesRandom[$rand] = $files[$rand];
+            $h++;
+        }
       }
       return response()->json($filesRandom);
     }
     /*********************************/
-    /*Mustra detalle del nodo de Opus*/
+    /*Muestra detalle del nodo de Opus*/
     /*********************************/
     public function OpusConcertDetail($nid){
       $nodes = json_decode(file_get_contents(self::host().'detalle-nodos-opus/concierto/'.$nid));

@@ -5,21 +5,21 @@
 @endsection
 
 @section('content')
-  <div class="column row collapse">
-    <div class="columns medium-4 collage-imagenes" ng-controller="ImageController1" >
-      <div class="medium-12 image-landing linkImage" ng-repeat="image in images">
+  <div class="column row collapse" ng-controller="ImageController">
+    <div class="columns medium-4 collage-imagenes"  >
+      <div class="medium-12 image-landing linkImage" ng-repeat="image in images" ng-if="$index <= 2">
         <a href="#">
-        <figure style="background-image:url( @{{image.Imagen.src}} )">
+        <figure style="background-image:url( @{{image}} )">
         </figure>
         </a>
 
       </div>
     </div>
     @include('partials.buscadorOpus')
-    <div class="columns medium-4 collage-imagenes" ng-controller="ImageController2" >
-      <div class="medium-12 image-landing linkImage" ng-repeat="image in images">
+    <div class="columns medium-4 collage-imagenes"  >
+      <div class="medium-12 image-landing linkImage" ng-repeat="image in images" ng-if="$index >= 3">
         <a href="#">
-        <figure style="background-image:url( @{{image.Imagen.src}} )">
+        <figure style="background-image:url( @{{image}} )">
         </figure>
         </a>
       </div>

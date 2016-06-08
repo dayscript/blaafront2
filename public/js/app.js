@@ -92,15 +92,10 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
 
 });
 
-App.controller('ImageController1',function($scope,$http,$timeout,$q,$log,SERVER,SERVERFRONT){
+App.controller('ImageController',function($scope,$http,$timeout,$q,$log,SERVER,SERVERFRONT){
   $http.get(SERVERFRONT.domain+'/musica/conciertos/img/json').success(function(data,status,headers,config){
-    $scope.images = data.nodes
-  })
-});  
-
-App.controller('ImageController2',function($scope,$http,$timeout,$q,$log,SERVER,SERVERFRONT){
-  $http.get(SERVERFRONT.domain+'/musica/conciertos/img/json').success(function(data,status,headers,config){
-    $scope.images = data.nodes
+    console.log(data);
+    $scope.images = data
   })
 });
 
