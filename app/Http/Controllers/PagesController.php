@@ -4,7 +4,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
+use App\Http\Drupal\DrupalServices;
+
 use App\Http\Controllers\Controller;
 use File;
 
@@ -42,37 +45,7 @@ class PagesController extends Controller
         return $itemSearch;
     }
 
-    /***************************************************/
-    /*Permite construir la url par realizar la peticion*/
-    /***************************************************/
-    public function _urlConstrucSearch($request,$host,$id_page = NULL){
-    # forma de la url
-    # palabra clave/autor/compositor/pais/instrumentos
-    $url = $host.'busqueda-de-contenido/conciertos';
-    if($request->session()->get('searchItems') == NULL || $id_page == NULL){
-      foreach ($request->all() as $key => $value) {
-            if($key != '_token'){
-              if( $value !=""){
-                  $url .= '/'.str_replace(' ','%20',$value);
-                }
-                else{
-                  $url .= '/all';
-                  }
-              }
-        }
-    }
-    else{
-      $url = $host.$request->session()->get('searchItems').'/?page='.$id_page;
-      }
 
-      //dd($url);
-      $json = json_decode(file_get_contents($url));
-      foreach ($json->nodes as $key => $value) {
-        $title = explode(',',$value->titulo);
-        $json->nodes[$key]->titulo = $title[1];
-      }
-      return $json;
-    }
     /**************************************/
     /*Retorna todos los paises disponibles*/
     /**************************************/
@@ -99,23 +72,38 @@ class PagesController extends Controller
     /*********************************************/
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
-    public function OpusSearch(Request $request,$id_page=NULL){
-        if($id_page == NULL){
-            $nodes = self::_urlConstrucSearch($request,self::host());
-            $request->session()->put('searchItems', $nodes->view->path );
-            var_dump($request->session()->get('searchItems'));
-          }
-        elseif( is_numeric($id_page) && $id_page != NULL ){
-            $nodes = self::_urlConstrucSearch($request,self::host(),$id_page);
-            $request->session()->put('searchItems', $nodes->view->path );
-            var_dump($request->session()->get('searchItems'));
-          }
+    public function OpusSearch(Request $request,$id_page = NULL){
+        $items = (  Input::get('items') ) ? Input::get('items'):5;
+        $id_page = ( $id_page == NULL ) ? 0:$id_page;
+        $query = new DrupalServices('all');
+        $query->addHost( self::host() );
+        $query->addGetParam( array( 'page'=> $id_page,'items'=> $items ));
+        if( $request->session()->get('searchItems') == NULL  ){
+          $query->addEndPoint( 'busqueda-de-contenido/conciertos' );
+          $query->addParams($request->input('word_key'));
+          $query->addParams($request->input('artist'));
+          $query->addParams($request->input('composer'));
+          $query->addParams($request->input('serie'));
+          $query->addParams($request->input('country'));
+          $query->addParams($request->input('instrument'));
+          $query->addParams($request->input('year'));
+          $query->execute();
+          $request->session()->put('searchItems', $query->param );
+        }else{
+          $query->addEndPoint( 'busqueda-de-contenido/conciertos'.$request->session()->get('searchItems') );
+          $query->execute();
+        }
 
+        $json = $query->execute;
+        foreach ( $json->nodes as $key => $value) {
+          $title = explode(',',$value->titulo);
+          $json->nodes[$key]->titulo = $title[1];
+        }
+        $nodes = $json;
         $instruments = self::_filterInstruments(self::host());
         $taxonomy = self::_filterCountries(self::host());
         $series = self::_filterSeries(self::host());
         $itemSearch = self::_itemSearch($request);
-        //dd($nodes);
         #redireccionar, si no se encuentran resultados
         if( count($nodes->nodes) <=0 )
           return Redirect::to('musica')->with('status', 'No se han encontrado coincidencias');
@@ -125,7 +113,8 @@ class PagesController extends Controller
     /**********************/
     /*Mustra index de Opus*/
     /**********************/
-    public function OpusIndex(){
+    public function OpusIndex(Request $request){
+      $request->session()->put('searchItems',NULL);
       $instruments = self::_filterInstruments(self::host());
       $taxonomy = self::_filterCountries(self::host());
       $series = self::_filterSeries(self::host());
