@@ -1434,6 +1434,17 @@ hr.light {
 .padding-buttom {
   padding-bottom: 20px; }
 
+.number-items #number-items {
+  font-size: 13px;
+  padding: 0 5px;
+  margin: 0;
+  width: 50px;
+  height: 27px;
+  line-height: 10px; }
+
+.number-items span {
+  font-size: 10px; }
+
 .page-musica .subMenu .subContent {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

@@ -73,7 +73,10 @@ class PagesController extends Controller
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
     public function OpusSearch(Request $request,$id_page = NULL){
-        $items = (  Input::get('items') ) ? Input::get('items'):5;
+        if($request->input('_token') != null){
+          $request->session()->put('searchItems',NULL);
+        }
+        $items = (  Input::get('items') ) ? Input::get('items'):10;
         $id_page = ( $id_page == NULL ) ? 0:$id_page;
         $query = new DrupalServices('all');
         $query->addHost( self::host() );
@@ -114,7 +117,6 @@ class PagesController extends Controller
     /*Mustra index de Opus*/
     /**********************/
     public function OpusIndex(Request $request){
-      $request->session()->put('searchItems',NULL);
       $instruments = self::_filterInstruments(self::host());
       $taxonomy = self::_filterCountries(self::host());
       $series = self::_filterSeries(self::host());

@@ -10,8 +10,8 @@ App.constant('SERVER',{
 });
 
 App.constant('SERVERFRONT',{
-    //'domain':'http://blaafront2.demodayscript.com',
-    'domain':'http://blaafront2.local',
+    'domain':'http://blaafront2.demodayscript.com',
+    //'domain':'http://blaafront2.local',
     'port':'80'
 });
 
@@ -73,7 +73,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
       var item = [];
       for( var i = 0; i <= resolve.length-1;i++){
           var item = angular.lowercase(resolve[i]['Título']);
-          if (item.indexOf(angular.lowercase(query)) === 0){
+          if (item.indexOf(angular.lowercase(query)) >= 0){
              data += '/'+ resolve[i]['Título'];
            }
       }

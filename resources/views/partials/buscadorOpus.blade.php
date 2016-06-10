@@ -5,7 +5,7 @@
             utilizando uno o más criterios:
         </div>
         <div class="fields" ng-controller="SearchController" >
-            <form action="/musica" method="post">
+            <form action="/musica/resultados/0" method="post">
                 {{ csrf_field() }}
                 <div class="field medium-12">
                     <div class="medium-12 input">

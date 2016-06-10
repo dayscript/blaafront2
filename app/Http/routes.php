@@ -29,7 +29,8 @@ Route::get('/', function () {
 Route::group(['middleware' => ['web']], function () {
     Route::get('musica', 'PagesController@OpusIndex');
     Route::post('musica', 'PagesController@OpusSearch');
-    Route::get('musica/page/{id_page}', 'PagesController@OpusSearch');
+    Route::get('musica/resultados/{id_page}', 'PagesController@OpusSearch');
+    Route::post('musica/resultados/{id_page}', 'PagesController@OpusSearch');
     Route::get('musica/concierto/{nid}', 'PagesController@OpusConcertDetail');
     Route::get('musica/conciertos/img/json', 'PagesController@ImgConcertsJson');
     Route::get('musica/acerca-de-opus', 'PagesController@AcercaDe');

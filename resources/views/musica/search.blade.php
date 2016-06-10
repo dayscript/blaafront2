@@ -21,15 +21,25 @@
             </form>
         </div>
         <div class="paginator medium-12 columns">
-            <div class="medium-8 columns">
+            <div class="medium-5 columns">
 
                 <label class="medium-12"><strong>{{$itemSearch}}</strong></label>
 
                 <label class="medium-12 red"><strong>{{$nodes->view->count}}</strong> Resultados</label>
             </div>
-            <div class="medium-4 columns number-page">
-                @for( $i = 0 ; $i <= $nodes->view->pages; $i++ )
-                        <a href="/musica/page/{{$i}}">{{$i}}</A>
+            <div class="medium-4 columns number-items">
+                <span>Resultados por pagina </span>
+                <select id="number-items" onchange=" this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value); ">
+                  <option value="musica/resultados/0?items=10">10</option>
+                  <option value="musica/resultados/0?items=20">20</option>
+                  <option value="musica/resultados/0?items=30">30</option>
+                  <option value="musica/resultados/0?items=40">20</option>
+                  <option value="musica/resultados/0?items=50">40</option>
+                </select>
+            </div>
+            <div class="medium-3 columns number-page">
+                @for( $i = 1 ; $i <= $nodes->view->pages; $i++ )
+                        <a href="/musica/resultados/{{$i-1}}">{{$i}}</A>
                 @endfor
                 <a href="">Siguiente</A>
             </div>
