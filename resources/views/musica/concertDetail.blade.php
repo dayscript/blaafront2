@@ -37,6 +37,12 @@
 
   </div>
   <div class="columns borders-a padding-a padding-b list-program">
+      <h5> Notas al programa de mano: <br></h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris <p>
+
+
+  </div>
+  <div class="columns borders-a padding-a padding-b list-program">
       <h5> Integrantes: </h5>
       <ul>
         @if($node->integrantes[0] != 'Undefined')
@@ -58,6 +64,7 @@
       @foreach( $node->obras as $key =>$value )
         <li class="text-gray ">
               <span class='item-li titulo medium-4'>{{ $value['obra']->titulo }} </span>
+              <span class='item-li titulo medium-1'>({{ $value['obra']->ano_composicion }} )</span>
               <span class='item-li medium-4 red compositor'>{{ $value['obra']->titulo_compositor }} </span>
               <span class='item-li medium-1 año'> ( {{ $value['obra']->nacimiento }} </span>
               <span class='item-li medium-1 año'>{{ $value['obra']->fallecimiento }} ) </span>

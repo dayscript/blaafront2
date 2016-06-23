@@ -83,7 +83,9 @@ class PagesController extends Controller
         if( count($nodes->nodes) <=0 )
           return Redirect::to('musica')->with('status', 'No se han encontrado coincidencias');
         #muestra los resultados
-        return view('musica.search', compact('nodes','itemSearch'));
+        $nodesjs = json_encode($nodes);
+        
+        return view('musica.search', compact('nodes','itemSearch','nodesjs'));
 
     }
     /**********************/
@@ -120,17 +122,18 @@ class PagesController extends Controller
       $nodes = json_decode(file_get_contents(self::host().'detalle-nodos-opus/concierto/'.$nid));
       $titulo = explode(',',$nodes->nodes[0]->titulo);
       $nodes->nodes[0]->titulo = $titulo[1];
-
+      $integrantes = [];
       /*Obtener Artistas*/
       $artistas = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->artistas)));
       $artistas = json_decode(file_get_contents(self::host().'detalle-nodo-opus/artista/'.$artistas));
-
       foreach ($artistas->artista as $key => $value) {
-        $artistasList[]['artista'] = $value;
+        $value->titulo = trim(substr($value->titulo,7));
+        $artistasList[]['artista'] = $value ;
+        $integrantes[] = ( $value->integrante != "" ) ? $value->integrante : 0 ;
       }
       $nodes->nodes[0]->artistas = $artistasList;
 
-      $integrantes = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->integrantes)));
+      $integrantes = str_replace(',','+',str_replace(' ','',implode('+',$integrantes)));
       $integrantes = json_decode(file_get_contents(self::host().'detalle-nodo-opus/integrante/'.$integrantes));
 
       if(isset($integrantes->integrante[0])){
@@ -158,9 +161,9 @@ class PagesController extends Controller
       return view('musica.concertDetail', compact('node','nodeR'));
     }
 
-    /*********************************/
-    /*Mustra detalle del nodo de Acerca de*/
-    /*********************************/
+    /***************************************/
+    /*Mustra detalle del nodo de Acerca de**/
+    /***************************************/
 
       public function AcercaDe(){
         return view('musica.paginaBasica');
