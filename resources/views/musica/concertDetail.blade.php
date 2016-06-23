@@ -39,7 +39,7 @@
   <div class="columns borders-a padding-a padding-b list-program">
       <h5> Integrantes: </h5>
       <ul>
-        @if($node->integrantes[0] != 'Undefined'){
+        @if($node->integrantes[0] != 'Undefined')
           @foreach( $node->integrantes as $key =>$value )
             <li class="text-gray">
                   <span class='item-li titulo medium-4'>{{ $value['integrante']->titulo }} </span>

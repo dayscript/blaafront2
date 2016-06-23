@@ -13,23 +13,12 @@ use File;
 
 class PagesController extends Controller
 {
-
-    public function __construnct(){
-        $path = app_path();
-        dd($path);
-    }
-    public function pruebas(){
-      parent::__construct();
-      print 'entro';
-    }
-
     /*************************/
     /* Variables constantes  */
     /*************************/
     public function host(){
       return env('HOST');
     }
-
     /****************************************************/
     /*  retorna un string con los elementos de busqueda */
     /****************************************************/
@@ -44,31 +33,6 @@ class PagesController extends Controller
         }
         return $itemSearch;
     }
-
-
-    /**************************************/
-    /*Retorna todos los paises disponibles*/
-    /**************************************/
-    public function _filterCountries($host){
-      $countryJson = json_decode(file_get_contents($host.'taxonomias/paises/json'));
-      $countries = $countryJson->nodes;
-      return $countries;
-    }
-    /********************************************/
-    /*Retorna todos los instrumentos disponibles*/
-    /********************************************/
-    public function _filterInstruments($host){
-      $instrumentJson = json_decode(file_get_contents($host.'taxonomias/instrumentos/json'));
-      $instruments = $instrumentJson->nodes;
-      return $instruments;
-    }
-
-    public function _filterSeries($host){
-      $seriesJson = json_decode(file_get_contents($host.'taxonomias/series/json'));
-      $series = $seriesJson->nodes;
-      return $series;
-    }
-
     /*********************************************/
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
@@ -76,11 +40,18 @@ class PagesController extends Controller
         if($request->input('_token') != null){
           $request->session()->put('searchItems',NULL);
         }
-        $items = (  Input::get('items') ) ? Input::get('items'):10;
+
+        if( Input::get('items') ){
+           $request->session()->put('items',Input::get('items'));
+        }elseif ( $request->session()->get('items') != NULL ){
+          $request->session()->put('items',$request->session()->get('items'));
+        }else{
+          $request->session()->put('items',10);
+        }
         $id_page = ( $id_page == NULL ) ? 0:$id_page;
         $query = new DrupalServices('all');
         $query->addHost( self::host() );
-        $query->addGetParam( array( 'page'=> $id_page,'items'=> $items ));
+        $query->addGetParam( array( 'page'=> $id_page,'items'=> $request->session()->get('items') ));
         if( $request->session()->get('searchItems') == NULL  ){
           $query->addEndPoint( 'busqueda-de-contenido/conciertos' );
           $query->addParams($request->input('word_key'));
@@ -96,31 +67,30 @@ class PagesController extends Controller
           $query->addEndPoint( 'busqueda-de-contenido/conciertos'.$request->session()->get('searchItems') );
           $query->execute();
         }
-
         $json = $query->execute;
+
+        if($json == 'ERROR')
+          return Redirect::to('musica')->with('status', 'se ha encontrado un error, vuelva a intentarlo mas tarde');
+
         foreach ( $json->nodes as $key => $value) {
           $title = explode(',',$value->titulo);
           $json->nodes[$key]->titulo = $title[1];
         }
         $nodes = $json;
-        $instruments = self::_filterInstruments(self::host());
-        $taxonomy = self::_filterCountries(self::host());
-        $series = self::_filterSeries(self::host());
         $itemSearch = self::_itemSearch($request);
+
         #redireccionar, si no se encuentran resultados
         if( count($nodes->nodes) <=0 )
           return Redirect::to('musica')->with('status', 'No se han encontrado coincidencias');
         #muestra los resultados
-        return view('musica.search', compact('nodes','taxonomy','instruments','series','itemSearch'));
+        return view('musica.search', compact('nodes','itemSearch'));
+
     }
     /**********************/
     /*Mustra index de Opus*/
     /**********************/
     public function OpusIndex(Request $request){
-      $instruments = self::_filterInstruments(self::host());
-      $taxonomy = self::_filterCountries(self::host());
-      $series = self::_filterSeries(self::host());
-      return view('musica.index',compact('taxonomy','series','instruments'));
+      return view('musica.index');
     }
     /*************************************************/
     /*Mustra json con las imagenes de conciertos Opus*/
@@ -129,7 +99,6 @@ class PagesController extends Controller
       $files = [];
       $json = [];
       $temp = [];
-
       $filesRandom=[];
       foreach( File::allFiles('../'.env('PATH_IMG')) as $path ){
         $files[] = 'http://blaafront2.demodayscript.com/img/conciertos/'.pathinfo($path)['basename'];

@@ -10,14 +10,25 @@ App.constant('SERVER',{
 });
 
 App.constant('SERVERFRONT',{
-    'domain':'http://blaafront2.demodayscript.com',
-    //'domain':'http://blaafront2.local',
+    //'domain':'http://blaafront2.demodayscript.com',
+    'domain':'http://blaafront2.local',
     'port':'80'
 });
 
 App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){
-  $scope.searchTextChange = function(text) {
-   }
+
+  $http.get(SERVER.domain+'/taxonomias/series/json')
+     .success(function(data,status,headers,config){
+     $scope.series = data.nodes
+   })
+  $http.get(SERVER.domain+'/taxonomias/paises/json')
+    .success(function(data,status,headers,config){
+    $scope.paises = data.nodes
+  })
+  $http.get(SERVER.domain+'/taxonomias/instrumentos/json')
+   .success(function(data,status,headers,config){
+   $scope.instrumentos = data.nodes
+  })
 
    $scope.GetAutors = function(){
         var deferred = $q.defer();
@@ -29,6 +40,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
             })
         return deferred.promise;
     }
+
     $scope.GetComposers = function(){
          var deferred = $q.defer();
          $http.get(SERVERFRONT.domain+'/json/compositores.json')

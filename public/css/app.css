@@ -1445,6 +1445,9 @@ hr.light {
 .number-items span {
   font-size: 10px; }
 
+.pagination .current {
+  padding: 0 !important; }
+
 .page-musica .subMenu .subContent {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

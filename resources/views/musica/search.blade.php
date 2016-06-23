@@ -20,7 +20,7 @@
                 </div>
             </form>
         </div>
-        <div class="paginator medium-12 columns">
+        <div class="paginator medium-12 row collapse">
             <div class="medium-5 columns">
 
                 <label class="medium-12"><strong>{{$itemSearch}}</strong></label>
@@ -33,15 +33,20 @@
                   <option value="musica/resultados/0?items=10">10</option>
                   <option value="musica/resultados/0?items=20">20</option>
                   <option value="musica/resultados/0?items=30">30</option>
-                  <option value="musica/resultados/0?items=40">20</option>
-                  <option value="musica/resultados/0?items=50">40</option>
+                  <option value="musica/resultados/0?items=40">40</option>
+                  <option value="musica/resultados/0?items=50">50</option>
                 </select>
             </div>
             <div class="medium-3 columns number-page">
-                @for( $i = 1 ; $i <= $nodes->view->pages; $i++ )
-                        <a href="/musica/resultados/{{$i-1}}">{{$i}}</A>
+              <ul class="pagination" role="menubar" aria-label="Pagination">
+                <li class="arrow unavailable" aria-disabled="true"><a href="musica/resultados/{{ $nodes->view->page-1 }}">&laquo; </a></li>
+                @for( $i = $nodes->view->page+1 ; $i <= $nodes->view->pages; $i++ )
+                    @if( $i <= $nodes->view->page+4)
+                          <li class="{{ ($nodes->view->page+1 == $i ) ? 'current':'' }}"><a href="/musica/resultados/{{$i-1}}">{{$i}}</a></li>
+                    @endif
                 @endfor
-                <a href="">Siguiente</A>
+                <li class="arrow"><a href="musica/resultados/{{ $nodes->view->page+1 }}"> &raquo;</a></li>
+              </ul>
             </div>
         </div>
         <div class="results medium-12 columns">
