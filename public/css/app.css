@@ -1218,6 +1218,22 @@ h5 {
 /***************************************/
 /* Estilos vista de resultados         */
 /***************************************/
+.results-view #order-by {
+  background-image: url("/img/order.png");
+  background-size: 23px 18px;
+  width: 23px;
+  display: inline-block;
+  height: 18px; }
+
+.results-view .order-by {
+  text-align: center; }
+
+.results-view label {
+  font-size: 10px; }
+
+.results-view .items-search {
+  background: #dcdcdc; }
+
 .results-view .paginator {
   background: #dcdcdc;
   padding: 10px 0; }
@@ -1237,8 +1253,7 @@ h5 {
   background-color: white;
   color: black;
   display: inline-block;
-  overflow-y: scroll;
-  height: 513px;
+  height: auto;
   border-top: 3px #af2743 solid; }
 
 .results-view .fields {
@@ -1445,8 +1460,14 @@ hr.light {
 .number-items span {
   font-size: 10px; }
 
-.pagination .current {
-  padding: 0 !important; }
+.pagination {
+  display: inline-block;
+  margin: 0 !important; }
+  .pagination .current {
+    padding: 0 !important;
+    background: #ca2b4b !important; }
+    .pagination .current a {
+      color: #fff !important; }
 
 .page-musica .subMenu .subContent {
   display: -webkit-inline-flex;

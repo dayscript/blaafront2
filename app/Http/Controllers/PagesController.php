@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Http\Drupal\DrupalServices;
+use App\Http\InfoOrder\Order;
+
 
 use App\Http\Controllers\Controller;
 use File;
@@ -37,12 +39,20 @@ class PagesController extends Controller
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
     public function OpusSearch(Request $request,$id_page = NULL){
+        $Params = new Order( Input::get() );
+        $Params->changeOptions(array('orden'=>Input::get('orden')));
+        $Params->str_params();
+
         if($request->input('_token') != null){
-          $request->session()->put('searchItems',NULL);
+          $request->session()->put('searchItems',NULL); 
         }
 
+        $request->session()->put('orden','Default');
+        if( Input::get('orden') ){
+           $request->session()->put('orden',Input::get('orden'));
+        }
         if( Input::get('items') ){
-           $request->session()->put('items',Input::get('items'));
+          $request->session()->put('items',Input::get('items'));
         }elseif ( $request->session()->get('items') != NULL ){
           $request->session()->put('items',$request->session()->get('items'));
         }else{
@@ -71,21 +81,29 @@ class PagesController extends Controller
 
         if($json == 'ERROR')
           return Redirect::to('musica')->with('status', 'se ha encontrado un error, vuelva a intentarlo mas tarde');
-
         foreach ( $json->nodes as $key => $value) {
           $title = explode(',',$value->titulo);
           $json->nodes[$key]->titulo = $title[1];
         }
-        $nodes = $json;
-        $itemSearch = self::_itemSearch($request);
-
         #redireccionar, si no se encuentran resultados
-        if( count($nodes->nodes) <=0 )
+        if( count($json->nodes) <=0 )
           return Redirect::to('musica')->with('status', 'No se han encontrado coincidencias');
         #muestra los resultados
+        if( $request->session()->get('orden') != "Default" ){
+          foreach( $json->nodes as $key =>$value ){
+            $aux[$key] = $value->titulo;
+          }
+
+        ( $request->session()->get('orden') == 'asc' ) ? array_multisort($aux, SORT_ASC, $json->nodes) : array_multisort($aux, SORT_DESC, $json->nodes);
+
+          $nodes = $json;
+        }
+        else{
+          $nodes = $json;
+        }
+        $itemSearch = self::_itemSearch($request);
         $nodesjs = json_encode($nodes);
-        
-        return view('musica.search', compact('nodes','itemSearch','nodesjs'));
+        return view('musica.search', compact('nodes','itemSearch','nodesjs','Params'));
 
     }
     /**********************/

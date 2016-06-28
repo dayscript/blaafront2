@@ -8,8 +8,8 @@
 <div class="medium-12 columns breadcrumb">
 
 </div>
-@include('partials.barraLateralConciertosRelacionados')
-<div class="columns medium-9 detail node-detail">
+@include('partials.buscadorOpus')
+<div class="columns medium-8 detail node-detail">
   <div class="columns medium-12 borders-a padding-a">
       <div class="medium-6 columns">
         @if(isset($node->imagen->src))
@@ -39,8 +39,6 @@
   <div class="columns borders-a padding-a padding-b list-program">
       <h5> Notas al programa de mano: <br></h5>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris <p>
-
-
   </div>
   <div class="columns borders-a padding-a padding-b list-program">
       <h5> Integrantes: </h5>
@@ -56,7 +54,6 @@
           @endforeach
         @endif
     </ul>
-
   </div>
   <div class="medium-12 columns borders-a padding-a  padding-b list-program">
     <h5> Programa Interpretado: </h5>

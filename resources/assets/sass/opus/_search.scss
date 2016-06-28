@@ -9,6 +9,7 @@ $color-title : #cd1c40;
 h5{
   color: $color-title;
 }
+
 .red{
   color: $color-title;
 }
@@ -139,16 +140,34 @@ h5{
 /***************************************/
 
 .results-view{
+  #order-by{
+      background-image: url('/img/order.png');
+      background-size: 23px 18px;
+      width: 23px;
+      display: inline-block;
+      height: 18px;
+  }
+  .order-by{
+    text-align: center;
+  }
+  label{
+    font-size: 10px;
+  }
+  .items-search{
+    background:#dcdcdc;
+  }
   .paginator{
     background:#dcdcdc;
     padding: 10px 0;
   }
   .number-page{
     text-align: right;
+
     a{
       color:#666;
       font-size: 0.8em;
       padding: 0 5px;
+
     }
     &.search{
       text-align: left;
@@ -160,8 +179,8 @@ h5{
     background-color: white;
     color: black;
     display: inline-block;
-    overflow-y: scroll;
-    height: 513px;
+    //overflow-y: scroll;
+    height: auto;
     border-top: 3px #af2743 solid;
   }
 
@@ -409,6 +428,12 @@ hr{
 }
 
 
-.pagination .current{
-  padding: 0!important;
+.pagination {
+  display: inline-block;
+  margin: 0!important;
+  .current{
+    padding: 0!important;
+    background: #ca2b4b!important;
+    a{color: #fff!important;}
+  }
 }

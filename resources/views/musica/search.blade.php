@@ -5,28 +5,7 @@
 @section('content')
     @include('partials.buscadorOpus')
     <div class="columns medium-8 results-view">
-        <div class="filters">
-            <form action="/musica" method="post">
-                {{ csrf_field() }}
-                <div class="fields medium-12 columns block">
-                    <div class="field medium-7 block">
-                        <label for="name" class="red">Relizar nueva búsqueda</label>
-                        <input type="text" name="artist" id="artist" placehorlder ="Buscar"></input>
-                        <input type="submit" value="buscar" class="columns medium-3">
-                    </div>
-                    <div class="fields medium-12 block">
-                         <label for="name"><a href="/musica">Búsqueda avanzada</a></label>
-                    </div>
-                </div>
-            </form>
-        </div>
-        <div class="paginator medium-12 row collapse">
-            <div class="medium-5 columns">
-
-                <label class="medium-12"><strong>{{$itemSearch}}</strong></label>
-
-                <label class="medium-12 red"><strong>{{$nodes->view->count}}</strong> Resultados</label>
-            </div>
+        <div class="paginator medium-12 columns">
             <div class="medium-4 columns number-items">
                 <span>Resultados por pagina </span>
                 <select id="number-items" onchange=" this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value); ">
@@ -37,17 +16,26 @@
                   <option value="musica/resultados/0?items=50">50</option>
                 </select>
             </div>
-            <div class="medium-3 columns number-page">
-              <ul class="pagination" role="menubar" aria-label="Pagination">
-                <li class="arrow unavailable" aria-disabled="true"><a href="musica/resultados/{{ $nodes->view->page-1 }}">&laquo; </a></li>
-                @for( $i = $nodes->view->page+1 ; $i <= $nodes->view->pages; $i++ )
-                    @if( $i <= $nodes->view->page+4)
-                          <li class="{{ ($nodes->view->page+1 == $i ) ? 'current':'' }}"><a href="/musica/resultados/{{$i-1}}">{{$i}}</a></li>
-                    @endif
-                @endfor
-                <li class="arrow"><a href="musica/resultados/{{ $nodes->view->page+1 }}"> &raquo;</a></li>
-              </ul>
+            <div class="medium-4 columns">
+              <div class="medium-12 columns order-by">
+                <label>Ordenar: </label><a href="{{Request::path().$Params->str_params}}" id="order-by"></a>
+              </div>
             </div>
+            <div class="medium-4 columns number-page">
+                <ul class="pagination" role="menubar" aria-label="Pagination">
+                  <li class="arrow unavailable" aria-disabled="true"><a href="musica/resultados/{{ $nodes->view->page-1 }}">&laquo; </a></li>
+                  @for( $i = $nodes->view->page+1 ; $i <= $nodes->view->pages; $i++ )
+                      @if( $i <= $nodes->view->page+4)
+                            <li class="{{ ($nodes->view->page+1 == $i ) ? 'current':'' }}"><a href="/musica/resultados/{{$i-1}}">{{$i}}</a></li>
+                      @endif
+                  @endfor
+                  <li class="arrow"><a href="musica/resultados/{{ $nodes->view->page+1 }}"> &raquo;</a></li>
+                </ul>
+              </div>
+        </div>
+        <div class="medium-12 items-search columns">
+            <label class="medium-12"><strong>{{$itemSearch}}</strong></label>
+            <label class="medium-12 red"><strong>{{$nodes->view->count}}</strong> Resultados</label>
         </div>
         <div class="results medium-12 columns">
         @foreach($nodes->nodes as $node)
