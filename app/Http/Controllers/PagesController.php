@@ -103,6 +103,7 @@ class PagesController extends Controller
         }
         $itemSearch = self::_itemSearch($request);
         $nodesjs = json_encode($nodes);
+
         return view('musica.search', compact('nodes','itemSearch','nodesjs','Params'));
 
     }

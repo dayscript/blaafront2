@@ -1469,6 +1469,13 @@ hr.light {
     .pagination .current a {
       color: #fff !important; }
 
+#icono_programa {
+  background-image: url("/img/opus/programa_ico.jpg");
+  width: 83px;
+  height: 31px;
+  display: block;
+  background-size: 84px 31px; }
+
 .page-musica .subMenu .subContent {
   display: -webkit-inline-flex;
   display: -ms-inline-flexbox;

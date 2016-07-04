@@ -52,11 +52,11 @@
                     @endif
                 </div>
                 <div class="columns medium-2 node" >
-                  <img src=""><a>Programa de mano</a></img>
+                  <a id="icono_programa" target="_blank" href="{{ $node->adjunto }}"></a>
                 </div>
             </div>
             <hr>
         @endforeach
         </div>
-    </div>
+    </div> 
 @endsection

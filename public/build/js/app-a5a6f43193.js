@@ -13,7 +13,7 @@ App.constant('SERVERFRONT',{
     'domain':'http://blaafront2.demodayscript.com',
     //'domain':'http://blaafront2.local',
     'port':'80'
-});
+}); 
 
 App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){
 

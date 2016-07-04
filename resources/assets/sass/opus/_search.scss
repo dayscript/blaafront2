@@ -434,6 +434,16 @@ hr{
   .current{
     padding: 0!important;
     background: #ca2b4b!important;
-    a{color: #fff!important;}
+    a{color: #fff!important;} 
   }
 }
+
+
+#icono_programa{
+  background-image:url('/img/opus/programa_ico.jpg');
+  width: 83px;
+    height: 31px;
+    display: block;
+    background-size: 84px 31px;
+}
+
