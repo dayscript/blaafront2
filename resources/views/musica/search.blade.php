@@ -52,7 +52,9 @@
                     @endif
                 </div>
                 <div class="columns medium-2 node" >
+                  @if( $node->adjunto != '')
                   <a id="icono_programa" target="_blank" href="{{ $node->adjunto }}"></a>
+                  @endif
                 </div>
             </div>
             <hr>
