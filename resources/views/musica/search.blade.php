@@ -36,7 +36,7 @@
         <div class="medium-12 items-search columns">
             <label class="medium-12"><strong>{{$itemSearch}}</strong></label>
             <label class="medium-12 red"><strong>{{$nodes->view->count}}</strong> Resultados</label>
-        </div>
+        </div> 
         <div class="results medium-12 columns">
         @foreach($nodes->nodes as $node)
             <div class="row">
@@ -47,8 +47,8 @@
                     <span class="concert-date">{{ $node->fecha }}</span><br>
                     <span class="concert-artist"><a href="musica/concierto/{{ $node->nid }}">{{ $node->titulo }}</a></span><br>
                     <span class="concert-title">{{ $node->programa_serie }}</span><br>
-                    @if ( $node->instrumentos != '' &&  $node->pais != '' )
-                      <span class="concert-instrument">{{ $node->instrumentos }} | {{ $node->pais }}</span>
+                    @if ( $node->instrumento != '' &&  $node->pais != '' )
+                      <span class="concert-instrument">{{ $node->instrumento }} | {{ $node->pais }}</span>
                     @endif
                 </div>
                 <div class="columns medium-2 node" >
