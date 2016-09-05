@@ -15,7 +15,9 @@
 
       </div>
     </div>
+    <div clas="medium-4 columns">
     @include('partials.buscadorOpus')
+    </div>
     <div class="columns medium-4 collage-imagenes"  >
       <div class="medium-12 image-landing linkImage" ng-repeat="image in images" ng-if="$index >= 3">
         <a href="#">

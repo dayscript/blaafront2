@@ -1,4 +1,4 @@
-<div class="columns medium-4 search">
+<div class="medium-12 search">
     <div class="search">
         <div class="about"><a href="/musica/acerca-de-opus" class="acerca-de-opus">Acerca de Opus</a>  </div>
         <div class="searchlabel">Haga aquí su búsqueda

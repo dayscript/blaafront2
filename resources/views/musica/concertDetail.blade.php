@@ -8,7 +8,10 @@
 <div class="medium-12 columns breadcrumb">
 
 </div>
+<div class="medium-4 columns">
 @include('partials.buscadorOpus')
+@include('partials.ayudanos')
+</div>
 <div class="columns medium-8 detail node-detail">
   <div class="columns medium-12 borders-a padding-a">
       <div class="medium-5 columns">

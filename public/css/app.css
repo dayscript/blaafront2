@@ -1552,6 +1552,13 @@ hr.light {
 .node-detail .text-red {
   color: #cd1c40; }
 
+.form-help {
+  margin: 4px 0px 3px 0px;
+  background: #a3122f;
+  border: solid 1px #860707; }
+  .form-help label {
+    color: #Fff; }
+
 /*Copyright (c) 2015, All rights reserved.
 * Stylesheet/Hoja de estilos: style-header.css
 * Project/Proyecto: Web Banco de la republica

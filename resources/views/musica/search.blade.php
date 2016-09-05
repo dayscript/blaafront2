@@ -3,7 +3,10 @@
     Validación @parent
 @endsection
 @section('content')
+    <div class="medium-4 columns">
     @include('partials.buscadorOpus')
+    @include('partials.ayudanos')
+    </div>
     <div class="columns medium-8 results-view">
         <div class="paginator medium-12 columns">
             <div class="medium-4 columns number-items">
@@ -36,7 +39,7 @@
         <div class="medium-12 items-search columns">
             <label class="medium-12"><strong>{{$itemSearch}}</strong></label>
             <label class="medium-12 red"><strong>{{$nodes->view->count}}</strong> Resultados</label>
-        </div> 
+        </div>
         <div class="results medium-12 columns">
         @foreach($nodes->nodes as $node)
             <div class="row">
@@ -60,5 +63,5 @@
             <hr>
         @endforeach
         </div>
-    </div> 
+    </div>
 @endsection
