@@ -3,10 +3,8 @@
 @section('title')
     Opus @parent
 @endsection
-
 @section('content')
 <div class="medium-12 columns breadcrumb">
-
 </div>
 <div class="medium-4 columns">
 @include('partials.buscadorOpus')
@@ -28,33 +26,22 @@
         <span class="text-gray">{{$node->serie_franja}}</span><br>
         <span class="text-gray">{{$node->instrumento_formato}}</span><br>
         <span class="text-red ">Notas al programa de mano: </span><span class="text-gray">{{$node->notas}}</span><br>
-
         @if( $node->adjunto !='' )
          <a id="icono_programa" class="programa-en-detalle" target="_blank" href="http://quimbaya.banrep.gov.co/conciertos/documentos/{{$node->adjunto}}"></a>
         @endif
       </div>
-
   </div>
   <div class="columns borders-a padding-a padding-b list-program">
       <h5> Artistas: </h5>
       <ul>
         @if($node->integrantes[0] != 'Undefined')
           @foreach( $node->integrantes as $key =>$value )
-            <li class="text-gray">
-                  <span class='item-li titulo medium-4'>{{ $value['integrante']->titulo }} </span>
-                  @if($value['integrante']->fallecimiento != '0')
-                    <span class='item-li medium-2'>{{ $value['integrante']->nacimiento }} -</span>
-                  @else
-                    <span class='item-li medium-2'> - </span>
-                  @endif
-                  @if($value['integrante']->fallecimiento != '0')
-                    <span class='item-li medium-2' >{{ $value['integrante']->fallecimiento }} </span>
-                  @else
-                    <span class='item-li medium-2' > - </span>
-                  @endif
-                  <span class='item-li medium-2'>{{ $value['integrante']->pais }} </span>
-                  <span class='item-li medium-2'>{{ $value['integrante']->instrumentos }} </span>
+            <li class="text-gray columns ">
+                  <div class='item-li columns reds titulo medium-4'><span class="text-red">{{$key+1}}.</span> {{$value['integrante']->titulo }} </div>
+                  <div class='item-li columns medium-2'>{{ $value['integrante']->nacimiento }} - {{ $value['integrante']->fallecimiento }}</div>
 
+                  <div class='item-li columns medium-3'>{{ $value['integrante']->pais }} </div>
+                  <div class='item-li columns medium-3 end'>{{ $value['integrante']->instrumentos }} </div>
             </li>
           @endforeach
         @endif
@@ -64,16 +51,13 @@
     <h5> Programa interpretado: </h5>
     <ul>
       @foreach( $node->obras as $key =>$value )
-        <li class="text-gray ">
-              <span class='item-li titulo medium-4'>{{ $value['obra']->titulo }} </span>
-              @if($value['obra']->ano_composicion)
-                <span class='item-li titulo medium-1'>({{ $value['obra']->ano_composicion }} )</span>
-              @else
-                <span class='item-li titulo medium-1'> - </span>
-              @endif
-              <span class='item-li medium-4 reds compositor'>{{ $value['obra']->titulo_compositor }} </span>
-              <span class='item-li medium-1 año'> ( {{ $value['obra']->nacimiento }} </span>
-              <span class='item-li medium-1 año'>{{ $value['obra']->fallecimiento }} ) </span>
+        <li class="text-gray columns ">
+          <div class="medium-12">
+              <div class='item-li columns titulo medium-4'><span class="text-red">{{$key+1}}.</span> {{$value['obra']->titulo }} </div>
+              <div class='item-li columns titulo medium-2'>{{ $value['obra']->ano_composicion }}</div>
+              <div class='item-li columns medium-3 compositor'>{{ $value['obra']->titulo_compositor }}</div>
+              <div class='item-li columns medium-3'> {{ $value['obra']->nacimiento }} - {{ $value['obra']->fallecimiento }}</div>
+          </div>
         </li>
       @endforeach
     </ul>

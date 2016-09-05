@@ -1337,7 +1337,8 @@ h5 {
   padding: 20px; }
 
 .list-program ul {
-  list-style-type: decimal; }
+  list-style-type: none;
+  font-size: 13px; }
 
 .hover-info-related {
   background-color: rgba(9, 9, 9, 0.74);
@@ -1552,6 +1553,9 @@ hr.light {
 
 .node-detail .text-red {
   color: #cd1c40; }
+
+.node-detail li div {
+  float: left; }
 
 .form-help {
   margin: 4px 0px 3px 0px;
