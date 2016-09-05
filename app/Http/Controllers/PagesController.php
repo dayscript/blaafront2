@@ -44,7 +44,7 @@ class PagesController extends Controller
         $Params->str_params();
 
         if($request->input('_token') != null){
-          $request->session()->put('searchItems',NULL); 
+          $request->session()->put('searchItems',NULL);
         }
 
         $request->session()->put('orden','Default');
@@ -138,8 +138,10 @@ class PagesController extends Controller
     /*********************************/
     public function OpusConcertDetail($nid){
       $nodes = json_decode(file_get_contents(self::host().'detalle-nodos-opus/concierto/'.$nid));
+
       $titulo = explode(',',$nodes->nodes[0]->titulo);
       $nodes->nodes[0]->titulo = $titulo[1];
+      $nodes->nodes[0]->registro = $titulo[0];
       $integrantes = [];
       /*Obtener Artistas*/
       $artistas = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->artistas)));
@@ -176,6 +178,7 @@ class PagesController extends Controller
       //dd($node);
       $nodesRelacionados = json_decode(file_get_contents(self::host().'detalle-de-contenido/node-relacionado/concert'));
       $nodeR = $nodesRelacionados->nodes;
+
       return view('musica.concertDetail', compact('node','nodeR'));
     }
 

@@ -87,7 +87,7 @@
                 </div>
                 <div class="field medium-12">
                     <input type="submit" class="medium-12"  value="Buscar">
-                    <input type="reset" class="medium-12"  value="Borrar">
+                    <input type="reset" class="medium-12"  value="Limpiar Filtros">
                 </div>
             </form>
         </div>

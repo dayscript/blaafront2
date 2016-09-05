@@ -4,6 +4,7 @@ $sombraBloqueBuscadorOpus : 0px 0px 10px rgb(163, 18, 47);
 $colorBlanco : #fff;
 $fondoRosadoBuscador:#a3122f;
 $color-title : #cd1c40;
+$fondoBotonBuscador : #5f2a34;
 /*Variables*/
 
 h5{
@@ -23,6 +24,10 @@ h5{
   text-align: center;
   text-decoration: underline;
   font-size: 1em;
+  img{
+    float: left;
+
+  }
 }
 
 .collage-imagenes{
@@ -118,7 +123,7 @@ h5{
         border: 1px solid #eee;
         padding: 5px;
         color: white;
-        background-color: $fondoRosadoBuscador;
+        background-color: $fondoBotonBuscador;
         font-family: 'Roboto', sans-serif;
         margin: 2px 0;
         font-size: 0.9em;
@@ -434,7 +439,7 @@ hr{
   .current{
     padding: 0!important;
     background: #ca2b4b!important;
-    a{color: #fff!important;} 
+    a{color: #fff!important;}
   }
 }
 
@@ -446,4 +451,11 @@ hr{
     display: block;
     background-size: 84px 31px;
 }
-
+.programa-en-detalle{
+  position: absolute;
+  right: 0;
+  top:5px;
+}
+.relative{
+  position: relative;
+}

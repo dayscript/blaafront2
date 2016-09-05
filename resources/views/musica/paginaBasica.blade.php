@@ -14,12 +14,10 @@
       </div>
       <div class="columns medium-12">
         <div class="row">
-          <div class="columns medium-6">
+          <div class="columns medium-12">
             <img src="{{asset('img/imagen_acerca_de.png')}}">
-          </div>
-          <div class="columns medium-6">
               <div>
-                <p class="red" ng-bind-html="content">
+                <p class="text-image-left" ng-bind-html="content">
                 </p>
               </div>
           </div>

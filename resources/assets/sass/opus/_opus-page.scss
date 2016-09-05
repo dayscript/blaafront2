@@ -39,3 +39,13 @@
     &.cIndex .subContent{ background-color: $color-index;}
   }
 }
+
+.page-acerca-de-opus{
+  img{
+    float: left;
+    margin-right: 15px;
+  }
+  .text-image-left{
+        text-align: justify;
+  }
+}

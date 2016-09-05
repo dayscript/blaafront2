@@ -38,7 +38,6 @@ class DrupalServices {
 
     public function execute(){
       $this->urlHttp = $this->host.$this->endPoint.$this->param.'?'.$this->getParams;
-      var_dump($this->urlHttp);
       try {
         $this->execute = json_decode(file_get_contents( $this->urlHttp ));
       } catch(\Exception $e) {
