@@ -19,36 +19,18 @@
         @endif
       </div>
       <div class="medium-7 columns relative">
-        <span class="text-gray">{{$node->fecha}}</span><br>
-        <span class="text-gray"> Código de registro: {{$node->registro}}</span><br>
+        <span class="text-gray concert-date coursive ">{{$node->fecha}}</span><br>
+        <span class="text-gray concert-date coursive"> Código de registro: {{$node->registro}}</span><br>
         <h4 class="text-gray">{{$node->titulo}}</h4>
         <span class="text-gray">{{$node->serie_franja}}</span><br>
         <span class="text-gray">{{$node->instrumento_formato}}</span><br>
-        <span class="text-gray">{{$node->notas}}</span><br>
-
+        <span class="text-red ">Notas al programa de mano: </span><span class="text-gray">{{$node->notas}}</span><br>
 
         @if( $node->adjunto !='' )
          <a id="icono_programa" class="programa-en-detalle" target="_blank" href="http://quimbaya.banrep.gov.co/conciertos/documentos/{{$node->adjunto}}"></a>
         @endif
-
-
-        <!--<h6>Artistas:<h6>
-        <ul>
-          @foreach( $node->artistas as $key => $value )
-            <li class="text-gray"> {{ $value['artista']->titulo }} </li>
-          @endforeach
-        </ul>-->
-        <span></span><br>
-        <span class="bold"></span><br>
-        <span class="text-gray coursive"></span><br>
-        <span class="text-gray"></span><br>
-        <span class="bold"></span><br>
       </div>
 
-  </div>
-  <div class="columns borders-a padding-a padding-b list-program">
-      <h5> Notas al programa de mano: <br></h5>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris <p>
   </div>
   <div class="columns borders-a padding-a padding-b list-program">
       <h5> Artistas: </h5>

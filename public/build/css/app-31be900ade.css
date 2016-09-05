@@ -1545,6 +1545,13 @@ hr.light {
 .page-acerca-de-opus .text-image-left {
   text-align: justify; }
 
+.node-detail .concert-date {
+  font-size: 13px;
+  color: #999; }
+
+.node-detail .text-red {
+  color: #cd1c40; }
+
 /*Copyright (c) 2015, All rights reserved.
 * Stylesheet/Hoja de estilos: style-header.css
 * Project/Proyecto: Web Banco de la republica
