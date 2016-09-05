@@ -39,6 +39,7 @@ class PagesController extends Controller
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
     public function OpusSearch(Request $request,$id_page = NULL){
+
         $Params = new Order( Input::get() );
         $Params->changeOptions(array('orden'=>Input::get('orden')));
         $Params->str_params();

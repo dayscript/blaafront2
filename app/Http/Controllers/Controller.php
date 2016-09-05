@@ -12,7 +12,7 @@ use Request;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-
+    
     protected $menu;
 
     public function __construct()
