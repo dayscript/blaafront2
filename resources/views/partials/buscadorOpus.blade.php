@@ -1,4 +1,4 @@
-<div class="{{ Request::is('musica/*') ? 'medium-12' : 'medium-4' }} search">
+<div class="{{ Request::is('musica/*') ? 'medium-12' : 'medium-4' }} columns search">
     <div class="search">
         <div class="about"><a href="/musica/acerca-de-opus" class="acerca-de-opus">Acerca de Opus</a>  </div>
         <div class="searchlabel">Haga aquí su búsqueda
