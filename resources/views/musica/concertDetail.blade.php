@@ -38,7 +38,10 @@
         @if($node->integrantes[0] != 'Undefined')
           @foreach( $node->integrantes as $key =>$value )
             <li class="text-gray columns ">
-                  <div class='item-li columns reds titulo medium-4'><span class="text-red">{{$key+1}}.</span> {{$value['integrante']->titulo }} </div>
+                  <div class='item-li columns reds titulo medium-4'>
+                    <span class="text-red">{{$key+1}}.</span>
+                    <span data-tooltip aria-haspopup="true" class="" title="{{ $value['integrante']->titulo }}">{{$value['integrante']->titulo }}
+                  </div>
                   <div class='item-li columns medium-2'>{{ ($value['integrante']->nacimiento != '0') ? $value['integrante']->nacimiento.' - ' :' '}}  {{ ($value['integrante']->fallecimiento != '0')?$value['integrante']->fallecimiento:'&nbsp;' }}</div>
                   <div class='item-li columns medium-3'>{{ $value['integrante']->pais }} </div>
                   <div class='item-li columns medium-3 end'>{{ $value['integrante']->instrumentos }} </div>
@@ -53,7 +56,10 @@
       @foreach( $node->obras as $key =>$value )
         <li class="text-gray columns ">
           <div class="medium-12">
-              <div class='item-li columns titulo medium-4'><span class="text-red">{{$key+1}}.</span> {{$value['obra']->titulo }} </div>
+              <div class='item-li columns titulo medium-4'>
+                <span class="text-red">{{$key+1}}.</span>
+                <span data-tooltip aria-haspopup="true" class="" title="{{$value['obra']->titulo }}">{{$value['obra']->titulo }}  
+              </div>
               <div class='item-li columns titulo medium-2'>{{ ($value['obra']->ano_composicion != '0')?$value['obra']->ano_composicion:'&nbsp;' }}</div>
               <div class='item-li columns medium-3 compositor'>{{ $value['obra']->titulo_compositor }}</div>
               <div class='item-li columns medium-3'> {{ ($value['obra']->nacimiento !='0')? $value['obra']->nacimiento.' - ' :'&nbsp;' }} {{ ($value['obra']->fallecimiento != '0')?$value['obra']->fallecimiento:'&nbsp;' }}</div>

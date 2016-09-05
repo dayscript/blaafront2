@@ -42,7 +42,11 @@ h5{
   color: white;
   box-shadow: $sombraBloqueBuscadorOpus;
   padding: 0!important;
-
+  .lastupdate{
+    font-size: 10px;
+    padding:0;
+    text-align: center;
+  }
 
   md-autocomplete{
     height: 30px;

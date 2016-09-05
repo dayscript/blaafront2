@@ -1142,6 +1142,10 @@ h5 {
   color: white;
   box-shadow: 0px 0px 10px #a3122f;
   padding: 0 !important; }
+  .search .lastupdate {
+    font-size: 10px;
+    padding: 0;
+    text-align: center; }
   .search md-autocomplete {
     height: 30px; }
     .search md-autocomplete md-autocomplete-wrap {
