@@ -1195,11 +1195,13 @@ h5 {
     text-align: left;
     font-family: 'Roboto', sans-serif; }
   .search .fields .field {
-    padding: 10px 10px 5px 10px; }
+    padding: 5px 10px 5px 10px; }
     .search .fields .field label {
       color: white;
       font-size: 0.9em;
       font-family: 'Roboto', sans-serif; }
+    .search .fields .field #palabra_clave {
+      margin-bottom: 0; }
     .search .fields .field input[type='text'] {
       border: none;
       height: 30px;
