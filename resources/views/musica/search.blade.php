@@ -48,6 +48,7 @@
                 </div>
                 <div class="columns medium-6 node">
                     <span class="concert-date">{{ $node->fecha }}</span><br>
+                    <span class="concert-date"> Código de registro:  {{ $node->registro }}</span><br>
                     <span class="concert-artist"><a href="musica/concierto/{{ $node->nid }}">{{ $node->titulo }}</a></span><br>
                     <span class="concert-title">{{ $node->programa_serie }}</span><br>
                     @if ( $node->instrumento != '' &&  $node->pais != '' )

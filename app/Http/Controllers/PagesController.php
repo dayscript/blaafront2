@@ -52,7 +52,7 @@ class PagesController extends Controller
         if( Input::get('orden') ){
            $request->session()->put('orden',Input::get('orden'));
         }
-        
+
         /*numero de resultados por pagina*/
         if( Input::get('items') ){
           $request->session()->put('items',Input::get('items'));
@@ -91,6 +91,7 @@ class PagesController extends Controller
         foreach ( $json->nodes as $key => $value) {
           $title = explode(',',$value->titulo);
           $json->nodes[$key]->titulo = $title[1];
+          $json->nodes[$key]->registro = $title[0];
         }
         #redireccionar, si no se encuentran resultados
         if( count($json->nodes) <=0 )
@@ -111,6 +112,7 @@ class PagesController extends Controller
 
         $itemSearch = self::_itemSearch($request);
         $nodesjs = json_encode($nodes);
+        //dd($nodes);
         return view('musica.search', compact('nodes','itemSearch','nodesjs','Params'));
 
     }
