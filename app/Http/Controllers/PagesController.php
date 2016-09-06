@@ -52,13 +52,18 @@ class PagesController extends Controller
         if( Input::get('orden') ){
            $request->session()->put('orden',Input::get('orden'));
         }
+        
+        /*numero de resultados por pagina*/
         if( Input::get('items') ){
           $request->session()->put('items',Input::get('items'));
-        }elseif ( $request->session()->get('items') != NULL ){
+        }
+        elseif ( $request->session()->get('items') != NULL ){
           $request->session()->put('items',$request->session()->get('items'));
-        }else{
+        }
+        else{
           $request->session()->put('items',10);
         }
+
         $id_page = ( $id_page == NULL ) ? 0:$id_page;
         $query = new DrupalServices('all');
         $query->addHost( self::host() );
@@ -82,6 +87,7 @@ class PagesController extends Controller
 
         if($json == 'ERROR')
           return Redirect::to('musica')->with('status', 'se ha encontrado un error, vuelva a intentarlo mas tarde');
+
         foreach ( $json->nodes as $key => $value) {
           $title = explode(',',$value->titulo);
           $json->nodes[$key]->titulo = $title[1];
@@ -95,13 +101,14 @@ class PagesController extends Controller
             $aux[$key] = $value->titulo;
           }
 
-        ( $request->session()->get('orden') == 'asc' ) ? array_multisort($aux, SORT_ASC, $json->nodes) : array_multisort($aux, SORT_DESC, $json->nodes);
+          ( $request->session()->get('orden') == 'asc' ) ? array_multisort($aux, SORT_ASC, $json->nodes) : array_multisort($aux, SORT_DESC, $json->nodes);
 
           $nodes = $json;
         }
         else{
           $nodes = $json;
         }
+
         $itemSearch = self::_itemSearch($request);
         $nodesjs = json_encode($nodes);
         return view('musica.search', compact('nodes','itemSearch','nodesjs','Params'));
