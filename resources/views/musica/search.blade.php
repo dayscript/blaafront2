@@ -44,7 +44,11 @@
         @foreach($nodes->nodes as $node)
             <div class="row">
                 <div class="columns medium-3 node">
+                  @if(isset($node->imagen->src))
+                    <img src="{{ $node->imagen->src  }}" alt="Artista">
+                  @else
                     <img src="{{ asset('img/opus/Opus_default.png') }}" alt="Artista">
+                  @endif
                 </div>
                 <div class="columns medium-6 node">
                     <span class="concert-date">{{ $node->fecha }}</span><br>
