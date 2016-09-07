@@ -58,9 +58,10 @@ elixir(function(mix) {
     mix.copy('bower_components/foundation-sites/js/foundation.dropdown.js', 'public/js/');
     mix.copy('bower_components/foundation-sites/js/foundation.dropdownMenu.js', 'public/js/');
 
+    mix.copy('bower_components/moment/min/moment.min.js', 'public/js/');
+    mix.copy('bower_components/angular-datepicker/dist/angular-datepicker.min.js', 'public/js/');
+
+
     mix.copy('node_modules/motion-ui/dist/motion-ui.min.js', 'public/js/');
 
-
-
 });
-

@@ -12,11 +12,13 @@
 @import 'styles';
 
 /*Seccion de musica */
-@import 'opus/search';
+@import 'opus/search'; 
 @import "opus/opus-page";
 @import "opus/indexOpus";
 
 @import "notifications/notifications";
+@import "opus/datapicker.scss";
+
 
 
 

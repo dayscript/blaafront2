@@ -2,7 +2,7 @@
     <div class="search">
         <div class="about"><a href="/musica/acerca-de-opus" class="acerca-de-opus">Acerca de Opus</a>
           <span class="medium-12 lastupdate"ng-controller="LastUpdateController">
-              Ultima actualizacion : @{{lastUpdate}}
+              Última actualización : @{{lastUpdate}}
           </span>
          </div>
         <div class="searchlabel">Haga aquí su búsqueda
@@ -66,28 +66,15 @@
                    </select>
                    </div>
                    <div class="medium-12 input">
-                   <md-slider-container>
-                    <label>Especifique un año:</label>
-                    <!--<label>Año:</label>-->
-                    <md-slider flex=""
-                               min="1970"
-                               max="2016"
-                               ng-model="date.year"
-                               aria-label="year"
-                               id="year-slider"
-                               class="medium-6 columns">
-                    </md-slider>
-                    <md-input-container class="medium-6 columns">
-                      <input flex=""
-                             name="year"
-                             type="number"
-                             ng-model="date.year"
-                             aria-label="year"
-                             aria-controls="year-slider"
-                             class="medium-12 columns year"
-                             >
-                    </md-input-container>
-                  </md-slider-container>
+                     <div class="medium-6 columns range-date ">
+                        <label>Desde</label>
+                        <input name="start" class="date-range" type="datetime" date-time ng-model="en" format="YYYY" view="year" min-view="year" max-view="year">
+                        <!--<div date-picker="start" min-view="date"></div>-->
+                      </div>
+                      <div class="medium-6 columns range-date">
+                         <label>Hasta</label>
+                        <input name="end" type="datetime" date-time ng-model="end" view="year" format="YYYY" min-view="year" max-view="year">
+                      </div>
                   </div>
                 </div>
                 <div class="field medium-12">

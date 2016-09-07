@@ -1,4 +1,4 @@
-var App = angular.module('Blaa', ['ngMaterial','ngRoute']);
+var App = angular.module('Blaa', ['ngMaterial','ngRoute','datePicker']);
 
 App.config(['$locationProvider','$routeProvider', function ($locationProvider,$routeProvider){
   $locationProvider.html5Mode(true);
@@ -10,8 +10,8 @@ App.constant('SERVER',{
 });
 
 App.constant('SERVERFRONT',{
-    'domain':'http://blaafront2.demodayscript.com',
-    //'domain':'http://blaafront2.local',
+    //'domain':'http://blaafront2.demodayscript.com',
+    'domain':'http://blaafront2.local',
     'port':'80'
 });
 
@@ -19,11 +19,11 @@ App.controller('LastUpdateController',function($scope,$http,$timeout,$q,$log,$ro
   $http.get(SERVER.domain+'/content/last/update')
      .success(function(data,status,headers,config){
      $scope.lastUpdate = data.nodes[0].ultimo_nodo
-     console.log(data)
    })
 });
 
 App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){
+
   $http.get(SERVER.domain+'/taxonomias/series/json')
      .success(function(data,status,headers,config){
      $scope.series = data.nodes

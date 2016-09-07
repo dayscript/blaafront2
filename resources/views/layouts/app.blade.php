@@ -12,7 +12,6 @@
     <link href="{{ elixir('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/angular-material.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/angular-material.layouts.min.css') }}" rel="stylesheet">
-
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
     @yield('styles')
 
@@ -61,6 +60,10 @@
 <script src="{{ asset('js/angular-route.min.js')  }}"></script>
 <script src="{{ asset('js/prefixfree.min.js')  }}"></script>
 <script src="{{ asset('js/interface.js')  }}"></script>
+<script src="{{ asset('js/interface.js')  }}"></script>
+
+<script src="{{ asset('js/moment.min.js')  }}"></script>
+<script src="{{ asset('js/angular-datepicker.min.js')  }}"></script>
 
 
 <script src="{{ elixir('js/app.js')  }}"></script>

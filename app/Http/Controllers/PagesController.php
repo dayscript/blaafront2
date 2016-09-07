@@ -39,11 +39,10 @@ class PagesController extends Controller
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
     public function OpusSearch(Request $request,$id_page = NULL){
-
         $Params = new Order( Input::get() );
         $Params->changeOptions(array('orden'=>Input::get('orden')));
         $Params->str_params();
-
+        dd(Input::get());
         if($request->input('_token') != null){
           $request->session()->put('searchItems',NULL);
         }
@@ -76,7 +75,9 @@ class PagesController extends Controller
           $query->addParams($request->input('serie'));
           $query->addParams($request->input('country'));
           $query->addParams($request->input('instrument'));
-          $query->addParams($request->input('year'));
+          $query->addParams($request->input('desde'));
+          $query->addParams($request->input('hasta'));
+
           $query->execute();
           $request->session()->put('searchItems', $query->param );
         }else{
