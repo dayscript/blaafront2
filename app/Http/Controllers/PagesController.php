@@ -42,8 +42,9 @@ class PagesController extends Controller
         $Params = new Order( Input::get() );
         $Params->changeOptions(array('orden'=>Input::get('orden')));
         $Params->str_params();
+
         if($request->input('_token') != null){
-          $request->session()->put('searchItems',NULL);
+            $request->session()->put('searchItems',NULL);
         }
 
         $request->session()->put('orden','Default');
@@ -67,20 +68,24 @@ class PagesController extends Controller
         $query->addHost( self::host() );
         $query->addGetParam( array( 'page'=> $id_page,'items'=> $request->session()->get('items') ));
         if( $request->session()->get('searchItems') == NULL  ){
-          $query->addEndPoint( 'busqueda-de-contenido/conciertos' );
-          $query->addParams($request->input('word_key'));
-          $query->addParams($request->input('artist'));
-          $query->addParams($request->input('composer'));
-          $query->addParams($request->input('serie'));
-          $query->addParams($request->input('country'));
-          $query->addParams($request->input('instrument'));
-          $query->addParams($request->input('start'));
+            $query->addEndPoint( 'busqueda-de-contenido/conciertos' );
+            $query->addParams($request->input('word_key'));
+            $query->addParams($request->input('artist'));
+            $query->addParams($request->input('composer'));
+            $query->addParams($request->input('serie'));
+            $query->addParams($request->input('country'));
+            $query->addParams($request->input('instrument'));
+            //$query->addGetParam(array( 'start'=>$request->input('start'),'end'=>$request->input('end')));
+            $query->addParamsdate(array('start'=>$request->input('start'),'end'=>$request->input('end')));
+            $request->session()->put('searchItems',$query->param );
+            $query->execute();
+            //dd($query->urlHttp);
 
-          $query->execute();
-          $request->session()->put('searchItems', $query->param );
+
         }else{
-          $query->addEndPoint( 'busqueda-de-contenido/conciertos'.$request->session()->get('searchItems') );
-          $query->execute();
+            $query->addEndPoint( 'busqueda-de-contenido/conciertos'.$request->session()->get('searchItems'));
+            $query->execute();
+            //dd($query->urlHttp);
         }
         $json = $query->execute;
         if($json == 'ERROR')
@@ -118,6 +123,7 @@ class PagesController extends Controller
     /*Mustra index de Opus*/
     /**********************/
     public function OpusIndex(Request $request){
+
       return view('musica.index');
     }
     /*************************************************/

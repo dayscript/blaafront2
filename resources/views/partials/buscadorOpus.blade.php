@@ -68,7 +68,7 @@
                    <div class="medium-12 input">
                      <div class="medium-6 columns range-date ">
                         <label>Desde</label>
-                        <input name="start" class="date-range" type="datetime" date-time ng-model="en" format="YYYY" view="year" min-view="year" max-view="year">
+                        <input name="start" type="datetime" date-time ng-model="start" format="YYYY" view="year" min-view="year" max-view="year">
                         <!--<div date-picker="start" min-view="date"></div>-->
                       </div>
                       <div class="medium-6 columns range-date">

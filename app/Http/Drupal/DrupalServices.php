@@ -9,7 +9,8 @@ class DrupalServices {
       $this->Word = $word;
       $this->param = "";
       $this->urlHttp = "";
-      $this->getParams ="/?";
+      $this->getParams ="";
+      $this->addParamsdatestr ="";
     }
 
     public function addHost($host){
@@ -20,24 +21,29 @@ class DrupalServices {
     }
     public function addGetParam( $array = NULL ){
       if( is_array($array) ){
-        $this->getParams = http_build_query($array);
+          $this->getParams = http_build_query($array);
       }
     }
-    public function addParams($param){
+    public function addParams($param,$options = array()){
       $url = "";
       $urlTest = "";
-
-      if( $param !=""){
+      if( $param !="" ){
           $url .= '/'.str_replace(' ','%20',$param);
-        }
-        else{
-            $url .= '/'.$this->Word;
-          }
+      }
+      else{
+              $url .= '/'.$this->Word;
+      }
       $this->param .= $url;
-    }
 
+    }
+    public function addParamsdate($array = array()){
+      if(is_array($array)){
+        $this->param .= '?'.http_build_query($array);
+      }
+    }
     public function execute(){
-      $this->urlHttp = $this->host.$this->endPoint.$this->param.'?'.$this->getParams;
+      $this->urlHttp = $this->host.$this->endPoint.$this->param.'&'.$this->getParams;
+      
       try {
         $this->execute = json_decode(file_get_contents( $this->urlHttp ));
       } catch(\Exception $e) {

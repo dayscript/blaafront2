@@ -23,6 +23,11 @@ App.controller('LastUpdateController',function($scope,$http,$timeout,$q,$log,$ro
 });
 
 App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){
+  var date = new Date()
+
+  $scope.start = 0
+  $scope.end = date
+
 
   $http.get(SERVER.domain+'/taxonomias/series/json')
      .success(function(data,status,headers,config){
@@ -100,13 +105,5 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
         return pos.replace('','');
       });
     }
-    //slider de fechas
-    $scope.date = {
-      year: '1990',
-      month: '4',
-      day:'12'
-    };
-    $scope.isDisabled = true;
-    $scope.rating1 = 3;
 
 });
