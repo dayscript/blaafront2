@@ -12,7 +12,7 @@ use Request;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    
+
     protected $menu;
 
     public function __construct()
@@ -192,7 +192,7 @@ class Controller extends BaseController
                                 'url'   => 'musica/temporada'
                             ],
                         ]
-                    ],
+                    ],   
                     'cómo presentar su propuesta artistica'    => [
                         'label' => 'cómo presentar su propuesta artistica',
                         'url'   => 'musica/boleteria',
