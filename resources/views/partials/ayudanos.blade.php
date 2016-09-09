@@ -1,6 +1,9 @@
 <div class="form-help columns medium-12">
   <form>
-      <label>¿Encontró un error? Ayúdenos enviando un mensaje a <a href="mailto:acasasro@banrep.gov.co">acasasro@banrep.gov.co</a> </label>
+      <h5>
+          ¿Encontró un error?
+      </h5>
+      <label>Ayúdenos enviando un mensaje a <a href="mailto:acasasro@banrep.gov.co">acasasro@banrep.gov.co</a> </label>
   </form>
 
 </div>

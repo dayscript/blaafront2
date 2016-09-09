@@ -28,6 +28,12 @@ h5{
     float: left;
 
   }
+  a{
+    color:#992e40;
+  }
+  &:hover{
+    color:#000;
+  }
 }
 
 .collage-imagenes{
@@ -172,15 +178,18 @@ h5{
       width: 23px;
       display: inline-block;
       height: 18px;
+    padding-top: 6px;
   }
   .order-by{
     text-align: center;
+    padding-top: 6px;
   }
   label{
     font-size: 10px;
   }
   .items-search{
     background:#dcdcdc;
+    padding-top: 0px;
   }
   .paginator{
     background:#dcdcdc;
@@ -238,6 +247,11 @@ h5{
   }
   .concert-date{
     font-size: 10px;
+    color: #666;
+    font-style: italic;
+  }
+  .concert-code{
+    font-size: 10px;
     color: #999;
   }
   .concert-artist{
@@ -289,6 +303,7 @@ h5{
   }
   h4{
     color:#cd1c40;
+    margin: 4px 0px;
   }
   h6{
     color:#cd1c40;
@@ -302,6 +317,7 @@ h5{
   padding: 20px;
 }
 .list-program{
+  margin-bottom: 12px;
   ul{
     list-style-type: none;
     font-size: 13px;
@@ -317,7 +333,7 @@ h5{
     padding: 6px;
 }
 .borders-a{
-  border-top: solid 5px #cd1c40;
+  //border-top: solid 5px #cd1c40;
   border-bottom: solid 2px #cd1c40;
 }
 .padding-a{

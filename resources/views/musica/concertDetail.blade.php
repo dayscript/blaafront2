@@ -4,8 +4,6 @@
     Opus @parent
 @endsection
 @section('content')
-<div class="medium-12 columns breadcrumb">
-</div>
 <div class="medium-4 columns">
 @include('partials.buscadorOpus')
 @include('partials.ayudanos')
@@ -20,13 +18,12 @@
         @endif
       </div>
       <div class="medium-7 columns relative">
-        <span class="text-gray concert-date coursive ">{{$node->fecha}}</span><br>
-        <span class="text-gray concert-date coursive"> Código de registro: {{$node->registro}}</span><br>
+        <span class="text-gray concert-date ">{{$node->fecha}}</span>
+        <span class="text-gray concert-code "> CÓDIGO DE REGISTRO: {{$node->registro}}</span>
         <h4 class="text-gray">{{$node->titulo}}</h4>
-        <span class="text-gray">{{$node->serie_franja}}</span><br>
-        <span class="text-gray">{{$node->instrumento_formato}}</span><br>
-
-        <span class="text-red ">Notas al programa de mano: </span><span class="text-gray">{{$node->notas}}</span><br>
+        <span class="text-gray serie">{{$node->serie_franja}}</span>
+        <span class="text-gray instrumento">{{$node->instrumento_formato}}</span>
+        <span class="text-red notas">Notas al programa de mano: </span><span class="text-gray notas">{{$node->notas}}</span><br>
         @if( $node->adjunto !='' )
          <a id="icono_programa" class="programa-en-detalle" target="_blank" href="http://quimbaya.banrep.gov.co/conciertos/documentos/{{$node->adjunto}}"></a>
         @endif

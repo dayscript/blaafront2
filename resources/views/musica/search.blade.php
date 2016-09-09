@@ -8,7 +8,11 @@
     @include('partials.ayudanos')
     </div>
     <div class="columns medium-8 results-view">
-        <div class="paginator medium-12 columns">
+        <div class="paginator row columns">
+            <div class="medium-3 items-search columns">
+                <label class="medium-12"><strong>{{$itemSearch}}</strong></label>
+                <label class="medium-12 red"><strong>{{$nodes->view->count}}</strong> Resultados</label>
+            </div>
             <div class="medium-4 columns number-items">
                 <span>Resultados por pagina </span>
                 <select id="number-items" onchange=" this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value); ">
@@ -19,12 +23,17 @@
                   <option value="musica/resultados/0?items=50">50</option>
                 </select>
             </div>
-            <div class="medium-4 columns">
-              <div class="medium-12 columns order-by">
-                <label>Ordenar: </label><a href="{{Request::path().$Params->str_params}}" id="order-by"></a>
+            <div class="medium-2 columns">
+              <div class="row order-by">
+                  <div class="medium-6 columns">
+                      <label>Ordenar: </label>
+                  </div>
+               <div class="medium-6 columns">
+                   <a href="{{Request::path().$Params->str_params}}" id="order-by"></a>
+               </div>
               </div>
             </div>
-            <div class="medium-4 columns number-page">
+            <div class="medium-3 columns number-page">
                 <ul class="pagination" role="menubar" aria-label="Pagination">
                   <li class="arrow unavailable" aria-disabled="true"><a href="musica/resultados/{{ $nodes->view->page-1 }}">&laquo; </a></li>
                   @for( $i = $nodes->view->page+1 ; $i <= $nodes->view->pages; $i++ )
@@ -35,11 +44,9 @@
                   <li class="arrow"><a href="musica/resultados/{{ $nodes->view->page+1 }}"> &raquo;</a></li>
                 </ul>
               </div>
+
         </div>
-        <div class="medium-12 items-search columns">
-            <label class="medium-12"><strong>{{$itemSearch}}</strong></label>
-            <label class="medium-12 red"><strong>{{$nodes->view->count}}</strong> Resultados</label>
-        </div>
+
         <div class="results medium-12 columns">
         @foreach($nodes->nodes as $node)
             <div class="row">
@@ -51,10 +58,9 @@
                   @endif
                 </div>
                 <div class="columns medium-6 node">
-                    <span class="concert-date">{{ $node->fecha }}</span><br>
-                    <span class="concert-date"> Código de registro:  {{ $node->registro }}</span><br>
+                    <span class="concert-date">{{ $node->fecha }} </span><span class="concert-code"> CÓDIGO DE REGISTRO:  {{ $node->registro }}</span><br>
                     <span class="concert-artist"><a href="musica/concierto/{{ $node->nid }}">{{ $node->titulo }}</a></span><br>
-                    <span class="concert-title">{{ $node->programa_serie }}</span><br>
+                    <span class="concert-title">{{ $node->programa_serie }}</span>
                     @if ( $node->instrumento != '' &&  $node->pais != '' )
                       <span class="concert-instrument">{{ $node->instrumento }} | {{ $node->pais }}</span>
                     @endif
