@@ -13,7 +13,7 @@ App.constant('SERVERFRONT',{
     'domain':'http://blaafront2.demodayscript.com',
     //'domain':'http://blaafront2.local',
     'port':'80'
-}); 
+});  
 
 App.controller('LastUpdateController',function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){
   $http.get(SERVER.domain+'/content/last/update')
