@@ -11,9 +11,8 @@ App.constant('SERVER',{
 
 App.constant('SERVERFRONT',{
     'domain':'http://blaafront2.demodayscript.com',
-    //'domain':'http://blaafront2.local',
     'port':'80'
-});  
+});
 
 App.controller('LastUpdateController',function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){
   $http.get(SERVER.domain+'/content/last/update')
@@ -109,6 +108,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
 });
 
 App.controller('ImageController',function($scope,$http,$timeout,$q,$log,SERVER,SERVERFRONT){
+  console.log(SERVERFRONT.domain)
   $http.get(SERVERFRONT.domain+'/musica/conciertos/img/json').success(function(data,status,headers,config){
     console.log(data);
     $scope.images = data
