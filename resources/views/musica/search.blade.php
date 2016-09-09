@@ -10,7 +10,7 @@
     <div class="columns medium-8 results-view">
         <div class="paginator row columns">
             <div class="medium-3 items-search columns">
-                <label class="medium-12"><strong>{{$itemSearch}}</strong></label>
+                <label class="medium-12">{{$itemSearch}}</label>
                 <label class="medium-12 red"><strong>{{$nodes->view->count}}</strong> Resultados</label>
             </div>
             <div class="medium-4 columns number-items">
@@ -58,7 +58,8 @@
                   @endif
                 </div>
                 <div class="columns medium-6 node">
-                    <span class="concert-date">{{ $node->fecha }} </span><span class="concert-code"> CÓDIGO DE REGISTRO:  {{ $node->registro }}</span><br>
+                    <span class="concert-date">{{ $node->fecha }} </span>
+                    <span class="concert-code"> CÓDIGO DE REGISTRO:  {{ $node->registro }}</span>
                     <span class="concert-artist"><a href="musica/concierto/{{ $node->nid }}">{{ $node->titulo }}</a></span><br>
                     <span class="concert-title">{{ $node->programa_serie }}</span>
                     @if ( $node->instrumento != '' &&  $node->pais != '' )
