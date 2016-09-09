@@ -135,8 +135,9 @@ class PagesController extends Controller
       $temp = [];
       $filesRandom=[];
       foreach( File::allFiles('../'.env('PATH_IMG')) as $path ){
-        $files[] = 'http://blaafront2.local/img/conciertos/'.pathinfo($path)['basename'];
+        $files[] = 'http://blaafront2.demodayscript.com/img/conciertos/'.pathinfo($path)['basename'];
       }
+      dd($files); 
       $h=0;
       while( $h <= 5 ){
         $rand = rand(1,count($files)-1);
@@ -145,7 +146,7 @@ class PagesController extends Controller
             $h++;
         }
       }
-      return response()->json($filesRandom);
+      //return response()->json($filesRandom);
     }
     /*********************************/
     /*Muestra detalle del nodo de Opus*/
