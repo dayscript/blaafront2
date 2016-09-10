@@ -192,7 +192,7 @@ class Controller extends BaseController
                                 'url'   => 'musica/temporada'
                             ],
                         ]
-                    ],   
+                    ],
                     'cómo presentar su propuesta artistica'    => [
                         'label' => 'cómo presentar su propuesta artistica',
                         'url'   => 'musica/boleteria',
@@ -249,6 +249,7 @@ class Controller extends BaseController
             ],
         ];
         $seccion = explode('/',Request::path());
+dd($seccion);
         $this->menu['submenu'] = $this->menu['menu'][$seccion[0]];
         view()->share('menu',$this->menu);
     }
