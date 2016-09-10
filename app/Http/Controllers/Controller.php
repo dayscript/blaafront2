@@ -192,7 +192,7 @@ class Controller extends BaseController
                                 'url'   => 'musica/temporada'
                             ],
                         ]
-                    ],   
+                    ],
                     'cómo presentar su propuesta artistica'    => [
                         'label' => 'cómo presentar su propuesta artistica',
                         'url'   => 'musica/boleteria',
