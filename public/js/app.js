@@ -10,8 +10,8 @@ App.constant('SERVER',{
 });
 
 App.constant('SERVERFRONT',{
-    'domain':'http://blaafront2.demodayscript.com',
-    'port':'80'
+    'domain':'http://nuevo.banrepcultural.org',
+    'port':'80' 
 });
 
 App.controller('LastUpdateController',function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){
