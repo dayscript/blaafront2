@@ -25,7 +25,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
   var date = new Date()
 
   $scope.start = 0
-  $scope.end = date 
+  $scope.end = date
 
 
   $http.get(SERVER.domain+'/taxonomias/series/json')
@@ -106,3 +106,42 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
     }
 
 });
+
+App.controller('ImageController',function($scope,$http,$timeout,$q,$log,SERVER,SERVERFRONT){
+  console.log(SERVERFRONT.domain)
+  //$http.get(SERVERFRONT.domain+'/musica/conciertos/img/json').success(function(data,status,headers,config){
+  $http.get(SERVERFRONT.domain+'/musica/conciertos/img/json').success(function(data,status,headers,config){
+    console.log(data);
+    $scope.images = data
+  })
+});
+
+App.controller('PageController',function($scope,$http,$timeout,$q,$log,$sce,SERVER,SERVERFRONT){
+  $http.get(SERVER.domain+'/paginas-basicas/musica').success(function(data,status,headers,config){
+    console.log(data.nodes[0].node);
+    $scope.title = data.nodes[0].node.title
+    $scope.content = $sce.trustAsHtml(data.nodes[0].node.Contenido);
+  })
+});
+
+App.factory('AutorsService', function($http) {
+    var Autors = {
+      async: function() {
+        var promise = $http.get('http://blaa.local/autocomplete/autores').then(function (response) {
+          return response.data;
+        });
+        return promise;
+      }
+    };
+    return Autors;
+  });
+
+$(document).foundation()
+
+$(document).ready(function() {
+
+	//Permite cerrar los mensajes emergentes
+    jQuery('.close-button').click(function(){jQuery('.callout').fadeOut();});
+});
+
+//# sourceMappingURL=app.js.map
