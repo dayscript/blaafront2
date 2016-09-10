@@ -25,7 +25,7 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
   var date = new Date()
 
   $scope.start = 0
-  $scope.end = date
+  $scope.end = date 
 
 
   $http.get(SERVER.domain+'/taxonomias/series/json')
