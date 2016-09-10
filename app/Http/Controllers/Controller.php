@@ -249,7 +249,6 @@ class Controller extends BaseController
             ],
         ];
         $seccion = explode('/',Request::path());
-dd($seccion);
         $this->menu['submenu'] = $this->menu['menu'][$seccion[0]];
         view()->share('menu',$this->menu);
     }
