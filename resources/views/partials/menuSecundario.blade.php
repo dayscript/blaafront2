@@ -26,7 +26,7 @@
                         @if( isset($suboption['suboptions']))
                         <ul class="menu trasparent">
                             @foreach($suboption['suboptions'] as $link => $suboptions)
-                            <li><a href="{{$link}}">{{$suboptions['label']}}</a></li>
+                            <li><a href="{{$suboptions['url']}}">{{$suboptions['label']}}</a></li>
                             @endforeach
                         </ul>
                         @endif

@@ -11,8 +11,9 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () {
+    //return view('welcome');
+    return Redirect::to('http://www.banrepcultural.org');
 });
 
 /*
@@ -27,15 +28,15 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-    Route::get('musica', 'PagesController@OpusIndex');
-    Route::post('musica', 'PagesController@OpusSearch');
-    Route::get('musica/resultados/{id_page}', 'PagesController@OpusSearch');
-    Route::post('musica/resultados/{id_page}', 'PagesController@OpusSearch');
-    Route::get('musica/concierto/{nid}', 'PagesController@OpusConcertDetail');
+    Route::get('musica/opus', 'PagesController@OpusIndex');
+    Route::post('musica/opus', 'PagesController@OpusSearch');
+    Route::get('musica/opus/resultados/{id_page}', 'PagesController@OpusSearch');
+    Route::post('musica/opus/resultados/{id_page}', 'PagesController@OpusSearch');
+    Route::get('musica/opus/concierto/{nid}', 'PagesController@OpusConcertDetail');
     Route::get('musica/conciertos/img/json', 'PagesController@ImgConcertsJson');
-    Route::get('musica/acerca-de-opus', 'PagesController@AcercaDe');
-    Route::get('musica/pruebas', 'PagesController@pruebas');
+    Route::get('musica/opus/acerca-de-opus', 'PagesController@AcercaDe');
+    Route::get('musica/opus/pruebas', 'PagesController@pruebas');
 
 
-});
+}); 
 

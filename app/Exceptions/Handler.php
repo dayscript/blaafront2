@@ -8,7 +8,7 @@ use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
+use Redirect;
 class Handler extends ExceptionHandler
 {
     /**
@@ -45,6 +45,29 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        return parent::render($request, $e);
+        //return parent::render($request, $e);
+        if($this->isHttpException($e))
+            {
+                switch ($e->getStatusCode()) 
+                    {
+                    // not found
+                    case 404:
+                    return Redirect::to('/musica/opus');
+                    break;
+
+                    // internal error
+                    case '500':
+                    return Redirect::to('/musica/opus');
+                    break;
+
+                    default:
+                        return $this->renderHttpException($e);
+                    break;
+                }
+            }
+        else
+            {
+                    return parent::render($request, $e);
+            }
     }
 }

@@ -69,7 +69,7 @@ class Controller extends BaseController
                 'options'  => [
                     'inicio'    => [
                         'label' => 'inicio',
-                        'url'   => '/musica',
+                        'url'   => '/musica/opus',
                         /*'suboptions'=>[
                             'Uno'=>[
                                 'label' => 'Temporada nacional de conciertos',
@@ -95,8 +95,8 @@ class Controller extends BaseController
                     ],
                     'programacion nacional' => [
                         'label' => 'Programación nacional',
-                        'url'   => 'musica/programacion',
-                        'suboptions'=>[
+                        'url'   => 'http://www.banrepcultural.org/programacion-nacional-de-conciertos/all',
+                        /*'suboptions'=>[
                             'armenia'=>[
                                 'label' => 'armenia',
                                 'url'   => 'musica/temporada'
@@ -111,66 +111,78 @@ class Controller extends BaseController
                             ],
                             'cartagena'=>[
                                 'label' => 'cartagena',
-                                'url'   => 'musica/temporada'
+                                'url'   => 'musica/temporada' 
                             ],
                             'cali'=>[
                                 'label' => 'cali',
                                 'url'   => 'musica/temporada'
                             ],
-                        ]
+                        ]*/
                     ],
                     'programacion bogota'      => [
                         'label' => 'programación bogotá',
-                        'url'   => 'musica/jovenes',
+                        'url'   => 'http://www.banrepcultural.org/musica/temporada-nacional-de-conciertos',
                         'suboptions'=>[
+                            'musica antigua'=>[
+                                'label' => 'música antigua',
+                                'url'   => 'http://www.banrepcultural.org/musica/temporada-nacional-de-conciertos/Música-antigua-para-nuestro-tiempo'
+                            ],
                             'musica de camara'=>[
-                                'label' => 'musica de camara',
-                                'url'   => 'musica/temporada'
+                                'label' => 'música de camara',
+                                'url'   => 'http://www.banrepcultural.org/musica/temporada-nacional-de-conciertos/Recorridos-por-la-m%C3%BAsica-de-c%C3%A1mara'
                             ],
                             'retratos de un compositor'=>[
                                 'label' => 'retratos de un compositor',
-                                'url'   => 'musica/temporada'
+                                'url'   => 'http://www.banrepcultural.org/musica/temporada-nacional-de-conciertos/Retratos-de-un-compositor'
                             ],
                             'musica del mundo'=>[
                                 'label' => 'música el mundo',
-                                'url'   => 'musica/temporada'
+                                'url'   => 'http://www.banrepcultural.org/musica/temporada-nacional-de-conciertos/M%C3%BAsica-y-m%C3%BAsicos-de-Latinoam%C3%A9rica-y-el-mundo'
                             ],
                             'jóvenes intérpretes'=>[
                                 'label' => 'jóvenes intérpretes',
-                                'url'   => 'musica/temporada'
+                                'url'   => 'http://www.banrepcultural.org/musica/temporada-nacional-de-conciertos/Serie-de-los-j%C3%B3venes-int%C3%A9rpretes'
                             ],
                             'la música en familia'=>[
                                 'label' => 'la música en familia',
-                                'url'   => 'musica/temporada'
+                                'url'   => 'http://www.banrepcultural.org/musica/temporada-nacional-de-conciertos/La-m%C3%BAsica-en-familia'
+                            ],
+                            'la música se habla'=>[
+                                'label' => 'la música se habla',
+                                'url'   => 'http://www.banrepcultural.org/musica/la-musica-se-habla'
+                            ],
+                            'conciertos didácticos'=>[
+                                'label' => 'conciertos didácticos',
+                                'url'   => 'http://www.banrepcultural.org/musica/conciertos-didacticos'
                             ],
                         ]
                     ],
                     'musica/lasala'       => [
                         'label' => 'La sala',
-                        'url'   => 'musica/lasala',
+                        'url'   => 'http://www.banrepcultural.org/musica/descripcion-de-la-sala',
                         'suboptions'=>[
                             'boleteria'=>[
                                 'label' => 'boletería',
-                                'url'   => 'musica/temporada'
+                                'url'   => 'http://www.banrepcultural.org/musica/boleteria'
                             ],
                             'rutas de acceso y servicios'=>[
                                 'label' => 'rutas acceso y servicios',
-                                'url'   => 'musica/temporada'
+                                'url'   => 'http://www.banrepcultural.org/musica/rutas-de-accesos-y-servicios'
                             ],
                             'tome nota'=>[
                                 'label' => 'tome nota',
-                                'url'   => 'musica/temporada'
+                                'url'   => 'http://www.banrepcultural.org/musica/tome-nota'
                             ],
                             'descripcion de la sala'=>[
                                 'label' => 'descripcíon de la sala',
-                                'url'   => 'musica/temporada'
+                                'url'   => 'http://www.banrepcultural.org/musica/descripcion-de-la-sala'
                             ],
                         ]
                     ],
                     'publicaciones y sus colecciones'  => [
                         'label' => 'publicaciones y sus colecciones',
-                        'url'   => '/musica/especiales',
-                        'suboptions'=>[
+                        'url'   => 'http://www.banrepcultural.org/musica/grabaciones',
+                        /*'suboptions'=>[
                             'grabaciones'=>[
                                 'label' => 'grabaciones',
                                 'url'   => 'musica/temporada'
@@ -191,11 +203,11 @@ class Controller extends BaseController
                                 'label' => 'Temporada nacional de conciertos',
                                 'url'   => 'musica/temporada'
                             ],
-                        ]
+                        ]*/
                     ],
                     'cómo presentar su propuesta artistica'    => [
                         'label' => 'cómo presentar su propuesta artistica',
-                        'url'   => 'musica/boleteria',
+                        'url'   => 'http://www.banrepcultural.org/musica/presentacion-propuesta-artistica',
                         /*'suboptions'=>[
                             'Uno'=>[
                                 'label' => 'Temporada nacional de conciertos',
@@ -219,7 +231,7 @@ class Controller extends BaseController
                             ],
                         ]*/
                     ],
-                    '/musica/info'        => [
+                    /*'/musica/info'        => [
                         'label' => 'Información práctica',
                         'url'   => 'musica/info',
                         'suboptions'=>[
@@ -243,9 +255,9 @@ class Controller extends BaseController
                                 'label' => 'Temporada nacional de conciertos',
                                 'url'   => 'musica/temporada'
                             ],
-                        ]
-                    ]
-                ]
+                        ],
+                    ],*/
+                ],
             ],
         ];
         $seccion = explode('/',Request::path());

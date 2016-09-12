@@ -1,16 +1,15 @@
-<div class="{{ Request::is('musica/*') ? 'medium-12' : 'medium-4' }} columns search">
+﻿<div class="{{ Request::is('musica/opus*') ? 'medium-4' : 'medium-4' }} columns search">
     <div class="search">
-        <div class="about"><a href="/musica/acerca-de-opus" class="acerca-de-opus">Acerca de Opus</a>
-          <span class="medium-12 lastupdate"ng-controller="LastUpdateController">
+        <div class="about"><a href="/musica/opus/acerca-de-opus" class="acerca-de-opus">Acerca de Opus</a>
+          <span class="medium-12 lastupdate" ng-controller="LastUpdateController">
               Última actualización : @{{lastUpdate}}
           </span>
          </div>
         <div class="searchlabel">Haga aquí su búsqueda
             utilizando uno o más criterios:
         </div>
-
         <div class="fields" ng-controller="SearchController" >
-            <form action="/musica/resultados/0" method="post">
+            <form action="/musica/opus/resultados/0" method="post">
                 {{ csrf_field() }}
                 <div class="field medium-12">
                     <div class="medium-12 input">
