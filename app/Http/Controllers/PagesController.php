@@ -135,7 +135,7 @@ class PagesController extends Controller
       $temp = [];
       $filesRandom=[];
       foreach( File::allFiles('../'.env('PATH_IMG')) as $path ){
-        $files[] = 'http://blaafront2.demodayscript.com/img/conciertos/'.pathinfo($path)['basename'];
+        $files[] = env('SERVER_URL').'/img/conciertos/'.pathinfo($path)['basename'];
       }
       $h=0;
       while( $h <= 5 ){

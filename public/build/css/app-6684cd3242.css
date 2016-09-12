@@ -1121,7 +1121,7 @@ h5 {
   color: #992e40;
   width: 100%;
   display: inline-block;
-  background: url("http://blaafront2.local/img/acerca_de_opus.png") no-repeat;
+  background: url("/img/acerca_de_opus.png") no-repeat;
   background-position: 100%;
   background-size: 15px 15px;
   text-align: center;

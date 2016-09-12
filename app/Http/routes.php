@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    //return view('welcome');
-    return Redirect::to('http://www.banrepcultural.org');
+    return view('welcome');
+    //return Redirect::to('/opus');
 });
 
 /*

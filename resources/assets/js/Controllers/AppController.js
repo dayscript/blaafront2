@@ -10,7 +10,7 @@ App.constant('SERVER',{
 });
 
 App.constant('SERVERFRONT',{
-    'domain':'http://nuevo.banrepcultural.org',
+    'domain':'http://nuevo.banrepcultural.local',
     'port':'80'
 });
 

@@ -10,12 +10,8 @@ App.constant('SERVER',{
 });
 
 App.constant('SERVERFRONT',{
-    'domain':'http://nuevo.banrepcultural.org',
-<<<<<<< HEAD
-    'port':'80' 
-=======
+    'domain':'http://nuevo.banrepcultural.local',
     'port':'80'
->>>>>>> 26cd3347143d899c45e6852eb94c666d19df82e7
 });
 
 App.controller('LastUpdateController',function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){

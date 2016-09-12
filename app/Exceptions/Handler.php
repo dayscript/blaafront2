@@ -51,7 +51,7 @@ class Handler extends ExceptionHandler
                 switch ($e->getStatusCode()) 
                     {
                     // not found
-                    case 404:
+                    /*case 404:
                     return Redirect::to('/musica/opus');
                     break;
 
@@ -62,7 +62,7 @@ class Handler extends ExceptionHandler
 
                     default:
                         return $this->renderHttpException($e);
-                    break;
+                    break;*/
                 }
             }
         else
