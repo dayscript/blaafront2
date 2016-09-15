@@ -3,7 +3,7 @@
 <nav class="subMenu medium-12 {{ get_class_for_menu(Request::path()) }}" >
     <div class="subContent medium-12">
 
-        <div class="medium-8 columns"><h2><span>{{ isset($menu)? $menu['submenu']['title']:'' }}</span>
+        <div class="medium-8 columns"><h2><span><a style="color:#fff" href="/musica/opus">{{ isset($menu)? $menu['submenu']['title']:'' }}</a></span>
                 <em>{{ isset($menu)? $menu['submenu']['subtitle']:'' }}</em></h2></div>
         <!--<div class="lFiltro large-4 columns">
                 <select class="customSelect">

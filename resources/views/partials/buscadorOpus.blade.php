@@ -25,7 +25,7 @@
                         md-selected-item="selectedItem"
                         md-items="autor in CallBackFilter(searchText)"
                         md-item-text="item.name"
-                        placeholder="Escriba un autor">
+                        placeholder="Escriba nombre de un artista">
                         <span md-highlight-text="searchText" md-highlight-flags="^i" >@{{autor}}</span>
                       </md-autocomplete>
                     </div>
@@ -38,7 +38,7 @@
                       md-selected-item="selectedItemComposer"
                       md-items="composer in CallBackFilterComposers(searchTextComposer)"
                       md-item-text="composer.name"
-                      placeholder="Escriba un compositor">
+                      placeholder="Escriba nombre de un compositor">
                       <span md-highlight-text="searchText" md-highlight-flags="^i" >@{{composer}}</span>
                     </md-autocomplete>
                     </div>
