@@ -14,7 +14,7 @@
     <link href="{{ asset('css/angular-material.layouts.min.css') }}" rel="stylesheet">
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
     @yield('styles')
-
+    {!! Analytics::render() !!}
 </head>
 <base href="/" />
 <body class="{{ get_css_class_for_page('page') }}">
@@ -67,17 +67,6 @@
 
 
 <script src="{{ elixir('js/app.js')  }}"></script>
-<!-- Google Analytics -->
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-43463194-1', 'auto');
-    ga('send', 'pageview');
-</script>
-<!-- End Google Analytics -->
 </body>
 
 </html>
