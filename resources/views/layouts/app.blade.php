@@ -14,7 +14,7 @@
     <link href="{{ asset('css/angular-material.layouts.min.css') }}" rel="stylesheet">
     <link href="{{ asset('favicon.ico') }}" rel="shortcut icon">
     @yield('styles')
-    
+    {!! Analytics::render() !!}
 </head>
 <base href="/" />
 <body class="{{ get_css_class_for_page('page') }}">
