@@ -143,7 +143,7 @@ class PagesController extends Controller
         if( !array_key_exists($rand,$filesRandom) ){
             $filesRandom[$rand] = $files[$rand];
             $h++;
-        }    
+        }
       }
       return response()->json($filesRandom);
     }
