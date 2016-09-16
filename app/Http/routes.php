@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
-    //return Redirect::to('/opus');
+    //return view('welcome');
+    return Redirect::to('/opus');
 });
 
 /*
@@ -38,5 +38,4 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('musica/opus/pruebas', 'PagesController@pruebas');
 
 
-}); 
-
+});

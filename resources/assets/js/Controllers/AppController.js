@@ -23,11 +23,15 @@ App.controller('LastUpdateController',function($scope,$http,$timeout,$q,$log,$ro
 
 App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){
   var date = new Date()
+  $scope.years = []
+  $scope.start = new Date('1969');
+  $scope.start = $scope.start.getFullYear()+1
+  $scope.end = new Date();
+  $scope.end = $scope.end.getFullYear()+1
 
-  $scope.start = 0
-  $scope.end = date 
-
-
+  for (var i = $scope.start; i < $scope.end; i++) {
+      $scope.years.push(i)
+  }
   $http.get(SERVER.domain+'/taxonomias/series/json')
      .success(function(data,status,headers,config){
      $scope.series = data.nodes
