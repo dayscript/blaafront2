@@ -41,6 +41,8 @@ class PagesController extends Controller
     public function OpusSearch(Request $request,$id_page = NULL){
         $Params = new Order( Input::get() );
         $Params->changeOptions(array('orden'=>Input::get('orden')));
+        //$Params->changeOptions(array('orden_crono'=>Input::get('orden_crono')));
+
         $Params->str_params();
 
         if($request->input('_token') != null){
@@ -80,8 +82,6 @@ class PagesController extends Controller
             $request->session()->put('searchItems',$query->param );
             $query->execute();
             //dd($query->urlHttp);
-
-
         }else{
             $query->addEndPoint( 'busqueda-de-contenido/conciertos'.$request->session()->get('searchItems'));
             $query->execute();
@@ -104,7 +104,6 @@ class PagesController extends Controller
           foreach( $json->nodes as $key =>$value ){
             $aux[$key] = $value->titulo;
           }
-
           ( $request->session()->get('orden') == 'asc' ) ? array_multisort($aux, SORT_ASC, $json->nodes) : array_multisort($aux, SORT_DESC, $json->nodes);
 
           $nodes = $json;

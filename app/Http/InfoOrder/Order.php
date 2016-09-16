@@ -26,7 +26,20 @@ class Order {
               $this->params[$key] = 'asc';
             break;
           }
-        }else{
+        }elseif( $key == "orden_crono" && array_key_exists($key,$this->params)){
+          switch ($this->changeOptions[$key]) {
+            case 'asc':
+              $this->params[$key] = 'desc';
+            break;
+            case 'desc':
+              $this->params[$key] = 'asc';
+            break;
+            default:
+              $this->params[$key] = 'asc';
+            break;
+          }
+        }
+        else{ 
           $this->params[$key] = 'asc';
         }
       }
