@@ -32,9 +32,9 @@
   <div class="columns borders-a padding-a padding-b list-program">
       <h5> Artistas: </h5>
 
-      <table>
+      <table class="concert" style="width: 100%">
         <thead>
-          <tr><td>No.</td><td> Nombre </td><td> Instrumento </td><td> País </td><td> Año Nacimiento </td></tr>
+          <tr><td>No.</td><td width="230"> Nombre </td><td> Instrumento </td><td> País </td><td> Año Nacimiento </td></tr>
         </thead>
         <tbody>
           @if($node->integrantes[0] != 'Undefined')
@@ -52,9 +52,9 @@
   </div>
   <div class="medium-12 columns borders-a padding-a  padding-b list-program">
     <h5> Programa interpretado: </h5>
-      <table>
+      <table style="width: 100%">
         <thead>
-          <tr><td>No.</td><td> Obra </td><td> Año </td><td> Compositor </td><td> Año de nacimiento y muerte </td></tr>
+          <tr><td>No.</td><td width="200"> Obra </td><td> Año </td><td> Compositor </td><td> Año de nacimiento y muerte </td></tr>
         </thead>
         <tbody>
         @foreach( $node->obras as $key =>$value )
