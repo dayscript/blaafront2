@@ -46,21 +46,21 @@
                     <label for="name">Serie</label>
                     <select name="serie">
                       <option value="all">Todas</option>
-                      <option ng-repeat="serie in series" value="@{{serie.tid}}" >@{{serie.name}}</option>
+                      <option ng-repeat="serie in series" value="@{{serie.name}}" >@{{serie.name}}</option>
                     </select>
                    </div>
                     <div class="medium-12 input">
                     <label for="name">Pais</label>
                     <select  name="country">
                       <option value ="all">Todos</option>
-                      <option ng-repeat ="pais in paises" value ="@{{pais.tid}}">@{{pais.name}}</option>
+                      <option ng-repeat ="pais in paises" value ="@{{pais.name}}">@{{pais.name}}</option>
                     </select>
                     </div>
                     <div class="medium-12 input">
                     <label for="name">Instrumento/Formato</label>
                     <select name="instrument">
                       <option value ="all">Todos</option>
-                      <option ng-repeat="instrumento in instrumentos" value ="@{{instrumento.tid}}">@{{instrumento.name}}</option>
+                      <option ng-repeat="instrumento in instrumentos" value ="@{{instrumento.name}}">@{{instrumento.name}}</option>
 
                    </select>
                    </div>
