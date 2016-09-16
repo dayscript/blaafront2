@@ -32,8 +32,6 @@ App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootS
   for (var i = $scope.start; i < $scope.end; i++) {
       $scope.years.push(i)
   }
-  console.log($scope.years);
-
   $http.get(SERVER.domain+'/taxonomias/series/json')
      .success(function(data,status,headers,config){
      $scope.series = data.nodes

@@ -1159,6 +1159,10 @@ h5 {
       height: 25px !important;
       color: #000 !important;
       background: #fff; }
+  .search .range-date select {
+    height: 23px;
+    width: 100px;
+    margin: 2px 15px; }
   .search md-autocomplete {
     height: 30px; }
     .search md-autocomplete md-autocomplete-wrap {

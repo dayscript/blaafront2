@@ -65,7 +65,11 @@ h5{
       background: #fff;
     }
   }
-
+.range-date select{
+    height: 23px;
+    width: 100px;
+    margin: 2px 15px;
+  }
   md-autocomplete{
     height: 30px;
     md-autocomplete-wrap{
