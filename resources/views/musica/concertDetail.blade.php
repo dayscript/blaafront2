@@ -19,7 +19,7 @@
       </div>
       <div class="medium-7 columns relative">
         <span class="text-gray concert-date ">{{$node->fecha}}</span>
-        <span class="text-gray concert-code "> CÓDIGO DE REGISTRO: {{$node->registro}}</span>
+        <span class="text-gray concert-code "> Código de registro: {{$node->registro}}</span>
         <h4 class="text-gray">{{$node->titulo}}</h4>
         <span class="text-gray serie">{{$node->serie_franja}}</span>
         <span class="text-gray instrumento">{{$node->instrumento_formato}}</span>
@@ -31,38 +31,43 @@
   </div>
   <div class="columns borders-a padding-a padding-b list-program">
       <h5> Artistas: </h5>
-      <ul>
-        @if($node->integrantes[0] != 'Undefined')
-          @foreach( $node->integrantes as $key =>$value )
-            <li class="text-gray columns ">
-                  <div class='item-li columns reds titulo medium-4'>
-                    <span class="text-red">{{$key+1}}.</span>
-                    <span data-tooltip aria-haspopup="true" class="" title="{{ $value['integrante']->titulo }}">{{$value['integrante']->titulo }}
-                  </div>
-                  <div class='item-li columns medium-2'>{{ ($value['integrante']->nacimiento != '0') ? $value['integrante']->nacimiento.' - ' :' '}}  {{ ($value['integrante']->fallecimiento != '0')?$value['integrante']->fallecimiento:'&nbsp;' }}</div>
-                  <div class='item-li columns medium-3'>{{ $value['integrante']->pais }} </div>
-                  <div class='item-li columns medium-3 end'>{{ $value['integrante']->instrumentos }} </div>
-            </li>
+
+      <table>
+        <thead>
+          <tr><td>No.</td><td> Nombre </td><td> Instrumento </td><td> País </td><td> Año Nacimiento </td></tr>
+        </thead>
+        <tbody>
+          @if($node->integrantes[0] != 'Undefined')
+            @foreach( $node->integrantes as $key =>$value )
+          <tr>
+            <td>{{$key+1}} </td>
+            <td>{{$value['integrante']->titulo }} </td>
+            <td>{{ $value['integrante']->instrumentos }}</td>
+            <td>{{ $value['integrante']->pais }}</td>
+            <td>{{ ($value['integrante']->nacimiento != '0') ? $value['integrante']->nacimiento.' - ' :' '}}  {{ ($value['integrante']->fallecimiento != '0')?$value['integrante']->fallecimiento:'&nbsp;' }}</td>
+          </tr>
           @endforeach
         @endif
-    </ul>
+      </table>
   </div>
   <div class="medium-12 columns borders-a padding-a  padding-b list-program">
     <h5> Programa interpretado: </h5>
-    <ul>
-      @foreach( $node->obras as $key =>$value )
-        <li class="text-gray columns ">
-          <div class="medium-12">
-              <div class='item-li columns titulo medium-4'>
-                <span class="text-red">{{$key+1}}.</span>
-                <span data-tooltip aria-haspopup="true" class="" title="{{$value['obra']->titulo }}">{{$value['obra']->titulo }}  
-              </div>
-              <div class='item-li columns titulo medium-2'>{{ ($value['obra']->ano_composicion != '0')?$value['obra']->ano_composicion:'&nbsp;' }}</div>
-              <div class='item-li columns medium-3 compositor'>{{ $value['obra']->titulo_compositor }}</div>
-              <div class='item-li columns medium-3'> {{ ($value['obra']->nacimiento !='0')? $value['obra']->nacimiento.' - ' :'&nbsp;' }} {{ ($value['obra']->fallecimiento != '0')?$value['obra']->fallecimiento:'&nbsp;' }}</div>
-          </div>
-        </li>
-      @endforeach
+      <table>
+        <thead>
+          <tr><td>No.</td><td> Obra </td><td> Año </td><td> Compositor </td><td> Año de nacimiento y muerte </td></tr>
+        </thead>
+        <tbody>
+        @foreach( $node->obras as $key =>$value )
+        <tr>
+          <td>{{$key+1}} </td>
+          <td>{{$value['obra']->titulo }} </td>
+          <td>{{ ($value['obra']->ano_composicion != '0')?$value['obra']->ano_composicion:'&nbsp;' }}</td>
+          <td>{{ $value['obra']->titulo_compositor }}</td>
+          <td>{{ ($value['obra']->nacimiento !='0')? $value['obra']->nacimiento.' - ' :'&nbsp;' }} {{ ($value['obra']->fallecimiento != '0')?$value['obra']->fallecimiento:'&nbsp;' }}</td>
+        </tr>
+        @endforeach
+      </tbody>
+      </table>
     </ul>
   </div>
 </div>

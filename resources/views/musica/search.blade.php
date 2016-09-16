@@ -59,9 +59,9 @@
                 </div>
                 <div class="columns medium-6 node">
                     <span class="concert-date">{{ $node->fecha }} </span>
-                    <span class="concert-code"> CÓDIGO DE REGISTRO:  {{ $node->registro }}</span>
+                    <span class="concert-code"> Código de registro:  {{ $node->registro }}</span>
                     <span class="concert-artist"><a href="musica/opus/concierto/{{ $node->nid }}">{{ $node->titulo }}</a></span><br>
-                    <span class="concert-title">{{ $node->programa_serie }}</span>
+                    <span class="concert-title">{{ $node->programa_serie }}</span><br>
                     @if ( $node->instrumento != '' &&  $node->pais != '' )
                       <span class="concert-instrument">{{ $node->instrumento }} | {{ $node->pais }}</span>
                     @endif
