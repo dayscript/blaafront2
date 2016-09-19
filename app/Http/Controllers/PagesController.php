@@ -12,13 +12,9 @@ use App\Http\InfoOrder\Order;
 
 use App\Http\Controllers\Controller;
 use File;
+use App;
 class PagesController extends Controller
 {
-    /*public function __construct(){
-
-    }*/
-
-
     /*************************/
     /* Variables constantes  */
     /*************************/
@@ -43,7 +39,6 @@ class PagesController extends Controller
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
     public function OpusSearch(Request $request,$id_page = NULL){
-        
         $Params = new Order( Input::get() );
 
         $Params->changeOptions(array('orden'=>Input::get('orden')));

@@ -60,7 +60,7 @@
                   @endif
                 </div>
                 <div class="columns medium-6 node">
-                    <span class="concert-date">{{ date("jS F, Y", strtotime($node->fecha)) }} </span>
+                    <span class="concert-date">{{ $node->fecha }} </span>
                     <span class="concert-code"> Código de registro:  {{ $node->registro }}</span>
                     <span class="concert-artist"><a href="musica/opus/concierto/{{ $node->nid }}">{{ $node->titulo }}</a></span><br>
                     <span class="concert-title">{{ $node->programa_serie }}</span><br>
