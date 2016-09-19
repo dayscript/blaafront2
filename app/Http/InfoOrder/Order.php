@@ -26,7 +26,7 @@ class Order {
               $this->params[$key] = 'asc';
             break;
           }
-        }elseif( $key == "orden_crono" && array_key_exists($key,$this->params)){
+        }elseif( $key == "crono" && array_key_exists($key,$this->params)){
           switch ($this->changeOptions[$key]) {
             case 'asc':
               $this->params[$key] = 'desc';
@@ -39,15 +39,18 @@ class Order {
             break;
           }
         }
-        else{ 
+        else{
           $this->params[$key] = 'asc';
         }
       }
   }
-  public function str_params(){
+  public function str_params($elim){
     $str_params = '?';
     foreach ($this->params as $key => $value) {
-        $str_params .= $key.'='.$value.'&';
+      if($key != $elim and $key !='elim'){
+          $str_params .= $key.'='.$value.'&';
+      }
+
     }
     $this->str_params = $str_params;
   }

@@ -12,9 +12,13 @@ use App\Http\InfoOrder\Order;
 
 use App\Http\Controllers\Controller;
 use File;
-
 class PagesController extends Controller
 {
+    /*public function __construct(){
+
+    }*/
+
+
     /*************************/
     /* Variables constantes  */
     /*************************/
@@ -39,11 +43,12 @@ class PagesController extends Controller
     /*Retorna todos los resultados de la busqueda*/
     /*********************************************/
     public function OpusSearch(Request $request,$id_page = NULL){
+        
         $Params = new Order( Input::get() );
-        $Params->changeOptions(array('orden'=>Input::get('orden')));
-        //$Params->changeOptions(array('orden_crono'=>Input::get('orden_crono')));
 
-        $Params->str_params();
+        $Params->changeOptions(array('orden'=>Input::get('orden')));
+        $Params->changeOptions(array('crono'=>Input::get('crono')));
+        $Params->str_params(Input::get('elim'));
 
         if($request->input('_token') != null){
             $request->session()->put('searchItems',NULL);
@@ -54,6 +59,10 @@ class PagesController extends Controller
            $request->session()->put('orden',Input::get('orden'));
         }
 
+        $request->session()->put('crono','Default');
+        if( Input::get('crono') ){
+           $request->session()->put('crono',Input::get('crono'));
+        }
         /*numero de resultados por pagina*/
         if( Input::get('items') ){
           $request->session()->put('items',Input::get('items'));
@@ -77,7 +86,6 @@ class PagesController extends Controller
             $query->addParams($request->input('serie'));
             $query->addParams($request->input('country'));
             $query->addParams($request->input('instrument'));
-            //$query->addGetParam(array( 'start'=>$request->input('start'),'end'=>$request->input('end')));
             $query->addParamsdate(array('start'=>$request->input('start'),'end'=>$request->input('end')));
             $request->session()->put('searchItems',$query->param );
             $query->execute();
@@ -100,20 +108,33 @@ class PagesController extends Controller
         if( count($json->nodes) <=0 )
           return Redirect::to('musica')->with('status', 'No se han encontrado coincidencias');
         #muestra los resultados
-        if( $request->session()->get('orden') != "Default" ){
-          foreach( $json->nodes as $key =>$value ){
-            $aux[$key] = $value->titulo;
+        if( Input::get('elim') ){
+          switch (Input::get('elim')) {
+            case 'orden':
+               $i = 'crono';
+               $z = 'fecha';
+              break;
+            case 'crono':
+               $i = 'orden';
+               $z = 'titulo';
+              break;
+            default:
+              $i = 'orden';
+              $z = 'titulo';
+              break;
           }
-          ( $request->session()->get('orden') == 'asc' ) ? array_multisort($aux, SORT_ASC, $json->nodes) : array_multisort($aux, SORT_DESC, $json->nodes);
-
+          foreach( $json->nodes as $key =>$value ){
+            $aux[$key] = $value->$z;
+          }
+          ( $request->session()->get($i) == 'asc' ) ? array_multisort($aux, SORT_ASC, $json->nodes) : array_multisort($aux, SORT_DESC, $json->nodes);
           $nodes = $json;
         }
         else{
           $nodes = $json;
         }
-
         $itemSearch = self::_itemSearch($request);
         $nodesjs = json_encode($nodes);
+
         //dd($nodes);
         return view('musica.search', compact('nodes','itemSearch','nodesjs','Params'));
 

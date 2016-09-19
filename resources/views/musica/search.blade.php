@@ -29,7 +29,9 @@
                       <label>Ordenar: </label>
                   </div>
                <div class="medium-6 columns">
-                   <a href="{{Request::path().$Params->str_params}}" id="order-by"></a>
+                   <a href="{{Request::path().$Params->str_params}}elim=crono" id="order-by"></a>
+                   <a href="{{Request::path().$Params->str_params}}elim=orden" id="order-by"></a>
+
                </div>
               </div>
             </div>
@@ -58,7 +60,7 @@
                   @endif
                 </div>
                 <div class="columns medium-6 node">
-                    <span class="concert-date">{{ $node->fecha }} </span>
+                    <span class="concert-date">{{ date("jS F, Y", strtotime($node->fecha)) }} </span>
                     <span class="concert-code"> Código de registro:  {{ $node->registro }}</span>
                     <span class="concert-artist"><a href="musica/opus/concierto/{{ $node->nid }}">{{ $node->titulo }}</a></span><br>
                     <span class="concert-title">{{ $node->programa_serie }}</span><br>
