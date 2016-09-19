@@ -201,14 +201,23 @@ h5{
 .results-view{
   #order-by{
       background-image: url('/img/order.png');
-      background-size: 25px 21px;
-      width: 25px;
+      background-size: 23px 21px;
+      width: 23px;
       display: inline-block;
       height: 21px;
     padding-top: 2px;
+    padding-left: 4px;
+  }
+  #crono-by{
+    background-image: url('/img/calendar.png');
+    background-size: 31px 20px;
+    width: 31px;
+    display: inline-block;
+    height: 20px;
+    padding-top: 2px;
   }
   .order-by{
-    text-align: center;
+
     padding-top: 10px;
   }
   label{
