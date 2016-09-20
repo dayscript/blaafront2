@@ -101,7 +101,7 @@ class PagesController extends Controller
         }
         #redireccionar, si no se encuentran resultados
         if( count($json->nodes) <=0 )
-          return Redirect::to('musica')->with('status', 'No se han encontrado coincidencias');
+          return Redirect::to('musica/opus')->with('status', 'No se han encontrado coincidencias');
         #muestra los resultados
         if( Input::get('elim') ){
           switch (Input::get('elim')) {
