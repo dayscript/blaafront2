@@ -24,7 +24,7 @@ App.controller('LastUpdateController',function($scope,$http,$timeout,$q,$log,$ro
 App.controller('SearchController', function($scope,$http,$timeout,$q,$log,$rootScope,SERVER,SERVERFRONT){
   var date = new Date()
   $scope.years = []
-  $scope.start = new Date('1969');
+  $scope.start = new Date('1966');
   $scope.start = $scope.start.getFullYear()+1
   $scope.end = new Date();
   $scope.end = $scope.end.getFullYear()+1

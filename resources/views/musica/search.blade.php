@@ -32,7 +32,7 @@
                    <a href="{{Request::path().$Params->str_params}}elim=crono" id="order-by"></a>
                </div>
                   <div class="medium-4 columns text-right">
-                      <a href="{{Request::path().$Params->str_params}}elim=crono" id="crono-by"></a>
+                      <a href="{{Request::path().$Params->str_params}}elim=orden" id="crono-by"></a>
                   </div>
               </div>
             </div>
@@ -48,7 +48,7 @@
                 </ul>
               </div>
 
-        </div> 
+        </div>
         <div class="results medium-12 columns">
         @foreach($nodes->nodes as $node)
             <div class="row">
