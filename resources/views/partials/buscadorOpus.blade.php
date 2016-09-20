@@ -66,16 +66,16 @@
                    </div>
                    <div class="medium-12 input">
                      <div class="medium-6 columns range-date ">
-                        <label>Desde</label>
-                        <select name="start" name="select">
+                        <label class="medium-4 columns" style="margin:0; padding:0">Desde</label>
+                        <select class=" medium-5 " style="margin:0; padding:0" name="start" name="select">
                           <option value="1960"></option>
                           <option ng-repeat="val in years track by $index" value="@{{val}}">@{{val}}</option>
                         </select>
                         <!--<input name="start" type="datetime" date-time ng-model="start" format="YYYY" view="year" min-view="year" max-view="year">-->
                       </div>
                       <div class="medium-6 columns range-date">
-                         <label>Hasta</label>
-                         <select name="end" name="select">
+                         <label class="medium-4 columns " style="margin:0; padding:0">Hasta</label>
+                         <select class=" medium-5 " style="margin:0; padding:0" name="end" name="select">
                            <option value="2020"></option>
                            <option ng-repeat="val in years track by $index" value="@{{val}}">@{{val}}</option>
                          </select>
