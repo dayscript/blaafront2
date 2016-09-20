@@ -40,7 +40,7 @@ class PagesController extends Controller
     /*********************************************/
     public function OpusSearch(Request $request,$id_page = NULL){
         $Params = new Order( Input::get() );
-        echo Date::parse('2016-02-30')->format("jS F, Y");
+
         $Params->changeOptions(array('orden'=>Input::get('orden')));
         $Params->changeOptions(array('crono'=>Input::get('crono')));
         $Params->str_params(Input::get('elim'));

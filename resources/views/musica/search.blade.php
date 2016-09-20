@@ -48,8 +48,7 @@
                 </ul>
               </div>
 
-        </div>
-
+        </div> 
         <div class="results medium-12 columns">
         @foreach($nodes->nodes as $node)
             <div class="row">
@@ -61,7 +60,7 @@
                   @endif
                 </div>
                 <div class="columns medium-6 node">
-                    <span class="concert-date">{{ Date::parse($node->fecha)->format("jS F, Y") }} </span>
+                    <span class="concert-date">{{ Date::parse($node->fecha)->format("l, j F Y") }} </span>
                     <span class="concert-code"> Código de registro:  {{ $node->registro }}</span>
                     <span class="concert-artist"><a href="musica/opus/concierto/{{ $node->nid }}">{{ $node->titulo }}</a></span><br>
                     <span class="concert-title">{{ $node->programa_serie }}</span><br>
