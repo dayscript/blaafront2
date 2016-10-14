@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Input;
 use App\Http\Requests;
 use App\Http\Drupal\DrupalServices;
 use App\Http\InfoOrder\Order;
-//use Jenssegers\Date\Date;
+use Jenssegers\Date\Date;
 
 use App\Http\Controllers\Controller;
 use File;

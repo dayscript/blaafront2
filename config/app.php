@@ -137,7 +137,7 @@ return [
          * Analytics
          */
         Ipunkt\LaravelAnalytics\AnalyticsServiceProvider::class,
-        //Jenssegers\Date\DateServiceProvider::class,
+        Jenssegers\Date\DateServiceProvider::class,
     ],
     /*
     |--------------------------------------------------------------------------
@@ -181,6 +181,6 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Analytics' => Ipunkt\LaravelAnalytics\AnalyticsFacade::class,
-        //'Date' => Jenssegers\Date\Date::class,
+        'Date' => Jenssegers\Date\Date::class,
     ],
 ];
