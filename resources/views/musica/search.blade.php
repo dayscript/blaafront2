@@ -60,7 +60,8 @@
                   @endif
                 </div>
                 <div class="columns medium-6 node">
-                    <span class="concert-date">{{ Date::parse($node->fecha)->format("l, j F Y") }} </span>
+                    <!--<span class="concert-date">{{ Date::parse($node->fecha)->format("l, j F Y") }} </span>-->
+                    <span class="concert-date">{{Date::parse( date ( 'Y-m-j' ,strtotime ( '-1 day' , strtotime ( $node->fecha ) ) ) )->format("l, j F Y") }} </span>
                     <span class="concert-code"> Código de registro:  {{ $node->registro }}</span>
                     <span class="concert-artist"><a href="musica/opus/concierto/{{ $node->nid }}">{{ $node->titulo }}</a></span><br>
                     <span class="concert-title">{{ $node->programa_serie }}</span><br>
