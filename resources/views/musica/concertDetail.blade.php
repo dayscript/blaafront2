@@ -18,7 +18,7 @@
         @endif
       </div>
       <div class="medium-7 columns relative">
-        <span class="text-gray concert-date ">{{$node->fecha}}</span>
+        <span class="text-gray concert-date ">{{Date::parse( date ( 'Y-m-j' ,strtotime ( '-1 day' , strtotime ( $node->fecha ) ) ) )->format("l, j F Y") }} </span>
         <span class="text-gray concert-code "> Código de registro: {{$node->registro}}</span>
         <h4 class="text-gray">{{$node->titulo}}</h4>
         <span class="text-gray serie">{{$node->serie_franja}}</span>
