@@ -15,7 +15,7 @@
       <div class="columns medium-12">
         <div class="row">
           <div class="columns medium-12">
-            <img src="{{asset('img/imagen_acerca_de.png')}}">
+            <img src="@{{image}}">
               <div>
                 <p class="text-image-left" ng-bind-html="content">
                 </p>
