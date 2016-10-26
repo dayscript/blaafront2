@@ -2211,21 +2211,15 @@ a {
   transition: -webkit-transform 0.75s linear;
   transition: transform 0.75s linear; }
 
-.linkImage a:hover figure {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05); }
-
 .linkImage a::before {
   content: '';
   z-index: 2;
   background: #000000;
   opacity: 0.5;
-  filter: alpha(opacity=50);
-  transition: opacity 0.5s ease; }
+  filter: alpha(opacity=50); }
 
 .linkImage a:hover::before {
-  opacity: 0.35;
-  filter: alpha(opacity=35); }
+  opacity: 0.35; }
 
 .linkImage a figure img {
   display: none; }
@@ -2300,13 +2294,7 @@ a {
   margin: 0;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
-  transition: -webkit-transform 1s linear;
-  transition: transform 1s linear; }
-
-.gAnuncio a:hover figure {
-  -webkit-transform: scale(1.015);
-  transform: scale(1.015); }
+  background-size: cover; }
 
 /*Cuadrados generales*/
 .gSquare {
