@@ -630,20 +630,20 @@ a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: transform 0.75s linear;
+  //transition: transform 0.75s linear;
 }
 
-.linkImage a:hover figure {
+/*.linkImage a:hover figure {
   transform: scale(1.05);
-}
+}*/
 
 .linkImage a::before {
   content: '';
   z-index: 2;
   background: #000000;
   opacity: 0.5;
-  filter: alpha(opacity=50);
-  transition: opacity 0.5s ease;
+  //filter: alpha(opacity=50);
+  //transition: opacity 0.5s ease;
 }
 
 .linkImage a:hover::before {

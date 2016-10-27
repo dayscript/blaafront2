@@ -2207,21 +2207,16 @@ a {
   z-index: 1;
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
-  transition: -webkit-transform 0.75s linear;
-  transition: transform 0.75s linear; }
+  background-size: cover; }
 
-.linkImage a:hover figure {
-  -webkit-transform: scale(1.05);
-  transform: scale(1.05); }
-
+/*.linkImage a:hover figure {
+  transform: scale(1.05);
+}*/
 .linkImage a::before {
   content: '';
   z-index: 2;
   background: #000000;
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-  transition: opacity 0.5s ease; }
+  opacity: 0.5; }
 
 .linkImage a:hover::before {
   opacity: 0.35;
