@@ -634,7 +634,7 @@ a {
 }
 
 .linkImage a:hover figure {
-  //transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .linkImage a::before {
@@ -643,12 +643,12 @@ a {
   background: #000000;
   opacity: 0.5;
   filter: alpha(opacity=50);
-  //transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
 }
 
 .linkImage a:hover::before {
   opacity: 0.35;
-  //filter: alpha(opacity=35);
+  filter: alpha(opacity=35);
 }
 
 .linkImage a figure img {
@@ -733,11 +733,11 @@ a {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  //transition: transform 1s linear;
+  transition: transform 1s linear;
 }
 
 .gAnuncio a:hover figure {
-  //transform: scale(1.015);
+  transform: scale(1.015);
 }
 
 .gAnuncio figure img {
