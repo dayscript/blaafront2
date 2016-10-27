@@ -1303,7 +1303,7 @@ h5 {
   .results-view .number-page a {
     color: #666;
     font-size: 0.8em;
-    padding: 0 5px; }
+    padding: 0 1px; }
   .results-view .number-page.search {
     text-align: left;
     background: none; }

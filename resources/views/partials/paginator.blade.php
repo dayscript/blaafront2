@@ -30,10 +30,15 @@
         <ul class="pagination" role="menubar" aria-label="Pagination">
           <li class="arrow unavailable" aria-disabled="true"><a href="musica/opus/resultados/{{ $nodes->view->page-1 }}">&laquo; </a></li>
           @for( $i = $nodes->view->page+1 ; $i <= $nodes->view->pages; $i++ )
-              @if( $i <= $nodes->view->page+4)
+              @if( $i <= $nodes->view->page+3)
                     <li class="{{ ($nodes->view->page+1 == $i ) ? 'current':'' }}"><a href="/musica/opus/resultados/{{$i-1}}">{{$i}}</a></li>
               @endif
           @endfor
+          @if( $nodes->view->page+1 < $nodes->view->pages)
+            <li class="arrow"><a href="musica/opus/resultados/{{ $nodes->view->pages-1 }}">... {{ $nodes->view->pages }}</a></li>
+          @endif
+
+
           <li class="arrow"><a href="musica/opus/resultados/{{ $nodes->view->page+1 }}"> &raquo;</a></li>
         </ul>
       </div>
