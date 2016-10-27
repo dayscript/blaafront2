@@ -36,10 +36,11 @@
           @endfor
           @if( $nodes->view->page+1 < $nodes->view->pages)
             <li class="arrow"><a href="musica/opus/resultados/{{ $nodes->view->pages-1 }}">... {{ $nodes->view->pages }}</a></li>
+            <li class="arrow"><a href="musica/opus/resultados/{{ $nodes->view->page+1 }}"> &raquo;</a></li>
           @endif
 
 
-          <li class="arrow"><a href="musica/opus/resultados/{{ $nodes->view->page+1 }}"> &raquo;</a></li>
+
         </ul>
       </div>
 </div>
