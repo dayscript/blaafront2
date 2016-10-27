@@ -23,7 +23,7 @@
         <h4 class="text-gray">{{$node->titulo}}</h4>
         <span class="text-gray serie">{{$node->serie_franja}}</span>
         <span class="text-gray instrumento">{{$node->instrumento_formato}}</span>
-        <span class="text-red notas">Notas al programa de mano: </span><span class="text-gray notas">{{$node->notas}}</span><br>
+        <span class="text-gray notas">Notas al programa de mano: </span><span class="text-gray notas">{{$node->notas}}</span><br>
         @if( $node->adjunto !='' )
          <a id="icono_programa" class="programa-en-detalle" target="_blank" href="http://quimbaya.banrep.gov.co/conciertos/documentos/{{$node->adjunto}}"></a>
         @endif
@@ -31,7 +31,6 @@
   </div>
   <div class="columns borders-a padding-a padding-b list-program">
       <h5> Artistas: </h5>
-
       <table class="concert" style="width: 100%">
         <thead>
           <tr><td>No.</td><td width="230"> Nombre </td><td> Instrumento </td><td> País </td><td> Año Nacimiento </td></tr>
@@ -54,7 +53,7 @@
     <h5> Programa interpretado: </h5>
       <table style="width: 100%">
         <thead>
-          <tr><td>No.</td><td width="200"> Obra </td><td> Año </td><td> Compositor </td><td> Año de nacimiento y muerte </td></tr>
+          <tr><td>No.</td><td width="200"> Obra </td><td> Año de composición </td><td> Compositor </td><td> Año de nacimiento y muerte </td></tr>
         </thead>
         <tbody>
         @foreach( $node->obras as $key =>$value )

@@ -172,9 +172,16 @@ class PagesController extends Controller
       $nodes->nodes[0]->titulo = $titulo[1];
       $nodes->nodes[0]->registro = $titulo[0];
       $integrantes = [];
+
       /*Obtener Artistas*/
-      $artistas = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->artistas)));
+      if( strlen($nodes->nodes[0]->artistas) != 0 ){
+          $artistas = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->artistas)));
+      }else{
+        $artistas = 0;
+      }
       $artistas = json_decode(file_get_contents(self::host().'detalle-nodo-opus/artista/'.$artistas));
+      $artistasList = array();
+      $integrantes = array();
       foreach ($artistas->artista as $key => $value) {
         $value->titulo = trim(substr($value->titulo,7));
         $artistasList[]['artista'] = $value ;
@@ -183,6 +190,11 @@ class PagesController extends Controller
       $nodes->nodes[0]->artistas = $artistasList;
 
       $integrantes = str_replace(',','+',str_replace(' ','',implode('+',$integrantes)));
+
+      if( strlen($integrantes) == 0 ){
+        $integrantes = 0;
+      }
+
       $integrantes = json_decode(file_get_contents(self::host().'detalle-nodo-opus/integrante/'.$integrantes));
 
       if(isset($integrantes->integrante[0])){
