@@ -24,7 +24,7 @@
                     <span class="concert-date">{{Date::parse( date ( 'Y-m-j' ,strtotime ( '-1 day' , strtotime ( $node->fecha ) ) ) )->format("l, j F Y") }} </span>
                     <span class="concert-code"> Código de registro:  {{ $node->registro }}</span>
                     <span class="concert-artist"><a href="musica/opus/concierto/{{ $node->nid }}">{{ $node->titulo }}</a></span><br>
-                    <span class="concert-title">{{ $node->programa_serie }}</span><br>
+                    <span class="concert-serie">{{ $node->programa_serie }}</span><br>
                     @if ( $node->instrumento != '' &&  $node->pais != '' )
                       <span class="concert-instrument">{{ $node->instrumento }} | {{ $node->pais }}</span>
                     @endif

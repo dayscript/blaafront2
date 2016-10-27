@@ -1117,6 +1117,11 @@ h5 {
 .red {
   color: #cd1c40; }
 
+.concert-serie {
+  font-size: 0.9em;
+  color: #666666;
+  line-height: 18px; }
+
 .acerca-de-opus {
   color: #992e40;
   width: 100%;

@@ -207,9 +207,10 @@ class PagesController extends Controller
 
       $nodes->nodes[0]->integrantes = $integrantesList;
 
-
       $obras = str_replace(' ','',implode('+',explode(',',$nodes->nodes[0]->obras)));
+      //dd($obras);
       $obras = json_decode(file_get_contents(self::host().'detalle-nodo-opus/obra/'.$obras));
+
       foreach ($obras->obra as $key => $value) {
         $obrasList[]['obra'] = $value;
       }
